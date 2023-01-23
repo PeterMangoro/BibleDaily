@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Djunehor\Logos\Bible;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,21 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
+    $bible = new Bible('en');
+    $bible->book('Matthew');
+    $bible->chapter(3);
+    $bible->verse(12);
+$verse = $bible->getVerse();
+    
+// $john = $bible->getBook();
+
+
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
+        'John' =>$verse,
     ]);
 });
 
