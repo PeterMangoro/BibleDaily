@@ -10,7 +10,7 @@ class MakePoints
         $this->points = $points;
     }
 
-    public static function from(string $string)
+    public static function from(string $string):array
     {
         return (array_filter(
                 explode('*', $string)

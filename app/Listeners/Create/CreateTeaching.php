@@ -29,7 +29,7 @@ class CreateTeaching
      * @param  \App\Events\Create\CreatingTeaching  $event
      * @return void
      */
-    public function handle(CreatingTeaching $event)
+    public function handle(CreatingTeaching $event):void
     {
         $request = $event->request;
 

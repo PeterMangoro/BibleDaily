@@ -28,7 +28,7 @@ class CreateReading
      * @param  \App\Events\Create\CreatingReading  $event
      * @return void
      */
-    public function handle(CreatingReading $event)
+    public function handle(CreatingReading $event):void
     {
         $request = $event->request;
 

@@ -27,7 +27,7 @@ class UpdateTeaching
      * @param  \App\Events\Update\UpdatingTeaching  $event
      * @return void
      */
-    public function handle(UpdatingTeaching $event)
+    public function handle(UpdatingTeaching $event):void
     {
         $teaching = $event->teaching;
         $request = $event->request;

@@ -25,7 +25,7 @@ class UpdateReading
      * @param  \App\Events\Update\UpdatingReading  $event
      * @return void
      */
-    public function handle(UpdatingReading $event)
+    public function handle(UpdatingReading $event):void
     {
         $reading = $event->reading;
         $request = $event->request;
