@@ -1,19 +1,23 @@
 <?php
 
-use Inertia\Inertia;
-use Djunehor\Logos\Bible;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\ReadingController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\TeachingController;
+use App\Http\Controllers\WelcomeTeachingController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::resource('teachings', WelcomeTeachingController::class)->only('index', 'show');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::prefix('users')
+        ->name('users.')
+        ->group(function () {
+            Route::resource('readings', ReadingController::class)->except('delete', 'show');
+            Route::resource('teachings', TeachingController::class);
+        });
 });
