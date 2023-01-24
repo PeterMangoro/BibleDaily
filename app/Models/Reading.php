@@ -5,17 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Reading extends SharedModel
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'slug'
+        'read_from',
+        'read_to',
     ];
-
-    public function classifications()
-    {
-        return $this->hasMany(Classification::class);
-    }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('verses', function (Blueprint $table) {
+        Schema::create('readings', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->index();
             $table->foreignId('bible_session_id');
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('verses');
+        Schema::dropIfExists('readings');
     }
 };
