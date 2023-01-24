@@ -2,6 +2,8 @@
 
 namespace App\Listeners\Update;
 
+use App\Models\Reading;
+use App\Services\ReadingService;
 use App\Services\TeachingService;
 use App\Events\Update\UpdatingTeaching;
 use Illuminate\Queue\InteractsWithQueue;
@@ -29,6 +31,9 @@ class UpdateTeaching
     {
         $teaching = $event->teaching;
         $request = $event->request;
+        $reading = Reading::findBibleSession($teaching->bible_session_id);
+        
         TeachingService::update_teaching($teaching, $request);
+        ReadingService::update_reading($reading, $request);
     }
 }

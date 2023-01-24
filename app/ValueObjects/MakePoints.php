@@ -1,5 +1,6 @@
 <?php
-namespace App\ValueObject;
+
+namespace App\ValueObjects;
 
 class MakePoints
 {
@@ -11,8 +12,7 @@ class MakePoints
 
     public static function from(string $string)
     {
-        return (
-            array_filter(
+        return (array_filter(
                 explode('*', $string)
             )
         );

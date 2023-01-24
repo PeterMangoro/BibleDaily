@@ -3,6 +3,7 @@
 namespace App\Listeners\Create;
 
 use App\Models\BibleSession;
+use App\Services\ReadingService;
 use App\Services\TeachingService;
 use Illuminate\Support\Facades\DB;
 use App\Services\BibleSessionService;
@@ -36,6 +37,7 @@ class CreateTeaching
             $id = BibleSessionService::new_session();
             $bible_session = BibleSession::find($id);
             TeachingService::new_teaching($bible_session, $request);
+            ReadingService::new_reading($bible_session, $request);
         });
     }
 }
