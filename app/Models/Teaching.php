@@ -11,6 +11,7 @@ class Teaching extends SharedModel
 
     protected $fillable = [
         'page_visit_count',
-        'title'
+        'title',
+        'slug'
     ];
 }

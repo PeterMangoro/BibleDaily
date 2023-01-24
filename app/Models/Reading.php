@@ -10,7 +10,9 @@ class Reading extends SharedModel
     use HasFactory;
 
     protected $fillable = [
-        'read_from',
-        'read_to',
+        'read',
+        'notes',
+        'prayer_points',
+        'prayer'
     ];
 }

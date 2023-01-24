@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->index();
             $table->foreignId('bible_session_id');
-            $table->string('read_from');
-            $table->string('read_to');
+            $table->string('read');
+            $table->string('notes');
+            $table->string('prayer_points')->nullable();
+            $table->string('prayer')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

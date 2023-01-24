@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class BibleSession extends Model
 {
@@ -16,29 +16,14 @@ class BibleSession extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function verses():HasMany
+    public function readings():HasOne
     {
-       return $this->hasMany(Verse::class);
+       return $this->hasOne(Reading::class);
     }
 
-    public function notes():HasMany
+    public function teachings():HasOne
     {
-       return $this->hasMany(Note::class);
-    }
-
-    public function prayers():HasMany
-    {
-       return $this->hasMany(Prayer::class);
-    }
-
-    public function prayer_points():HasMany
-    {
-       return $this->hasMany(PrayerPoint::class);
-    }
-
-    public function teachings():HasMany
-    {
-       return $this->hasMany(Teaching::class);
+       return $this->hasOne(Teaching::class);
     }
 
 }
