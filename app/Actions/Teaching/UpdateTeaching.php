@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 class UpdateTeaching
 {
-    public static function handle(object $teaching, object $request)
+    public static function handle(object $teaching, object $request):void
     {
         $teaching->title = $request->title;
         $teaching->slug = Str::of($request->title)->slug('-');

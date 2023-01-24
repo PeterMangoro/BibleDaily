@@ -4,7 +4,7 @@ namespace App\Actions\Reading;
 
 class CreateReading
 {
-    public static function handle(object $bible_session, object $request)
+    public static function handle(object $bible_session, object $request):void
     {
         $bible_session->create([
             'read' => $request->read,

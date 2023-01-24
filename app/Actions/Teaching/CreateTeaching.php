@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 class CreateTeaching
 {
-    public static function handle(object $bible_session, object $request)
+    public static function handle(object $bible_session, object $request):void
     {
         $bible_session->create([
             'title' => $request->title,
