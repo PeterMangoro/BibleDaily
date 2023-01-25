@@ -1,8 +1,8 @@
 <?php
 namespace App\DataObjects\Display;
 
-use App\ValueObject\MakePoints;
 use App\ValueObjects\Date;
+use App\ValueObjects\MakePoints;
 
 class DisplayReadingData
 {
