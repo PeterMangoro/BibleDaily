@@ -2,14 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Inertia\Inertia;
+use App\Models\Reading;
+use App\Handlers\ReadingHandler;
+use App\View\Reading\ReadingIndexProps;
+use App\Http\Requests\Reading\CreateReadingRequest;
+use App\Http\Requests\Reading\UpdateReadingRequest;
 
 class ReadingController extends Controller
 {
     public function index()
     {
         return Inertia::render('User/Reading/Index',[
-            'data'=>ReadingIndexProps()
+            'data'=> new ReadingIndexProps()
         ]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('User/Reading/Create');
+    }
+
+    public function store(CreateReadingRequest $request)
+    {
+        ReadingHandler::store_reading($request);
+    }
+
+    public function update(Reading $reading,UpdateReadingRequest $request)
+    {
+        ReadingHandler::update_reading($reading,$request);
     }
 }

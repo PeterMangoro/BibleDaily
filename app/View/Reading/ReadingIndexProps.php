@@ -3,10 +3,11 @@ namespace App\View\Reading;
 
 use App\Models\Reading;
 use App\View\Shared\Filters;
+use App\View\Shared\BaseView;
 use App\Handlers\ReadingHandler;
 use App\DataObjects\Display\DisplayReadingData;
 
-class ReadingIndexProps
+class ReadingIndexProps extends BaseView
 {
     public function readings()
     {

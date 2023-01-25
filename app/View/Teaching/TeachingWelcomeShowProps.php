@@ -6,8 +6,9 @@ use App\View\Shared\Filters;
 use App\Handlers\TeachingHandler;
 use App\DataObjects\Display\DisplayTeachingData;
 use App\Models\Teaching;
+use App\View\Shared\BaseView;
 
-class TeachingWelcomeShowProps
+class TeachingWelcomeShowProps extends BaseView
 {
     public $session;
     public function __construct(

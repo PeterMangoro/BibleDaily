@@ -5,8 +5,9 @@ use App\View\Shared\Filters;
 use App\Handlers\TeachingHandler;
 use App\DataObjects\Display\DisplayTeachingData;
 use App\Models\BibleSession;
+use App\View\Shared\BaseView;
 
-class TeachingIndexProps
+class TeachingIndexProps extends BaseView
 {
     public function teachings()
     {
