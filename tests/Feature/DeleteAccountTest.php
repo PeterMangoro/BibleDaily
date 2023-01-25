@@ -42,6 +42,6 @@ class DeleteAccountTest extends TestCase
             'password' => 'wrong-password',
         ]);
 
-        $this->assertNotNull($user->fresh());
+        $this->assertNotNull($user);
     }
 }

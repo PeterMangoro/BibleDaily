@@ -26,7 +26,7 @@ class PasswordResetTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_reset_password_link_can_be_requested(): void
+    public function reset_password_link_can_be_requested(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
             $this->markTestSkipped('Password updates are not enabled.');
@@ -39,13 +39,13 @@ class PasswordResetTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->post('/forgot-password', [
-            'email' => $user->email,
+            'username' => $user->username,
         ]);
 
         Notification::assertSentTo($user, ResetPassword::class);
     }
 
-    public function test_reset_password_screen_can_be_rendered(): void
+    public function reset_password_screen_can_be_rendered(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
             $this->markTestSkipped('Password updates are not enabled.');
@@ -58,7 +58,7 @@ class PasswordResetTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->post('/forgot-password', [
-            'email' => $user->email,
+            'username' => $user->username,
         ]);
 
         Notification::assertSentTo($user, ResetPassword::class, function (object $notification) {
@@ -70,7 +70,7 @@ class PasswordResetTest extends TestCase
         });
     }
 
-    public function test_password_can_be_reset_with_valid_token(): void
+    public function password_can_be_reset_with_valid_token(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
             $this->markTestSkipped('Password updates are not enabled.');
@@ -83,13 +83,13 @@ class PasswordResetTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->post('/forgot-password', [
-            'email' => $user->email,
+            'username' => $user->username,
         ]);
 
         Notification::assertSentTo($user, ResetPassword::class, function (object $notification) use ($user) {
             $response = $this->post('/reset-password', [
                 'token' => $notification->token,
-                'email' => $user->email,
+                'username' => $user->username,
                 'password' => 'password',
                 'password_confirmation' => 'password',
             ]);

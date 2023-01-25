@@ -1,14 +1,19 @@
 
 <?php
 
+use App\Models\Reading;
 use App\ValueObjects\MakePoints;
 
 use function PHPUnit\Framework\assertEquals;
 
 it('converts strings to array', function () {
-   $string = 'hie *there *I am *a string';
-   $array =  ['hie', 'there', 'I am', 'a string'];
-   $response = MakePoints::from($string);
+   $reading = Reading::create([
+      'bible_session_id' => 1,
+      'read' => 'genesis 1vs1',
+      'notes' => 'some notes',
+      'prayer_points' => 'some*prayer*points'
+   ]);
 
-   assertEquals($array, $response);
+   $this->assertEquals(MakePoints::from('some*prayer*points'), $reading->prayer_points);
+   $this->assertEquals(MakePoints::from('some notes'), $reading->notes);
 });
