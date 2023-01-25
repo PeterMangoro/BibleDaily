@@ -17,7 +17,11 @@ class ReadingFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'bible_session_id'=>rand(),
+            'read'=>fake()->text,
+            'notes' =>fake()->sentence.'*'.fake()->sentence.'*'.fake()->sentence,
+            'prayer_points' =>fake()->sentence.'*'.fake()->sentence.'*'.fake()->sentence,
+            'prayer' =>fake()->sentence
         ];
     }
 }

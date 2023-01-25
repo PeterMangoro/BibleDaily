@@ -23,12 +23,12 @@ class BibleSession extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function readings():HasOne
+    public function reading():HasOne
     {
        return $this->hasOne(Reading::class);
     }
 
-    public function teachings():HasOne
+    public function teaching():HasOne
     {
        return $this->hasOne(Teaching::class);
     }

@@ -16,8 +16,11 @@ class TeachingFactory extends Factory
      */
     public function definition()
     {
+        $title = fake()->sentence;
         return [
-            //
+            'title'=>$title,
+            'slug'=>str($title)->slug(),
+            'bible_session_id'=>rand(),
         ];
     }
 }

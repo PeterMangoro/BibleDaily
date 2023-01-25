@@ -8,7 +8,7 @@ it('returns its id on creation', function () {
    login();
     $id = BibleSessionService::new_session();
  
-    $this->assertEquals($id, BibleSession::latest('id')->first()->id );
+    $this->assertEquals($id, BibleSession::find($id)->id );
 });
 
 it('adds a bible session', function () {
