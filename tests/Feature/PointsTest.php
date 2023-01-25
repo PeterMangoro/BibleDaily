@@ -13,7 +13,6 @@ it('converts strings to array', function () {
       'notes' => 'some notes',
       'prayer_points' => 'some*prayer*points'
    ]);
-
    $this->assertEquals(MakePoints::from('some*prayer*points'), $reading->prayer_points);
    $this->assertEquals(MakePoints::from('some notes'), $reading->notes);
 });

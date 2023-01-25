@@ -9,7 +9,7 @@ class CreateBibleSession
 {
     public static function handle():int
     {
-        return DB::table('bible_sessions')->insertGetId([
+        return DB::table('bible_sessions')->insert([
             'user_id' => Auth::user()->id,
             'uuid'=> str()->uuid()->toString(),
         ]);

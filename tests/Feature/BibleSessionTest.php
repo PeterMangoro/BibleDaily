@@ -3,6 +3,14 @@
 use App\Models\BibleSession;
 use App\Services\BibleSessionService;
 
+
+it('returns its id on creation', function () {
+   login();
+    $id = BibleSessionService::new_session();
+ 
+    $this->assertEquals($id, BibleSession::latest('id')->first()->id );
+});
+
 it('adds a bible session', function () {
     $user = login();
     BibleSessionService::new_session();
@@ -10,11 +18,4 @@ it('adds a bible session', function () {
     $this->assertDatabaseHas('bible_sessions', [
         'user_id' => $user->id,
     ]);
-});
-
-it('returns its id on creation', function () {
-    $user = login();
-    $id = BibleSessionService::new_session();
-   
-    $this->assertEquals($id, BibleSession::latest()->first()->id );
 });
