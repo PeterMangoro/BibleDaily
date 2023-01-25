@@ -29,6 +29,7 @@ class UpdateReading
     {
         $reading = $event->reading;
         $request = $event->request;
+       
         ReadingService::update_reading($reading, $request);
     }
 }

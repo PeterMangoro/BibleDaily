@@ -1,6 +1,6 @@
 <?php
 
-use App\Actions\Teaching\CreateTeaching;
+use App\Actions\Teaching\CreateTeachingAction;
 use App\Models\BibleSession;
 use App\Services\BibleSessionService;
 
@@ -17,7 +17,7 @@ it('creates a Teaching Model', function () {
     ]);
 
     // dd($request);
-    CreateTeaching::handle($session, $request);
+    CreateTeachingAction::handle($session, $request);
     $this->assertDatabaseHas('teachings', [
         'title' => '$request->title'
     ]);

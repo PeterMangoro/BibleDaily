@@ -18,11 +18,12 @@ class ReadingHandler
     public static function store_reading(object $request)
     {
         $validated_request = CreateReadingData::from($request);
+
         event(new CreatingReading($validated_request));
     }
 
     public static function update_reading(object $reading, object $request)
-    {
+    {        
         $validated_request = UpdateReadingData::from($request);
         event(new UpdatingReading($reading, $validated_request));
     }

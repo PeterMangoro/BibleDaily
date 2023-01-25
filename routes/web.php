@@ -18,6 +18,6 @@ Route::middleware([
         ->name('users.')
         ->group(function () {
             Route::resource('readings', ReadingController::class)->except('delete', 'show');
-            Route::resource('teachings', TeachingController::class);
+            Route::resource('teachings', TeachingController::class)->scoped(['teachings'=>'slug']);
         });
 });

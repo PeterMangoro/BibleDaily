@@ -5,11 +5,11 @@ namespace App\DataObjects\Update;
 class UpdateTeachingData
 {
     public function __construct(
-        public readonly ?string $title,
-        public readonly ?string $read,
-        public readonly ?string $notes,
-        public readonly ?string $prayer_points,
-        public readonly ?string $prayer,
+        public  ?string $title,
+        public  ?string $read,
+        public  ?string $notes,
+        public  ?string $prayer_points,
+        public  ?string $prayer,
     ) {
         $this->title = $title;
         $this->read = $read;

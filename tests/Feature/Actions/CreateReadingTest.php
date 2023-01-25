@@ -1,6 +1,6 @@
 <?php
 
-use App\Actions\Reading\CreateReading;
+use App\Actions\Reading\CreateReadingAction;
 use App\Models\BibleSession;
 use App\Services\BibleSessionService;
 
@@ -18,7 +18,7 @@ it('creates a Reading Model', function () {
         'prayer' => '$request->prayer',
     ]);
 
-    CreateReading::handle($session, $request);
+    CreateReadingAction::handle($session, $request);
     $this->assertDatabaseHas('readings', [
         'read' => '$request->read'
     ]);

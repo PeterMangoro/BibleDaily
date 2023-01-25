@@ -1,6 +1,6 @@
 <?php
 
-use App\Actions\Teaching\DeleteTeaching;
+use App\Actions\Teaching\DeleteTeachingAction;
 use App\Models\Teaching;
 
 test('DeleteTeaching action deletes the given teaching', function () {
@@ -12,7 +12,7 @@ test('DeleteTeaching action deletes the given teaching', function () {
         'title' => 'To be Deleted',
     ]);
     
-    DeleteTeaching::handle($teaching);
+    DeleteTeachingAction::handle($teaching);
 
     $this->assertDatabaseMissing('teachings', [
         'title' => 'To be Deleted',

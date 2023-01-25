@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Teaching;
-use App\Actions\Teaching\UpdateTeaching;
+use App\Actions\Teaching\UpdateTeachingAction;
 
 it('can update teaching', function () {
 
@@ -12,7 +12,7 @@ it('can update teaching', function () {
 
     ]);
 
-    UpdateTeaching::handle($teaching, $request);
+    UpdateTeachingAction::handle($teaching, $request);
 
     $this->assertEquals('updated_teaching', $teaching->fresh()->title);
     $this->assertEquals(str('updated_teaching')->slug(), $teaching->slug);

@@ -21,7 +21,7 @@ class CreatingTeaching
      */
     public function __construct(public object $request)
     {
-        $this->request = $request;
+        $this->request = $request;        
     }
 
     /**

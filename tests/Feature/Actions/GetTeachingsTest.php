@@ -6,7 +6,7 @@ it('can get paginated Teachings', function () {
     
     Teaching::factory(20)->create();
 
-    $this->assertDatabaseCount('readings', 20);
+    $this->assertDatabaseCount('teachings', 20);
     
     #yet to find out how to test for pagination
 

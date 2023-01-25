@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Reading;
-use App\Actions\Reading\UpdateReading;
+use App\Actions\Reading\UpdateReadingAction;
 use App\ValueObjects\MakePoints;
 
 it('can update reading', function () {
@@ -15,7 +15,7 @@ it('can update reading', function () {
         'prayer' => 'updated_prayer',
     ]);
 
-    UpdateReading::handle($reading, $request);
+    UpdateReadingAction::handle($reading, $request);
 
     $this->assertEquals('updated_read', $reading->fresh()->read);
     $this->assertEquals(MakePoints::from('updated_notes'), $reading->fresh()->notes);
