@@ -4,7 +4,7 @@ namespace App\Builders;
 use Illuminate\Database\Eloquent\Builder;
 
 
-class SharedBuilder extends Builder
+trait SharedBuilder 
 {
     public function findBibleSession(int $int)
     {

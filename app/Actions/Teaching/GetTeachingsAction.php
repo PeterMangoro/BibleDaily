@@ -14,7 +14,7 @@ class GetTeachingsAction
             ->paginate($paginate);
     }
 
-    public static function handle_one(object $data, ?int $paginate = 9): LengthAwarePaginator
+    public static function handle_one(object $data): object
     {
         return
             $data

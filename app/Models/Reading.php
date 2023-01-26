@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Builders\ReadingBuilder;
+use App\Builders\SharedBuilder;
 use App\Casts\MakePointsCast;
 use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,4 +26,9 @@ class Reading extends SharedModel
         'prayer_points' => MakePointsCast::class,
         'notes' => MakePointsCast::class,
     ];
+
+    public function newEloquentBuilder($query): ReadingBuilder
+    {
+        return new ReadingBuilder($query);
+    }
 }

@@ -31,7 +31,7 @@ class UpdateTeaching
     {
         $teaching = $event->teaching;
         $request = $event->request;
-        $reading = Reading::findBibleSession($teaching->bible_session_id);
+        $reading = (new Reading())->findBibleSession($teaching->bible_session_id);
         
         TeachingService::update_teaching($teaching, $request);
         ReadingService::update_reading($reading, $request);
