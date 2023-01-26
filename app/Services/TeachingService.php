@@ -14,9 +14,9 @@ class TeachingService
         return GetTeachingsAction::handle($data, $paginate);
     }
 
-    public static function get_teaching(object $data, ?int $paginate = 9): LengthAwarePaginator
+    public static function get_teaching(object $data): object
     {
-        return GetTeachingsAction::handle_one($data, $paginate);
+        return GetTeachingsAction::handle_one($data);
     }
 
     public static function new_teaching(object $bible_session, object $request): void

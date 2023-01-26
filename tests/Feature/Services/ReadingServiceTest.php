@@ -40,3 +40,11 @@ test('that reading service can update an existing reading ', function () {
     $this->assertEquals(MakePoints::from('updated_points'), $reading->prayer_points);
     $this->assertEquals('updated_prayer', $reading->prayer);
 });
+
+test('that reading service can get readings ', function () {
+    Reading::factory(2)->create();
+
+    $response = ReadingService::get_readings(new Reading());
+
+    $this->assertNotEmpty($response);
+});
