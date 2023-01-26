@@ -13,14 +13,14 @@ class ReadingController extends Controller
 {
     public function index()
     {
-        return Inertia::render('User/Reading/Index',[
+        return inertia('User/Reading/Index',[
             'data'=> new ReadingIndexProps()
         ]);
     }
 
     public function create()
     {
-        return Inertia::render('User/Reading/Create');
+        return inertia('User/Reading/Create');
     }
 
     public function store(CreateReadingRequest $request)

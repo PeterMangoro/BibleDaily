@@ -9,8 +9,8 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        Reading::factory()->create();
-        return Reading::first();
-        return Inertia::render('Welcome');
+        // Reading::factory()->create();
+        // return Reading::first();
+        return inertia('Welcome');
     }
 }
