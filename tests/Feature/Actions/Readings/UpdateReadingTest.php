@@ -2,6 +2,7 @@
 
 use App\Models\Reading;
 use App\Actions\Reading\UpdateReadingAction;
+use App\ValueObjects\Date;
 use App\ValueObjects\MakePoints;
 
 it('can update reading', function () {
@@ -21,4 +22,5 @@ it('can update reading', function () {
     $this->assertEquals(MakePoints::from('updated_notes'), $reading->fresh()->notes);
     $this->assertEquals(MakePoints::from('updated_points'), $reading->prayer_points);
     $this->assertEquals('updated_prayer', $reading->prayer);
+    $this->assertEquals(Date::readable($reading->created_at), $reading->created_at);
 });

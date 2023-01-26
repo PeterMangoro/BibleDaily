@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
-use App\Builders\ReadingBuilder;
-use App\Builders\SharedBuilder;
-use App\Casts\MakePointsCast;
 use App\Traits\UUID;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Casts\DateReadCast;
+use App\Casts\MakePointsCast;
+use App\Builders\SharedBuilder;
+use App\Builders\ReadingBuilder;
+use App\ValueObjects\Date;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Reading extends SharedModel
 {
@@ -25,7 +28,17 @@ class Reading extends SharedModel
     protected $casts = [
         'prayer_points' => MakePointsCast::class,
         'notes' => MakePointsCast::class,
+        'created_at'=> DateReadCast::class,
     ];
+
+    protected $appends = ['date_read'];
+
+    // protected function date_read(): Attribute
+    // {
+    //     return  Attribute::make(
+    //         get: fn ($value,$attributes) => Date::readable($attributes['created_at']),
+    //     );
+    // }
 
     public function newEloquentBuilder($query): ReadingBuilder
     {
