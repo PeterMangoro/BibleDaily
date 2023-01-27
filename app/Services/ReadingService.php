@@ -7,7 +7,7 @@ use App\Actions\Reading\GetReadingsAction;
 use App\Actions\Reading\UpdateReadingAction;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class ReadingService 
+class ReadingService
 {
     public static function get_readings(object $data, ?int $paginate = 9): LengthAwarePaginator
     {

@@ -2,11 +2,10 @@
 
 namespace App\View\Teaching;
 
-use App\View\Shared\Filters;
-use App\Handlers\TeachingHandler;
 use App\DataObjects\Display\DisplayTeachingData;
 use App\Models\BibleSession;
 use App\View\Shared\BaseView;
+use App\View\Shared\Filters;
 
 class TeachingWelcomeIndexProps extends BaseView
 {
@@ -18,11 +17,9 @@ class TeachingWelcomeIndexProps extends BaseView
 
     public function teaching()
     {
-        return
-
-            $this->session->through(fn ($session) => [
-                DisplayTeachingData::from($session->teaching, $session->reading)
-            ]);
+        return $this->session->through(fn ($session) => [
+            DisplayTeachingData::from($session->teaching, $session->reading),
+        ]);
     }
 
     public function filters()

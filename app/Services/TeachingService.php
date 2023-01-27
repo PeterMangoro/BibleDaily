@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Actions\Teaching\GetTeachingsAction;
 use App\Actions\Teaching\CreateTeachingAction;
+use App\Actions\Teaching\GetTeachingsAction;
 use App\Actions\Teaching\UpdateTeachingAction;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -14,10 +14,10 @@ class TeachingService
         return GetTeachingsAction::handle($data, $paginate);
     }
 
-    // public static function get_teaching(object $data): object
-    // {
-    //     return GetTeachingsAction::handle_one($data);
-    // }
+    public static function get_teaching(object $data): object
+    {
+        return GetTeachingsAction::handle_one($data);
+    }
 
     public static function new_teaching(object $bible_session, object $request): void
     {

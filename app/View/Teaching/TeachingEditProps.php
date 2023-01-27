@@ -2,11 +2,11 @@
 
 namespace App\View\Teaching;
 
-use App\View\Shared\Filters;
-use App\Handlers\TeachingHandler;
 use App\DataObjects\Display\DisplayTeachingData;
+use App\Handlers\TeachingHandler;
 use App\Models\Teaching;
 use App\View\Shared\BaseView;
+use App\View\Shared\Filters;
 
 class TeachingEditProps extends BaseView
 {
@@ -19,7 +19,6 @@ class TeachingEditProps extends BaseView
 
     public function teaching()
     {
-
         return TeachingHandler::get_teaching(
             DisplayTeachingData::from($this->session->teaching, $this->session->reading)
         );

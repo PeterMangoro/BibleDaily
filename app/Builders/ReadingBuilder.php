@@ -1,9 +1,10 @@
 <?php
+
 namespace App\Builders;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class ReadingBuilder extends  Builder
+class ReadingBuilder extends Builder
 {
     public function selectDetailAttributes()
     {

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Traits\UUID;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -62,13 +61,12 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-
-    public function socials():HasMany
+    public function socials(): HasMany
     {
         return $this->hasMany(Social::class);
     }
 
-    public function bible_sessions():HasMany
+    public function bible_sessions(): HasMany
     {
         return $this->hasMany(BibleSession::class);
     }

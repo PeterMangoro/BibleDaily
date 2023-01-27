@@ -14,13 +14,14 @@ class MakePointsCast implements CastsAttributes
      * @param  string  $key
      * @param  mixed  $value
      * @param  array  $attributes
+     *
      * @return mixed
      */
     public function get($model, string $key, $value, array $attributes)
     {
         return MakePoints::from($value);
 
-         #when they are related
+        #when they are related
         // return [
         //     'notes'=>MakePoints::from($attributes['notes']),
         //    'prayer_points'=> MakePoints::from($attributes['prayer_points']),
@@ -34,6 +35,7 @@ class MakePointsCast implements CastsAttributes
      * @param  string  $key
      * @param  mixed  $value
      * @param  array  $attributes
+     *
      * @return mixed
      */
     public function set($model, string $key, $value, array $attributes)

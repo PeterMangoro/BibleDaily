@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Builders\TeachingBuilder;
 use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Teaching extends SharedModel
 {
@@ -15,10 +14,10 @@ class Teaching extends SharedModel
     protected $fillable = [
         'page_visit_count',
         'title',
-        'slug'
+        'slug',
     ];
 
-    public function newEloquentBuilder($query):TeachingBuilder
+    public function newEloquentBuilder($query): TeachingBuilder
     {
         return new TeachingBuilder($query);
     }

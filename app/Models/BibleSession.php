@@ -16,7 +16,7 @@ class BibleSession extends Model
 
     protected $fillable = [
         'user_id',
-        'uuid'
+        'uuid',
     ];
 
     public function user(): BelongsTo
@@ -24,19 +24,18 @@ class BibleSession extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function reading():HasOne
+    public function reading(): HasOne
     {
-       return $this->hasOne(Reading::class);
+        return $this->hasOne(Reading::class);
     }
 
-    public function teaching():HasOne
+    public function teaching(): HasOne
     {
-       return $this->hasOne(Teaching::class);
+        return $this->hasOne(Teaching::class);
     }
 
-    public function newEloquentBuilder($query):BibleSessionBuilder
+    public function newEloquentBuilder($query): BibleSessionBuilder
     {
         return new BibleSessionBuilder($query);
     }
-
 }

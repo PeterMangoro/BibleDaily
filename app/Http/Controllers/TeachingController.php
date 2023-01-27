@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
-use App\Models\Teaching;
 use App\Handlers\TeachingHandler;
-use App\View\Teaching\TeachingIndexProps;
 use App\Http\Requests\Teaching\CreateTeachingRequest;
 use App\Http\Requests\Teaching\UpdateTeachingRequest;
+use App\Models\Teaching;
+use App\View\Teaching\TeachingIndexProps;
+use Inertia\Inertia;
 
 class TeachingController extends Controller
 {
     public function index()
     {
-        return Inertia::render('User/Teaching/Index',[
-            'data'=> new TeachingIndexProps()
+        return Inertia::render('User/Teaching/Index', [
+            'data' => new TeachingIndexProps(),
         ]);
     }
 
@@ -28,8 +28,8 @@ class TeachingController extends Controller
         TeachingHandler::store_teaching($request);
     }
 
-    public function update(Teaching $teaching,UpdateTeachingRequest $request)
+    public function update(Teaching $teaching, UpdateTeachingRequest $request)
     {
-        TeachingHandler::update_teaching($teaching,$request);
+        TeachingHandler::update_teaching($teaching, $request);
     }
 }

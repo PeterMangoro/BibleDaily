@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
-use App\Models\Reading;
 use App\Handlers\ReadingHandler;
-use App\View\Reading\ReadingIndexProps;
 use App\Http\Requests\Reading\CreateReadingRequest;
 use App\Http\Requests\Reading\UpdateReadingRequest;
+use App\Models\Reading;
+use App\View\Reading\ReadingIndexProps;
 
 class ReadingController extends Controller
 {
     public function index()
     {
-        return inertia('User/Reading/Index',[
-            'data'=> new ReadingIndexProps()
+        return inertia('User/Reading/Index', [
+            'data' => new ReadingIndexProps(),
         ]);
     }
 
@@ -28,8 +27,8 @@ class ReadingController extends Controller
         ReadingHandler::store_reading($request);
     }
 
-    public function update(Reading $reading,UpdateReadingRequest $request)
+    public function update(Reading $reading, UpdateReadingRequest $request)
     {
-        ReadingHandler::update_reading($reading,$request);
+        ReadingHandler::update_reading($reading, $request);
     }
 }

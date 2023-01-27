@@ -2,14 +2,10 @@
 
 namespace App\Models;
 
-use App\Traits\UUID;
+use App\Builders\ReadingBuilder;
 use App\Casts\DateReadCast;
 use App\Casts\MakePointsCast;
-use App\Builders\SharedBuilder;
-use App\Builders\ReadingBuilder;
-use App\ValueObjects\Date;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Casts\Attribute;
+use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Reading extends SharedModel
@@ -22,7 +18,7 @@ class Reading extends SharedModel
         'notes',
         'prayer_points',
         'prayer',
-        'bible_session_id'
+        'bible_session_id',
     ];
 
     protected $casts = [

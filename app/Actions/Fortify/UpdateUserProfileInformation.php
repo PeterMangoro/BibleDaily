@@ -2,10 +2,8 @@
 
 namespace App\Actions\Fortify;
 
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
@@ -15,6 +13,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      *
      * @param  mixed  $user
      * @param  array  $input
+     *
      * @return void
      */
     public function update($user, array $input)
@@ -25,12 +24,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             // 'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
 
-            $user->forceFill([
-                'name' => $input['name'],
-                'username' => $input['username'],
-               
-            ])->save();
-        
+        $user->forceFill([
+            'name' => $input['name'],
+            'username' => $input['username'],
+
+        ])->save();
     }
 
     /**
@@ -38,6 +36,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      *
      * @param  mixed  $user
      * @param  array  $input
+     *
      * @return void
      */
     protected function updateVerifiedUser($user, array $input)

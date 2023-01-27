@@ -24,10 +24,10 @@ class CreateReadingRequest extends FormRequest
     public function rules()
     {
         return [
-            'read'=>'required|string|max:255',
-            'notes'=>'required|string',
-            'prayer_points'=>'required|string',
-            'prayer'=>'required|string|max:255',
+            'read' => 'required|string|max:255',
+            'notes' => 'required|string',
+            'prayer_points' => 'required|string',
+            'prayer' => 'required|string|max:255',
         ];
     }
 }

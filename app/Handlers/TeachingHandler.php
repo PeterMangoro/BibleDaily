@@ -2,12 +2,12 @@
 
 namespace App\Handlers;
 
-use App\Services\TeachingService;
-use App\Events\Create\CreatingTeaching;
-use App\Events\Update\UpdatingTeaching;
 use App\Actions\Teaching\DeleteTeachingAction;
 use App\DataObjects\Create\CreateTeachingData;
 use App\DataObjects\Update\UpdateTeachingData;
+use App\Events\Create\CreatingTeaching;
+use App\Events\Update\UpdatingTeaching;
+use App\Services\TeachingService;
 
 class TeachingHandler
 {
@@ -28,12 +28,12 @@ class TeachingHandler
         event(new UpdatingTeaching($teaching, $validated_request));
     }
 
-    // public static function get_teaching(object $data)
-    // {
-    //     return TeachingService::get_teaching($data);
-    // }
+    public static function get_teaching(object $data)
+    {
+        return TeachingService::get_teaching($data);
+    }
 
-    public static function delete_teaching(object $teaching,)
+    public static function delete_teaching(object $teaching)
     {
         return DeleteTeachingAction::handle($teaching);
     }

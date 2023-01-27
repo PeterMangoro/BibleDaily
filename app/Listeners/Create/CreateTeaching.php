@@ -2,14 +2,12 @@
 
 namespace App\Listeners\Create;
 
+use App\Events\Create\CreatingTeaching;
 use App\Models\BibleSession;
+use App\Services\BibleSessionService;
 use App\Services\ReadingService;
 use App\Services\TeachingService;
 use Illuminate\Support\Facades\DB;
-use App\Services\BibleSessionService;
-use App\Events\Create\CreatingTeaching;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class CreateTeaching
 {
@@ -20,16 +18,16 @@ class CreateTeaching
      */
     public function __construct()
     {
-        //
     }
 
     /**
      * Handle the event.
      *
      * @param  \App\Events\Create\CreatingTeaching  $event
+     *
      * @return void
      */
-    public function handle(CreatingTeaching $event):void
+    public function handle(CreatingTeaching $event): void
     {
         $request = $event->request;
 

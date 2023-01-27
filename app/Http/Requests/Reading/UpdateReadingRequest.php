@@ -23,10 +23,10 @@ class UpdateReadingRequest extends FormRequest
      */
     public function rules()
     {
-        return [            
-            'notes'=>'nullable|string',
-            'prayer_points'=>'nullable|string',
-            'prayer'=>'nullable|string|max:255',
+        return [
+            'notes' => 'nullable|string',
+            'prayer_points' => 'nullable|string',
+            'prayer' => 'nullable|string|max:255',
         ];
     }
 }

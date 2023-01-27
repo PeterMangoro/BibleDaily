@@ -8,17 +8,16 @@ class GetTeachingsAction
 {
     public static function handle(object $data, ?int $paginate = 9): LengthAwarePaginator
     {
-        return
-            $data
+        return $data
             ->selectDetailAttributes()
             ->paginate($paginate);
     }
 
-    // public static function handle_one(object $data): object
-    // {
-    //     return
-    //         $data
-    //         // ->selectDetailAttributes()
-    //         ->first();
-    // }
+    public static function handle_one(object $data): object
+    {
+        return
+            $data
+            // ->selectDetailAttributes()
+            ->first();
+    }
 }

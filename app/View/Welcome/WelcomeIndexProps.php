@@ -1,4 +1,5 @@
 <?php
+
 namespace App\View\Welcome;
 
 use App\View\Shared\BaseView;
@@ -10,6 +11,6 @@ class WelcomeIndexProps extends BaseView
     {
         $bible = new Bible();
 
-        // return 
+        // return
     }
 }

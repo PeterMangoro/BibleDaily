@@ -8,8 +8,7 @@ class GetReadingsAction
 {
     public static function handle(object $data, ?int $paginate = 9): LengthAwarePaginator
     {
-        return
-            $data
+        return $data
             ->selectDetailAttributes()
             ->paginate($paginate);
     }

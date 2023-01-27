@@ -12,10 +12,8 @@ class SharedModel extends Model
     use HasFactory;
     use SharedBuilder;
 
-    public function bible_session():BelongsTo
+    public function bible_session(): BelongsTo
     {
         return $this->belongsTo(BibleSession::class);
     }
-
-   
 }

@@ -2,11 +2,11 @@
 
 namespace App\Handlers;
 
-use App\Services\ReadingService;
-use App\Events\Create\CreatingReading;
-use App\Events\Update\UpdatingReading;
 use App\DataObjects\Create\CreateReadingData;
 use App\DataObjects\Update\UpdateReadingData;
+use App\Events\Create\CreatingReading;
+use App\Events\Update\UpdatingReading;
+use App\Services\ReadingService;
 
 class ReadingHandler
 {
@@ -23,7 +23,7 @@ class ReadingHandler
     }
 
     public static function update_reading(object $reading, object $request)
-    {        
+    {
         $validated_request = UpdateReadingData::from($request);
         event(new UpdatingReading($reading, $validated_request));
     }

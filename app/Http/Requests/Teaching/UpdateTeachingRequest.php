@@ -24,7 +24,7 @@ class UpdateTeachingRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'nullable|string|max:255',
+            'title' => 'nullable|string|max:255',
         ];
     }
 }

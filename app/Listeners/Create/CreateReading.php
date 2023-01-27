@@ -6,8 +6,6 @@ use App\Events\Create\CreatingReading;
 use App\Models\BibleSession;
 use App\Services\BibleSessionService;
 use App\Services\ReadingService;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\DB;
 
 class CreateReading
@@ -19,16 +17,16 @@ class CreateReading
      */
     public function __construct()
     {
-        //
     }
 
     /**
      * Handle the event.
      *
      * @param  \App\Events\Create\CreatingReading  $event
+     *
      * @return void
      */
-    public function handle(CreatingReading $event):void
+    public function handle(CreatingReading $event): void
     {
         $request = $event->request;
 
