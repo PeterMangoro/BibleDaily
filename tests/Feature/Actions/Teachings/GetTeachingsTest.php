@@ -17,13 +17,13 @@ it('gets all readings when readings table is filled', function () {
 $this->assertNotEmpty($response);
 });
 
-it('gets only called model', function () {
-    Teaching::factory(2)->create();
-    Teaching::factory()->create(['title'=>'test']);
+// it('gets only called model', function () {
+//     Teaching::factory(2)->create();
+//     Teaching::factory()->create(['title'=>'test']);
 
-    $get_any_one=GetTeachingsAction::handle_one(new Teaching());
-    $get_specific=GetTeachingsAction::handle_one(Teaching::where('title','test'));
+//     $get_any_one=GetTeachingsAction::handle_one(new Teaching());
+//     $get_specific=GetTeachingsAction::handle_one(Teaching::where('title','test'));
  
-    $this->assertIsObject($get_any_one);
-    $this->assertEquals('test',$get_specific->title);
- });
+//     $this->assertIsObject($get_any_one);
+//     $this->assertEquals('test',$get_specific->title);
+//  });

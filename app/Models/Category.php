@@ -14,8 +14,8 @@ class Category extends Model
         'slug'
     ];
 
-    public function classifications()
-    {
-        return $this->hasMany(Classification::class);
-    }
+    // public function classifications()
+    // {
+    //     return $this->hasMany(Classification::class);
+    // }
 }

@@ -14,11 +14,11 @@ class GetTeachingsAction
             ->paginate($paginate);
     }
 
-    public static function handle_one(object $data): object
-    {
-        return
-            $data
-            ->selectDetailAttributes()
-            ->first();
-    }
+    // public static function handle_one(object $data): object
+    // {
+    //     return
+    //         $data
+    //         // ->selectDetailAttributes()
+    //         ->first();
+    // }
 }

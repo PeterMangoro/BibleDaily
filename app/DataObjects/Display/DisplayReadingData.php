@@ -7,10 +7,10 @@ use App\ValueObjects\MakePoints;
 class DisplayReadingData
 {
     public function __construct(
-        public readonly string $read_date,
-        public readonly string $read_verses,
-        public readonly array $notes,
-        public readonly array $prayer_points,
+        public  string $read_date,
+        public  string $read_verses,
+        public  array $notes,
+        public  array $prayer_points,
     )
     {
         $this->read_date=$read_date;
@@ -24,8 +24,8 @@ class DisplayReadingData
         return new static(
             Date::readable($reading->created_at),
             $reading->read_verses,
-            MakePoints::from($reading->notes),
-            MakePoints::from($reading->prayer_points),
+            $reading->notes,
+            $reading->prayer_points,
         );
     }
 

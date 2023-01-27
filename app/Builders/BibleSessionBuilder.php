@@ -21,8 +21,7 @@ class BibleSessionBuilder extends Builder
     {
         return $this->select(
             'user_id',
-            'id',
-           
+            'id',          
             
         );
     }

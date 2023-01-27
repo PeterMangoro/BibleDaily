@@ -13,6 +13,7 @@ it('returns its id on creation', function () {
 
 it('adds a bible session', function () {
     $user = login();
+ 
     BibleSessionService::new_session();
    
     $this->assertDatabaseHas('bible_sessions', [

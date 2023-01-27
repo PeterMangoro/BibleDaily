@@ -19,6 +19,12 @@ class MakePointsCast implements CastsAttributes
     public function get($model, string $key, $value, array $attributes)
     {
         return MakePoints::from($value);
+
+         #when they are related
+        // return [
+        //     'notes'=>MakePoints::from($attributes['notes']),
+        //    'prayer_points'=> MakePoints::from($attributes['prayer_points']),
+        // ];
     }
 
     /**

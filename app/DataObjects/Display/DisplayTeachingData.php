@@ -1,17 +1,17 @@
 <?php
 namespace App\DataObjects\Display;
 
-use App\ValueObject\MakePoints;
+use App\ValueObjects\MakePoints;
 use App\ValueObjects\Date;
 
 class DisplayTeachingData
 {
     public function __construct(
-        public readonly string $title,
-        public readonly string $read_date,
-        public readonly string $read_verses,
-        public readonly array $notes,
-        public readonly array $prayer_points,
+        public  string $title,
+        public  string $read_date,
+        public  string $read_verses,
+        public  array $notes,
+        public  array $prayer_points,
     )
     {
         $this->title=$title;
@@ -23,12 +23,13 @@ class DisplayTeachingData
 
     public static function from(object $teaching,object $reading):object
     {
+        // dd([$teaching->title]);
         return new static(
-            $teaching->read_verses,
-            Date::readable($reading->created_at),
-            $reading->read_verses,
-            MakePoints::from($reading->notes),
-            MakePoints::from($reading->prayer_points),
+            $teaching->title,
+            $reading->created_at,
+            $reading->read,
+            $reading->notes,
+            $reading->prayer_points,
         );
     }
 

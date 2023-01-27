@@ -13,14 +13,16 @@ class TeachingWelcomeIndexProps extends BaseView
     public $session;
     public function __construct()
     {
-        $this->session = BibleSession::with('teachings', 'readings')->get();
+        $this->session = BibleSession::with('teaching', 'reading')->paginate();
     }
 
     public function teaching()
     {
-        return TeachingHandler::get_teaching(
-            DisplayTeachingData::from($this->session->teachings, $this->session->readings)
-        );
+        return
+
+            $this->session->through(fn ($session) => [
+                DisplayTeachingData::from($session->teaching, $session->reading)
+            ]);
     }
 
     public function filters()

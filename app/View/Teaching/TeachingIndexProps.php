@@ -12,10 +12,10 @@ class TeachingIndexProps extends BaseView
     public function teachings()
     {
         return TeachingHandler::get_teachings(
-            BibleSession::belongsToAuthUser()->with('teachings','readings'),
+            BibleSession::belongsToAuthUser()->with('teaching','reading'),
             9)
             ->through(fn ($session)=>[
-                DisplayTeachingData::from($session->teachings,$session->readings)
+                DisplayTeachingData::from($session->teaching,$session->reading)
             ]);
     }
 

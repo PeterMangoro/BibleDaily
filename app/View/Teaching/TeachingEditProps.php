@@ -14,14 +14,14 @@ class TeachingEditProps extends BaseView
     public function __construct(
         public readonly string $slug,
     ) {
-        $this->session = Teaching::where('slug', $slug)->with('teachings', 'readings')->first();
+        $this->session = Teaching::where('slug', $slug)->with('teaching', 'reading')->first();
     }
 
     public function teaching()
     {
 
         return TeachingHandler::get_teaching(
-            DisplayTeachingData::from($this->session->teachings, $this->session->readings)
+            DisplayTeachingData::from($this->session->teaching, $this->session->reading)
         );
     }
 
