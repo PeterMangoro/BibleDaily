@@ -21,8 +21,8 @@ final class DisplayReadingData
     public static function from(object $reading): object
     {
         return new static(
-            Date::readable($reading->created_at),
-            $reading->read_verses,
+            $reading->created_at,
+            $reading->read,
             $reading->notes,
             $reading->prayer_points,
         );

@@ -12,4 +12,13 @@ class Filters
             'direction' => request('direction'),
         ];
     }
+
+    public static function bible()
+    {
+        return [
+            'book' => request('book'),
+            'chapter' => request('chapter'),
+            
+        ];
+    }
 }

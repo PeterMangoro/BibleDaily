@@ -16,9 +16,9 @@ class ReadingIndexProps extends BaseView
             Reading::belongsToAuthUser(),
             9
         )
-            ->through(fn ($reading) => [
+            ->through(fn ($reading) => 
                 DisplayReadingData::from($reading),
-            ]);
+            );
     }
 
     public function filters()

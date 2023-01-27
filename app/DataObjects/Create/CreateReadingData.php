@@ -8,12 +8,12 @@ final class CreateReadingData
         public  string $read,
         public  string $notes,
         public  string $prayer_points,
-        public  string $prayer,
+        // public  string $prayer,
     ) {
         $this->read = $read;
         $this->notes = $notes;
         $this->prayer_points = $prayer_points;
-        $this->prayer = $prayer;
+        // $this->prayer = $prayer;
     }
 
     public static function from(object $request): object
@@ -22,7 +22,7 @@ final class CreateReadingData
             $request->read,
             $request->notes,
             $request->prayer_points,
-            $request->prayer,
+            // $request->prayer,
         );
     }
 }
