@@ -2,7 +2,7 @@
 
 namespace App\DataObjects\Create;
 
-class CreateTeachingData
+final class CreateTeachingData
 {
     public function __construct(
         public  string $title,

@@ -2,7 +2,7 @@
 
 namespace App\DataObjects\Update;
 
-class UpdateTeachingData
+final class UpdateTeachingData
 {
     public function __construct(
         public  ?string $title,

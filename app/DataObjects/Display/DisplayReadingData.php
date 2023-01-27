@@ -4,7 +4,7 @@ namespace App\DataObjects\Display;
 
 use App\ValueObjects\Date;
 
-class DisplayReadingData
+final class DisplayReadingData
 {
     public function __construct(
         public  string $read_date,

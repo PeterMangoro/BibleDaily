@@ -2,7 +2,7 @@
 
 namespace App\DataObjects\Create;
 
-class CreateReadingData
+final class CreateReadingData
 {
     public function __construct(
         public  string $read,

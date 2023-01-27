@@ -21,7 +21,7 @@ class DisplayTeachingData
     public static function from(object $teaching, object $reading): object
     {
         // dd([$teaching->title]);
-        return new static(
+        return new self(
             $teaching->title,
             $reading->created_at,
             $reading->read,

@@ -2,7 +2,7 @@
 
 namespace App\DataObjects\Update;
 
-class UpdateReadingData
+final class UpdateReadingData
 {
     public function __construct(
         public  ?string $read,
