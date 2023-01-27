@@ -41,14 +41,14 @@ test('that teaching service can get teachings ', function () {
     $this->assertNotEmpty($response);
 });
 
-// test('that Teaching Service gets only called model', function () {
-//     Teaching::factory(2)->create();
-//     Teaching::factory()->create(['title'=>'test']);
+test('that Teaching Service gets only called model', function () {
+    Teaching::factory(2)->create();
+    Teaching::factory()->create(['title'=>'test']);
 
-//     $get_any_one=TeachingService::get_teaching(new Teaching());
-//     $get_specific=TeachingService::get_teaching(Teaching::where('title','test'));
+    $get_any_one=TeachingService::get_teaching(new Teaching());
+    $get_specific=TeachingService::get_teaching(Teaching::where('title','test'));
  
-//     $this->assertIsObject($get_any_one);
-//     $this->assertEquals('test',$get_specific->title);
-//  });
+    $this->assertIsObject($get_any_one);
+    $this->assertEquals('test',$get_specific->title);
+ });
 

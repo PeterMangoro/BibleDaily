@@ -13,7 +13,7 @@ test('CreatingReading Event is dispatched', function () {
         'notes' => '$request->notes',
         'prayer_points' => '$request->prayer_points',
         'prayer' => '$request->prayer',
-    ])->assertSuccessful();
+    ])->assertRedirect(route('users.readings.index'));
 
     Event::assertDispatched(CreatingReading::class);
 });
@@ -27,7 +27,7 @@ test('CreatingReading Event adds a Reading into Database', function () {
         'notes' => '$request->notes',
         'prayer_points' => '$request->prayer_points',
         'prayer' => '$request->prayer',
-    ])->assertSuccessful();
+    ])->assertRedirect(route('users.readings.index'));
 
     $this->assertDatabaseHas('readings', ['read' => '$request->read->from_post']);
 
