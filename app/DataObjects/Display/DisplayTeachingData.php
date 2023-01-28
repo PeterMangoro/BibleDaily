@@ -4,6 +4,10 @@ namespace App\DataObjects\Display;
 
 class DisplayTeachingData
 {
+     /**
+     * @param array<string> $notes
+     * @param array<string> $prayer_points
+     */
     public function __construct(
         public readonly  string $title,
         public readonly  string $read_date,

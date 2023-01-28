@@ -6,7 +6,7 @@ use Carbon\Carbon;
 
 class Date
 {
-    public static function readable($date): string
+    public static function readable(string $date): string
     {
         return Carbon::parse($date)->toDayDateTimeString();
     }

@@ -5,15 +5,19 @@ use App\Models\BibleBook;
 use Djunehor\Logos\Bible;
 use App\View\Shared\Filters;
 use App\View\Shared\BaseView;
+use Illuminate\Support\Collection;
 
 class ReadingCreateProps extends BaseView
 {
-    public function books()
+    public function books():Collection
     {
         return (BibleBook::toBase()->select('title','chapters','testament')->get()->groupBy('testament'));
     }
 
-    public function bible()
+    /**
+     * @return array<int , string>
+     */
+    public function bible():array
     {
         $v= new Bible();
         $v->book(request('book')?:'Psalms');
@@ -21,7 +25,10 @@ class ReadingCreateProps extends BaseView
         return $v->getChapter();
     }
 
-    public function filters()
+    /**
+     * @return array<int , string>
+     */
+    public function filters():array
     {
         return Filters::bible();
     }

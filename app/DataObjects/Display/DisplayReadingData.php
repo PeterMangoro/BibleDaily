@@ -6,6 +6,10 @@ use App\ValueObjects\Date;
 
 final class DisplayReadingData
 {
+    /**
+     * @param array<string> $notes
+     * @param array<string> $prayer_points
+     */
     public function __construct(
         public readonly  string $read_date,
         public readonly  string $read_verses,

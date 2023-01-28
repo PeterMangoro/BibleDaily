@@ -7,10 +7,11 @@ use App\Handlers\TeachingHandler;
 use App\Models\BibleSession;
 use App\View\Shared\BaseView;
 use App\View\Shared\Filters;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class TeachingIndexProps extends BaseView
 {
-    public function teachings()
+    public function teachings():LengthAwarePaginator
     {
         return TeachingHandler::get_teachings(
             BibleSession::belongsToAuthUser()->with('teaching', 'reading'),
@@ -21,7 +22,10 @@ class TeachingIndexProps extends BaseView
             ]);
     }
 
-    public function filters()
+    /**
+     * @return array<int , string>
+     */
+    public function filters():array
     {
         return Filters::filters();
     }

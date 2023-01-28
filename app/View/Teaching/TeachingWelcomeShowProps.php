@@ -9,21 +9,24 @@ use App\View\Shared\Filters;
 
 class TeachingWelcomeShowProps extends BaseView
 {
-    public $session;
+    public object $session;
     public function __construct(
         public readonly string $slug,
     ) {
         $this->session = BibleSession::whereRelation('teaching', 'slug', $slug)->first();
     }
 
-    public function teaching()
+    public function teaching():object
     {
         return // TeachingHandler::get_teaching(
             DisplayTeachingData::from($this->session->teaching, $this->session->reading);
         // );
     }
 
-    public function filters()
+    /**
+     * @return array<int , string>
+     */
+    public function filters():array
     {
         return Filters::filters();
     }
