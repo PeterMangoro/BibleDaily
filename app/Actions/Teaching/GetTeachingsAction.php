@@ -15,8 +15,7 @@ class GetTeachingsAction
 
     public static function handle_one(object $data): object
     {
-        return
-            $data
+        return $data
             // ->selectDetailAttributes()
             ->first();
     }

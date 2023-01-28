@@ -4,11 +4,10 @@ namespace App\View\Shared;
 
 class Filters
 {
-
     /**
      * @return array<string>
      */
-    public static function filters():array
+    public static function filters(): array
     {
         return [
             'search' => request('search'),
@@ -20,12 +19,12 @@ class Filters
     /**
      * @return array<string>
      */
-    public static function bible():array
+    public static function bible(): array
     {
         return [
             'book' => request('book'),
             'chapter' => request('chapter'),
-            
+
         ];
     }
 }

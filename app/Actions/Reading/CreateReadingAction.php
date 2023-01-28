@@ -2,8 +2,6 @@
 
 namespace App\Actions\Reading;
 
-use App\DataObjects\Create\CreateReadingData;
-
 class CreateReadingAction
 {
     public static function handle(object $bible_session, object $request): void

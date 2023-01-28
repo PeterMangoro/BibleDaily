@@ -11,14 +11,14 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class ReadingIndexProps extends BaseView
 {
-    public function readings():LengthAwarePaginator
+    public function readings(): LengthAwarePaginator
     {
         return ReadingHandler::get_readings(
-            (new Reading)->belongsToAuthUser(),
+            (new Reading())->belongsToAuthUser(),
             9
         )
-            ->through(fn ($reading) => 
-                DisplayReadingData::from($reading),
+            ->through(
+                fn ($reading) => DisplayReadingData::from($reading),
             );
     }
 

@@ -4,7 +4,7 @@ namespace App\DataObjects\Display;
 
 class DisplayTeachingData
 {
-     /**
+    /**
      * @param array<string> $notes
      * @param array<string> $prayer_points
      */

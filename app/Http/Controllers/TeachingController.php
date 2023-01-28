@@ -12,24 +12,24 @@ use Inertia\Response;
 
 class TeachingController extends Controller
 {
-    public function index():Response
+    public function index(): Response
     {
         return Inertia::render('User/Teaching/Index', [
             'data' => new TeachingIndexProps(),
         ]);
     }
 
-    public function create():Response
+    public function create(): Response
     {
         return Inertia::render('User/Teaching/Create');
     }
 
-    public function store(CreateTeachingRequest $request):void
+    public function store(CreateTeachingRequest $request): void
     {
         TeachingHandler::store_teaching($request);
     }
 
-    public function update(Teaching $teaching, UpdateTeachingRequest $request):void
+    public function update(Teaching $teaching, UpdateTeachingRequest $request): void
     {
         TeachingHandler::update_teaching($teaching, $request);
     }

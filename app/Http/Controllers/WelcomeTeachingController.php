@@ -8,14 +8,14 @@ use Inertia\Response;
 
 class WelcomeTeachingController extends Controller
 {
-    public function index():Response
+    public function index(): Response
     {
         return inertia('Welcome/Teaching/Index', [
             'data' => new TeachingWelcomeIndexProps(),
         ]);
     }
 
-    public function show(string $slug):Response
+    public function show(string $slug): Response
     {
         return inertia('Welcome/Teaching/Show', [
             'data' => new TeachingWelcomeShowProps($slug),

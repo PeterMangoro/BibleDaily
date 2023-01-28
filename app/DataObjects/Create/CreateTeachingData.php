@@ -2,7 +2,7 @@
 
 namespace App\DataObjects\Create;
 
-final class CreateTeachingData
+class CreateTeachingData
 {
     public function __construct(
         public readonly  string $title,
@@ -20,7 +20,7 @@ final class CreateTeachingData
 
     public static function from(object $request): object
     {
-        return new static(
+        return new self(
             $request->title,
             $request->read,
             $request->notes,

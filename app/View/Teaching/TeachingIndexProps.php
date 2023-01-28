@@ -11,7 +11,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class TeachingIndexProps extends BaseView
 {
-    public function teachings():LengthAwarePaginator
+    public function teachings(): LengthAwarePaginator
     {
         return TeachingHandler::get_teachings(
             BibleSession::belongsToAuthUser()->with('teaching', 'reading'),
@@ -25,7 +25,7 @@ class TeachingIndexProps extends BaseView
     /**
      * @return array<int , string>
      */
-    public function filters():array
+    public function filters(): array
     {
         return Filters::filters();
     }

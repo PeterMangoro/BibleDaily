@@ -2,7 +2,7 @@
 
 namespace App\DataObjects\Update;
 
-final class UpdateTeachingData
+class UpdateTeachingData
 {
     public function __construct(
         public readonly  ?string $title,
@@ -20,7 +20,7 @@ final class UpdateTeachingData
 
     public static function from(object $request): object
     {
-        return new static(
+        return new self(
             $request->title,
             $request->read,
             $request->notes,

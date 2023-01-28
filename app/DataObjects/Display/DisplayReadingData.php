@@ -2,9 +2,7 @@
 
 namespace App\DataObjects\Display;
 
-use App\ValueObjects\Date;
-
-final class DisplayReadingData
+class DisplayReadingData
 {
     /**
      * @param array<string> $notes
@@ -24,7 +22,7 @@ final class DisplayReadingData
 
     public static function from(object $reading): object
     {
-        return new static(
+        return new self(
             $reading->created_at,
             $reading->read,
             $reading->notes,

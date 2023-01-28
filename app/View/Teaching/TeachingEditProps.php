@@ -2,17 +2,12 @@
 
 namespace App\View\Teaching;
 
-use App\Models\Teaching;
-use App\Models\BibleSession;
-use App\View\Shared\Filters;
 use App\View\Shared\BaseView;
-use App\Handlers\TeachingHandler;
-use App\DataObjects\Display\DisplayTeachingData;
 
 class TeachingEditProps extends BaseView
 {
     // public $session;
- 
+
     // public function __construct(
     //     public readonly string $slug,
     // ) {

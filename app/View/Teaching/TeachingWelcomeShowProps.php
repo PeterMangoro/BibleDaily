@@ -16,7 +16,7 @@ class TeachingWelcomeShowProps extends BaseView
         $this->session = BibleSession::whereRelation('teaching', 'slug', $slug)->first();
     }
 
-    public function teaching():object
+    public function teaching(): object
     {
         return // TeachingHandler::get_teaching(
             DisplayTeachingData::from($this->session->teaching, $this->session->reading);
@@ -26,7 +26,7 @@ class TeachingWelcomeShowProps extends BaseView
     /**
      * @return array<int , string>
      */
-    public function filters():array
+    public function filters(): array
     {
         return Filters::filters();
     }

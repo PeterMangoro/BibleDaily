@@ -16,7 +16,7 @@ class TeachingWelcomeIndexProps extends BaseView
         $this->session = BibleSession::with('teaching', 'reading')->paginate();
     }
 
-    public function teaching():LengthAwarePaginator
+    public function teaching(): LengthAwarePaginator
     {
         return $this->session->through(fn ($session) => [
             DisplayTeachingData::from($session->teaching, $session->reading),
@@ -26,7 +26,7 @@ class TeachingWelcomeIndexProps extends BaseView
     /**
      * @return array<int , string>
      */
-    public function filters():array
+    public function filters(): array
     {
         return Filters::filters();
     }

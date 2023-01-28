@@ -2,7 +2,7 @@
 
 namespace App\DataObjects\Update;
 
-final class UpdateReadingData
+class UpdateReadingData
 {
     public function __construct(
         public readonly  ?string $read,
@@ -18,7 +18,7 @@ final class UpdateReadingData
 
     public static function from(object $request): object
     {
-        return new static(
+        return new self(
             $request->read,
             $request->notes,
             $request->prayer_points,
