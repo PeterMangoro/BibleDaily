@@ -7,15 +7,15 @@ use App\ValueObjects\Date;
 final class DisplayReadingData
 {
     public function __construct(
-        public  string $read_date,
-        public  string $read_verses,
-        public  array $notes,
-        public  array $prayer_points,
+        public readonly  string $read_date,
+        public readonly  string $read_verses,
+        public readonly  array $notes,
+        public readonly  array $prayer_points,
     ) {
-        $this->read_date = $read_date;
-        $this->read_verses = $read_verses;
-        $this->notes = $notes;
-        $this->prayer_points = $prayer_points;
+        // $this->read_date = $read_date;
+        // $this->read_verses = $read_verses;
+        // $this->notes = $notes;
+        // $this->prayer_points = $prayer_points;
     }
 
     public static function from(object $reading): object

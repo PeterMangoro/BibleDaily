@@ -11,8 +11,8 @@ trait SharedBuilder
         return $this->where('bible_session_id', $int)->first();
     }
 
-    public function scopeBelongsToAuthUser($query)
+    public function belongsToAuthUser()
     {
-        return $query->whereRelation('bible_session', 'user_id', '=', Auth::user()->id);
+        return $this->whereRelation('bible_session', 'user_id', '=', Auth::user()->id);
     }
 }

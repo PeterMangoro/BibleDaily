@@ -13,7 +13,7 @@ class ReadingIndexProps extends BaseView
     public function readings()
     {
         return ReadingHandler::get_readings(
-            Reading::belongsToAuthUser(),
+            (new Reading)->belongsToAuthUser(),
             9
         )
             ->through(fn ($reading) => 

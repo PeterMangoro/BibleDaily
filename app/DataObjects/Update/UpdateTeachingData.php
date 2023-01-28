@@ -5,17 +5,17 @@ namespace App\DataObjects\Update;
 final class UpdateTeachingData
 {
     public function __construct(
-        public  ?string $title,
-        public  ?string $read,
-        public  ?string $notes,
-        public  ?string $prayer_points,
-        public  ?string $prayer,
+        public readonly  ?string $title,
+        public readonly  ?string $read,
+        public readonly  ?string $notes,
+        public readonly  ?string $prayer_points,
+        public readonly  ?string $prayer,
     ) {
-        $this->title = $title;
-        $this->read = $read;
-        $this->notes = $notes;
-        $this->prayer_points = $prayer_points;
-        $this->prayer = $prayer;
+        // $this->title = $title;
+        // $this->read = $read;
+        // $this->notes = $notes;
+        // $this->prayer_points = $prayer_points;
+        // $this->prayer = $prayer;
     }
 
     public static function from(object $request): object

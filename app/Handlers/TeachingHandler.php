@@ -35,6 +35,6 @@ class TeachingHandler
 
     public static function delete_teaching(object $teaching)
     {
-        return DeleteTeachingAction::handle($teaching);
+         DeleteTeachingAction::handle($teaching);
     }
 }
