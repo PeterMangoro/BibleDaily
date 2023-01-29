@@ -22,7 +22,7 @@ class DisplayReadingData
         // $this->prayer_points = $prayer_points;
     }
 
-    public static function from(Reading $reading): DisplayReadingData
+    public static function from(?Reading $reading): DisplayReadingData
     {
         return new self(
             $reading->created_at,

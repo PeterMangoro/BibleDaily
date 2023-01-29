@@ -25,6 +25,10 @@ class CreateTeachingRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'read' => 'required|string|max:255',
+            'notes' => 'required|string',
+            'prayer_points' => 'required|string',
+            'prayer' => 'nullable|string|max:255',
         ];
     }
 }

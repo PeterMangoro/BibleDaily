@@ -8,9 +8,11 @@ class GetTeachingsAction
 {
     public static function handle(object $data, ?int $paginate = 9): LengthAwarePaginator
     {
-        return $data
+        $paginate = request('per_page') ?: $paginate;
+        return $data            
             ->selectDetailAttributes()
-            ->paginate($paginate);
+            ->paginate($paginate)
+            ->withQueryString();
     }
 
     public static function handle_one(object $data): object

@@ -52,6 +52,16 @@ const logout = () => {
                                     Dashboard
                                 </NavLink>
                             </div>
+                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink :href="route('users.teachings.index')" :active="route().current('users.teachings.index')">
+                                    Your Teachings
+                                </NavLink>
+                            </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink :href="route('teachings.index')" :active="route().current('teachings.index')">
+                                    Bible Community
+                                </NavLink>
+                            </div>
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -204,6 +214,18 @@ const logout = () => {
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('users.readings.index')" :active="route().current('users.readings.index')">
                             Dashboard
+                        </ResponsiveNavLink>
+                    </div>
+
+                     <div class="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink :href="route('users.teachings.index')" :active="route().current('users.teachings.index')">
+                            Bible Community
+                        </ResponsiveNavLink>
+                    </div>
+
+                    <div class="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink :href="route('teachings.index')" :active="route().current('teachings.index')">
+                            Your Teachings
                         </ResponsiveNavLink>
                     </div>
 

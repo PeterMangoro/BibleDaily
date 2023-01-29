@@ -24,4 +24,19 @@ class BibleSessionBuilder extends Builder
             'id',
         );
     }
+
+    public function search(?string $terms = null)
+    {
+        $term = '%' . preg_replace('/[^A-Za-z0-9]/', '', $terms) . '%';
+        return $this->when($terms, function ($query) use ($term) {
+            $query
+                ->whereRelation('teaching', 'title_normalized', 'like', $term)
+                ->orWhere(function($query) use($term) {
+                    $query->orwhereRelation('reading', 'notes_normalized', 'like', $term)
+                    ->orWhereRelation('reading', 'verse_normalized', 'like', $term);
+                })
+                
+                ;
+        });
+    }
 }

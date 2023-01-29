@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Reading;
+namespace App\View\Teaching;
 
 use App\Models\BibleBook;
 use App\View\Shared\BaseView;
@@ -8,7 +8,7 @@ use App\View\Shared\Filters;
 use Djunehor\Logos\Bible;
 use Illuminate\Support\Collection;
 
-class ReadingCreateProps extends BaseView
+class TeachingCreateProps extends BaseView
 {
     public function books(): Collection
     {
