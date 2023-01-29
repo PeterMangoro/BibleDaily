@@ -26,7 +26,7 @@ class DisplayReadingData
     {
         return new self(
             $reading->created_at,
-            $reading->read,
+            $reading->verse,
             $reading->notes,
             $reading->prayer_points,
         );

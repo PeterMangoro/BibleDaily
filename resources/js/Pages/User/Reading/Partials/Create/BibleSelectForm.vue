@@ -17,7 +17,6 @@
           autocomplete="verses"
           required
         />
-     
       </div>
 
       <div class="col-span-6 sm:col-span-4">
@@ -30,7 +29,7 @@
               v-model="book"
               ref="versesInput"
               type="text"
-              class="border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              class="border-gray-300 rounded-md shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               autocomplete="book"
               required
             >
@@ -49,7 +48,6 @@
                 </option>
               </optgroup>
             </select>
-          
           </div>
           <!-- chapter -->
           <div class="col-span-6 sm:col-span-4">
@@ -64,7 +62,6 @@
               autocomplete="chapter"
               required
             />
-           
           </div>
         </div>
       </div>
@@ -119,7 +116,7 @@ const props = defineProps({
 const emit = defineEmits(["next", "prev"]);
 
 const addBibleVerse = () => {
-  emit("next")
+  emit("next");
 };
 
 const back = () => {

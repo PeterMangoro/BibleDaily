@@ -1,6 +1,6 @@
 
 <template >
-  <form-section   @submitted="createReading">
+  <form-section @submitted="createReading">
     <template #title> Lessons Learnt </template>
 
     <template #description>
@@ -22,7 +22,6 @@
           id="notes"
           ref="notesInput"
           v-model="notes"
-   
           type="text"
           class="block w-full mt-1"
           autocomplete="notes"
@@ -42,8 +41,6 @@
           autocomplete="prayer_points"
           rows="5"
           required
-          
-         
         />
       </div>
     </template>
@@ -56,7 +53,7 @@
       <div class="flex justify-between w-full">
         <div
           @click="back"
-          class="gap-2 p-1 px-4 text-black rounded bg-slate-300 hover:bg-gray-400 hover:cursor-pointer"
+          class="gap-2 p-1 px-4 text-black rounded  bg-slate-300 hover:bg-gray-400 hover:cursor-pointer"
         >
           Back
         </div>
@@ -83,7 +80,7 @@
   </div>
 </template>
 <script setup>
-import { ref,watch } from "vue";
+import { ref, watch } from "vue";
 import { useForm } from "@inertiajs/vue3";
 import ActionMessage from "@/Components/Shared/Form/ActionMessage.vue";
 import SubmitButton from "@/Components/Shared/Form/SubmitButton.vue";
@@ -94,9 +91,8 @@ import InputError from "@/Components/Shared/Form/InputError.vue";
 import InputLabel from "@/Components/Shared/Form/InputLabel.vue";
 import { useStorage } from "@/Composables/useStorage";
 
-
 const notes = useStorage("notes", null);
-const updatedNotes = ref(notes.value)
+const updatedNotes = ref(notes.value);
 let verses = ref(useStorage("verses", null));
 let prayer_points = useStorage("prayer_points", null);
 
@@ -107,7 +103,7 @@ let prayer_points = useStorage("prayer_points", null);
 //  updatedNotes = notes.value
 // })
 
- const form = useForm({
+const form = useForm({
   notes: updatedNotes,
   read: verses.value,
   prayer_points: prayer_points.value,
@@ -118,17 +114,16 @@ let prayer_points = useStorage("prayer_points", null);
 const emit = defineEmits(["next", "prev", "reload"]);
 
 const createReading = () => {
-emit("reload"),
-  form.post(    
-    route("users.readings.store"), {
-    errorBag: "createReading",
-    preserveScroll: true,
-    onSuccess: () => {
-      localStorage.removeItem("notes");
-      localStorage.removeItem("verses");
-      localStorage.removeItem("prayer_points");
-    },
-  });
+  emit("reload"),
+    form.post(route("users.readings.store"), {
+      errorBag: "createReading",
+      preserveScroll: true,
+      onSuccess: () => {
+        localStorage.removeItem("notes");
+        localStorage.removeItem("verses");
+        localStorage.removeItem("prayer_points");
+      },
+    });
 };
 
 const back = () => {
@@ -139,8 +134,8 @@ const next = () => {
   emit("next");
 };
 
-const reload = () => { 
-   emit("reload");
+const reload = () => {
+  emit("reload");
 };
 
 const notesInput = ref(null);

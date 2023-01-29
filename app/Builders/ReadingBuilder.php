@@ -10,11 +10,21 @@ class ReadingBuilder extends Builder
     {
         return $this->select(
             'bible_session_id',
-            'read',
+            'verse',
             'notes',
             'prayer_points',
             'prayer',
             'created_at'
         );
+    }
+
+    public function search(?string $terms = null)
+    {
+        $term = '%' . preg_replace('/[^A-Za-z0-9]/', '', $terms) . '%';
+        return $this->when($terms, function ($query) use ($term) {
+            $query
+                ->where('verse_normalized', 'like', $term)
+                ->orWhere('notes_normalized', 'like', $term);
+        });
     }
 }

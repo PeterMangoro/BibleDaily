@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->index();
             $table->foreignId('bible_session_id');
-            $table->string('read');
+            $table->string('verse');
+            $table->string('verse_normalized')->virtualAs("regexp_replace(verse,'[^A-Za-z0-9]','')")->index();
             $table->string('notes');
+            $table->string('notes_normalized')->virtualAs("regexp_replace(notes,'[^A-Za-z0-9]','')")->index();
             $table->string('prayer_points')->nullable();
             $table->string('prayer')->nullable();
             $table->softDeletes();

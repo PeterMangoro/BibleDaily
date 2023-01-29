@@ -57,32 +57,28 @@
             <!-- {{ reading.prayer_points }} -->
             </TableData>
          
-          <TableData>
+          <!-- <TableData>
             <div class="flex space-x-1">
-              <ButtonLink
-                v-if="reading.title"
-                class=""
-                link="route('usreadings.rooms.index', reading.uuid)"
-                >View</ButtonLink
-              >
-              <ButtonLink
-                v-else
-                class=""
+             
+              <botton
+               @click="showUpdateForm(reading)"
+                class="inline-flex items-center px-4 py-2 text-sm font-semibold tracking-widest text-white transition bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-800 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring focus:ring-indigo-300 disabled:opacity-25 hover:cursor-pointer"
                 link="route('users.readings.edit', reading.uuid)"
-                >View</ButtonLink
+                >View</botton
               >
-              <!-- <Button
-                class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                @click="show_delete_confirmation(reading.id)"
-                as="button"
-                type="button"
-                >Suspend</Button
-              > -->
+              
             </div>
-          </TableData>
+          </TableData> -->
         </TableRow>
       </Table>
       <!-- table End -->
+
+      <!-- <div v-if="showForm">
+        <update-reading-form 
+        :reading="selectedReading"
+        @close="showForm = false"
+         />
+      </div> -->
     </div>
   </app-layout>
 </template>
@@ -96,8 +92,17 @@ import TableHead from "@/Components/Shared/Table/TableHead.vue";
 import TableRow from "@/Components/Shared/Table/TableRow.vue";
 import ButtonLink from "@/Components/Shared/Table/ButtonLink.vue";
 import SearchTable from "@/Components/Shared/Table/SearchTable.vue";
+// import UpdateReadingForm from "@/Pages/User/Reading/Partials/Update/UpdateReadingForm.vue"
 
 const props = defineProps({
   data: Object,
 });
+
+const showForm = ref(false)
+const selectedReading = ref(null)
+
+function showUpdateForm(reading) {
+  selectedReading.value = reading
+  showForm.value=true
+}
 </script>

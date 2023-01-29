@@ -29,6 +29,6 @@ test('CreatingReading Event adds a Reading into Database', function () {
         'prayer' => '$request->prayer',
     ])->assertRedirect(route('users.readings.index'));
 
-    $this->assertDatabaseHas('readings', ['read' => '$request->read->from_post']);
+    $this->assertDatabaseHas('readings', ['verse' => '$request->read->from_post']);
 
 });

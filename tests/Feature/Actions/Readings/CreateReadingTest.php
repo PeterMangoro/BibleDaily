@@ -20,6 +20,6 @@ it('creates a Reading Model', function () {
 
     CreateReadingAction::handle($session, $request);
     $this->assertDatabaseHas('readings', [
-        'read' => '$request->read'
+        'verse' => '$request->read'
     ]);
 });

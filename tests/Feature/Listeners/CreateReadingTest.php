@@ -26,6 +26,6 @@ test('CreateReading Listener actualy creates a Reading', function () {
     $listener->handle($event);
 
     $this->assertDatabaseHas('readings', [
-        'read' => '$request->read_from_listener'
+        'verse' => '$request->read_from_listener'
     ]);
 });

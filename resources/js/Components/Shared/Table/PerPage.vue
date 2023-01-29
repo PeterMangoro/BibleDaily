@@ -3,6 +3,7 @@
    v-model="per_page"
    @change="per_page === $event.target.value"
     class="text-sm border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+  placeholder="per"
   >
     <option value="5">5 Per Page</option>
     <option value="10">10 Per Page</option>
@@ -22,7 +23,7 @@ export default defineComponent({
   data() {
     return {
       // page.props.per_page will come from the backend after per_page has returned.
-      per_page: this.$inertia.page.props.per_page || null,
+      per_page: this.$inertia.page.props.per_page || 15,
       search: this.$inertia.page.props.search ,
     };
   },

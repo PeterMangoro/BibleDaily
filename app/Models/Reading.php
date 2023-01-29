@@ -14,7 +14,7 @@ class Reading extends SharedModel
     use UUID;
 
     protected $fillable = [
-        'read',
+        'verse',
         'notes',
         'prayer_points',
         'prayer',

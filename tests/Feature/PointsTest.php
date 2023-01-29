@@ -9,7 +9,7 @@ use function PHPUnit\Framework\assertEquals;
 it('converts strings to array', function () {
    $reading = Reading::create([
       'bible_session_id' => 1,
-      'read' => 'genesis 1vs1',
+      'verse' => 'genesis 1vs1',
       'notes' => 'some notes',
       'prayer_points' => 'some*prayer*points'
    ]);

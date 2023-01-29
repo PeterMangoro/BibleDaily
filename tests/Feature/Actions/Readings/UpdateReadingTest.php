@@ -18,7 +18,7 @@ it('can update reading', function () {
 
     UpdateReadingAction::handle($reading, $request);
 
-    $this->assertEquals('updated_read', $reading->fresh()->read);
+    $this->assertEquals('updated_read', $reading->fresh()->verse);
     $this->assertEquals(MakePoints::from('updated_notes'), $reading->fresh()->notes);
     $this->assertEquals(MakePoints::from('updated_points'), $reading->prayer_points);
     $this->assertEquals('updated_prayer', $reading->prayer);

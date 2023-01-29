@@ -35,7 +35,7 @@ test('UpdateTeaching Listener actualy updates a Teaching', function () {
     ]);
 
     $this->assertDatabaseHas('readings', [
-        'read' => '$request->update_from_teaching_listener'
+        'verse' => '$request->update_from_teaching_listener'
     ]);
     
 });

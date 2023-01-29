@@ -18,7 +18,7 @@ class ReadingFactory extends Factory
     {
         return [
             'bible_session_id'=>rand(),
-            'read'=>fake()->text,
+            'verse'=>fake()->text,
             'notes' =>fake()->sentence.'*'.fake()->sentence.'*'.fake()->sentence,
             'prayer_points' =>fake()->sentence.'*'.fake()->sentence.'*'.fake()->sentence,
             'prayer' =>fake()->sentence
