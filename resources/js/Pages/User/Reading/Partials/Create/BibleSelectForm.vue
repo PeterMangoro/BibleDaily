@@ -119,7 +119,7 @@ const props = defineProps({
 const emit = defineEmits(["next", "prev"]);
 
 const addBibleVerse = () => {
-  emit("next");
+  emit("next")
 };
 
 const back = () => {
