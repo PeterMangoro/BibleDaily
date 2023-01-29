@@ -3,7 +3,7 @@
 use App\Events\Create\CreatingReading;
 use Illuminate\Support\Facades\Event;
 
-#you cant test bith at the same time.. i dont know why
+#you cant test both at the same time.. i dont know why
 test('CreatingReading Event is dispatched', function () {
     login();
 

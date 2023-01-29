@@ -17,8 +17,8 @@ it('creates a Reading Model', function () {
         'prayer_points' => '$request->prayer_points',
         'prayer' => '$request->prayer',
     ]);
-
-    CreateReadingAction::handle($session, $request);
+    
+    (new CreateReadingAction($session,$request))->handle($session, $request);
     $this->assertDatabaseHas('readings', [
         'verse' => '$request->read'
     ]);

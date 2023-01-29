@@ -16,7 +16,8 @@ class ReadingService
 
     public static function new_reading(object $bible_session, object $request): void
     {
-        CreateReadingAction::handle($bible_session, $request);
+        // CreateReadingAction::handle($bible_session, $request);
+        (new CreateReadingAction($bible_session, $request))->handle();
     }
 
     public static function update_reading(object $reading, object $request): void

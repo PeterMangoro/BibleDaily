@@ -11,7 +11,7 @@ class CreateTeachingData
         public readonly  string $read,
         public readonly  string $notes,
         public readonly  string $prayer_points,
-        public readonly  string $prayer,
+        public readonly  ?string $prayer,
     ) {
         // $this->title = $title;
         // $this->read = $read;

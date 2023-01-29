@@ -2,15 +2,18 @@
 
 namespace App\Actions\Reading;
 
+use App\Models\BibleSession;
+use App\DataObjects\Create\CreateReadingData;
+
 class CreateReadingAction
 {
-    public function __construct(public object $bible_session, public object $request)
+    public function __construct(public object $bible_session,public object $request)
     {
         // dd($request);
-        $this->bible_session = $bible_session;
-        $this->request = $request;
+        $this->bible_session=$bible_session;
+        $this->request=$request;
     }
-
+    
     public function handle(): void
     {
         $this->bible_session->reading()->create([
@@ -20,4 +23,4 @@ class CreateReadingAction
             // 'prayer' => $request->prayer,
         ]);
     }
-}
+} 

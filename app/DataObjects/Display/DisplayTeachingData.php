@@ -12,7 +12,7 @@ class DisplayTeachingData
      * @param array<string> $prayer_points
      */
     public function __construct(
-        public readonly  ?string $title=null,
+        public readonly  ?string $title,
         public readonly  ?string $read_date,
         public readonly  ?string $read_verses,
         public readonly  ?array $notes,
@@ -29,7 +29,7 @@ class DisplayTeachingData
     {
         // dd([$teaching->title]);
         return new self(
-            $teaching->title??null,
+            $teaching->title ?? null,
             $reading->created_at,
             $reading->verse,
             $reading->notes,
