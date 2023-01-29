@@ -2,6 +2,8 @@
 
 namespace App\DataObjects\Create;
 
+use App\Http\Requests\Teaching\CreateTeachingRequest;
+
 class CreateTeachingData
 {
     public function __construct(
@@ -18,7 +20,7 @@ class CreateTeachingData
         // $this->prayer = $prayer;
     }
 
-    public static function from(object $request): object
+    public static function from(CreateTeachingRequest $request): CreateTeachingData
     {
         return new self(
             $request->title,

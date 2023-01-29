@@ -2,6 +2,9 @@
 
 namespace App\DataObjects\Display;
 
+use App\Models\Reading;
+use App\Models\Teaching;
+
 class DisplayTeachingData
 {
     /**
@@ -22,7 +25,7 @@ class DisplayTeachingData
         // $this->prayer_points = $prayer_points;
     }
 
-    public static function from(object $teaching, object $reading): object
+    public static function from(Teaching $teaching, Reading $reading): DisplayTeachingData
     {
         // dd([$teaching->title]);
         return new self(

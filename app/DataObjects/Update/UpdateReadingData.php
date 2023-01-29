@@ -2,6 +2,8 @@
 
 namespace App\DataObjects\Update;
 
+use App\Http\Requests\Reading\UpdateReadingRequest;
+
 class UpdateReadingData
 {
     public function __construct(
@@ -16,7 +18,7 @@ class UpdateReadingData
         // $this->prayer = $prayer;
     }
 
-    public static function from(object $request): object
+    public static function from(UpdateReadingRequest $request): UpdateReadingData
     {
         return new self(
             $request->read,

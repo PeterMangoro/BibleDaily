@@ -2,6 +2,8 @@
 
 namespace App\DataObjects\Update;
 
+use App\Http\Requests\Teaching\UpdateTeachingRequest;
+
 class UpdateTeachingData
 {
     public function __construct(
@@ -18,7 +20,7 @@ class UpdateTeachingData
         // $this->prayer = $prayer;
     }
 
-    public static function from(object $request): object
+    public static function from(UpdateTeachingRequest $request): UpdateTeachingData
     {
         return new self(
             $request->title,

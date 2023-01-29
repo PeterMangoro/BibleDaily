@@ -2,6 +2,8 @@
 
 namespace App\DataObjects\Display;
 
+use App\Models\Reading;
+
 class DisplayReadingData
 {
     /**
@@ -20,7 +22,7 @@ class DisplayReadingData
         // $this->prayer_points = $prayer_points;
     }
 
-    public static function from(object $reading): object
+    public static function from(Reading $reading): DisplayReadingData
     {
         return new self(
             $reading->created_at,

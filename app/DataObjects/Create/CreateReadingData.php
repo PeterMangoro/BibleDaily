@@ -2,6 +2,8 @@
 
 namespace App\DataObjects\Create;
 
+use App\Http\Requests\Reading\CreateReadingRequest;
+
 class CreateReadingData
 {
     public function __construct(
@@ -16,7 +18,7 @@ class CreateReadingData
         // $this->prayer = $prayer;
     }
 
-    public static function from(object $request): object
+    public static function from(CreateReadingRequest $request): CreateReadingData
     {
         return new self(
             $request->read,
