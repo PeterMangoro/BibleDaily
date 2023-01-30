@@ -25,11 +25,11 @@ it('that teaching service can update an existing teaching ', function () {
     $teaching = Teaching::first();
 
     $request = (object)([
-        'title' => 'updated_teaching_title',       
+        'title' => '::updated_teaching_title',       
     ]);
     TeachingService::update_teaching($teaching, $request);
 
-    $this->assertEquals('updated_teaching_title', $teaching->fresh()->title);
+    $this->assertEquals('::updated_teaching_title', $teaching->fresh()->title);
     
 });
 

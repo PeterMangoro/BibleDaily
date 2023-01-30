@@ -14,13 +14,13 @@ test('UpdatingTeaching Event is dispatched', function () {
 
     Event::fake();
     $response = $this->put(route('users.teachings.update',[$teaching->slug]), [
-        'read' => '$request->updated->read->from_post',
-        'notes' => '$request->notes',
-        'prayer_points' => '$request->prayer_points',
-        'prayer' => '$request->updated_prayer_from_teachings',
+        'read' => '::updated->read->from_post',
+        'notes' => '::notes',
+        'prayer_points' => '::prayer_points',
+        'prayer' => '::updated_prayer_from_teachings',
     ])->assertSuccessful();
 
-    // $this->assertDatabaseHas('readings', ['prayer' => '$request->updated_prayer_from_teachings']);
+    // $this->assertDatabaseHas('readings', ['prayer' => '::updated_prayer_from_teachings']);
     Event::assertDispatched(UpdatingTeaching::class);
 });
 
@@ -34,13 +34,13 @@ test('UpdatingTeaching Event actualy updates Teaching', function () {
   
     $response = $this->put(route('users.teachings.update',[$teaching->slug]), [
         'title'=> 'Update_title',
-        'read' => '$request->updated->read->from_post',
-        'notes' => '$request->notes',
-        'prayer_points' => '$request->prayer_points',
-        'prayer' => '$request->updated_prayer_from_teachings',
+        'read' => '::updated->read->from_post',
+        'notes' => '::notes',
+        'prayer_points' => '::prayer_points',
+        'prayer' => '::updated_prayer_from_teachings',
     ])->assertSuccessful();
 
-    $this->assertDatabaseHas('readings', ['prayer' => '$request->updated_prayer_from_teachings']);
+    $this->assertDatabaseHas('readings', ['prayer' => '::updated_prayer_from_teachings']);
     
 });
 

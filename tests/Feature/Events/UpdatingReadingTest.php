@@ -12,10 +12,10 @@ test('UpdatingReading Event is dispatched', function () {
     $reading = Reading::first();
     Event::fake();
     $response = $this->put(route('users.readings.update',[$reading->id]), [
-        'read' => '$request->updated->read->from_post',
-        'notes' => '$request->notes',
-        'prayer_points' => '$request->prayer_points',
-        'prayer' => '$request->updated_prayer',
+        'read' => '::updated->read->from_post',
+        'notes' => '::notes',
+        'prayer_points' => '::prayer_points',
+        'prayer' => '::updated_prayer',
     ])->assertSuccessful();
 
     Event::assertDispatched(UpdatingReading::class);
@@ -27,12 +27,12 @@ test('UpdatingReading Event is actually Updates Teaching', function () {
     $reading = Reading::first();
   
     $response = $this->put(route('users.readings.update',[$reading->id]), [
-        'read' => '$request->updated->read->from_post',
-        'notes' => '$request->notes',
-        'prayer_points' => '$request->prayer_points',
-        'prayer' => '$request->updated_prayer',
+        'read' => '::updated->read->from_post',
+        'notes' => '::notes',
+        'prayer_points' => '::prayer_points',
+        'prayer' => '::updated_prayer',
     ])->assertSuccessful();
 
-    $this->assertDatabaseHas('readings', ['prayer' => '$request->updated_prayer']);
+    $this->assertDatabaseHas('readings', ['prayer' => '::updated_prayer']);
    
 });

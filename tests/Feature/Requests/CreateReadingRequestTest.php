@@ -1,56 +1,50 @@
 
 <?php
 
+use Illuminate\Support\Arr;
+
 test('Reading Creation success with required fields', function () {
     login();
-     $Data = [
-        'read'=>'read',
-         'notes' => 'notes',
-         'prayer_points' => 'null',         
-     ];
-     $this->post(route('users.readings.store'), $Data)
-     ->assertRedirect(route('users.readings.index'));
- });
- 
-
-test('Reading Creation fails without any fields', function () {
-   login();
-    $emptyData = [];
-    $this->post(route('users.readings.store'), $emptyData)
-    ->assertSessionHasErrors();
+    $Data = [
+        'read' => '::some_data',
+        'notes' => '::some_data',
+        'prayer_points' => '::some_data',
+    ];
+    $this->post(route('users.readings.store'), $Data)
+        ->assertRedirect(route('users.readings.index'));
 });
 
-test('Reading Creation fails without read field', function () {
-    login();
-     $Data = [   
-        'read'=>null  ,    
-         'notes' => 'some_data',
-         'prayer_points' => 'some_data',        
-     ];
-     $this->post(route('users.readings.store'), $Data)
-     ->assertSessionHasErrors();
- });
 
- test('Reading Creation fails without notes field', function () {
+test('Reading Creation fails without any fields', function () {
     login();
-     $Data = [   
-        'read'=>'some_data'  ,    
-         'notes' => null,
-         'prayer_points' => 'some_data',        
-     ];
-     $this->post(route('users.readings.store'), $Data)
-     ->assertSessionHasErrors();
- });
+    $emptyData = [];
+    $this->post(route('users.readings.store'), $emptyData)
+        ->assertSessionHasErrors();
+});
 
- test('Reading Creation fails without prayer_points field', function () {
+test('Create reading fails', function ($Data, $key) {
     login();
-     $Data = [   
-        'read'=>'some_data'  ,    
-         'notes' => 'null',
-         'prayer_points' => null,        
-     ];
-     $this->post(route('users.readings.store'), $Data)
-     ->assertSessionHasErrors();
- });
- 
+    $this->post(route('users.readings.store'), $Data)
+        ->assertSessionHasErrors($key);
+})->with(
+    function () {
+        $all = [
+            'read' => '::some_data',
+            'notes' => '::some_data',
+            'prayer_points' => '::some_data',
+        ];
+        [
+            yield 'missing read' =>  [
+                Arr::except($all, 'read'), 'read'
+            ],
 
+            yield 'missing notes' =>  [
+                Arr::except($all, 'notes'), 'notes'
+            ],
+
+            yield 'missing prayer_points' =>  [
+                Arr::except($all, 'prayer_points'), 'prayer_points'
+            ],
+        ];
+    }
+);

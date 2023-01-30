@@ -16,17 +16,17 @@ test('CreateTeaching Listener actualy creates a Teaching', function () {
 
     login();
     $request = (object)([
-        'title' => '$request->teaching_from_listener',  
-        'read' => '$request->read_from_listener',
-        'notes' => '$request->notes',
-        'prayer_points' => '$request->prayer_points',
-        'prayer' => '$request->prayer',      
+        'title' => '::teaching_from_listener',  
+        'read' => '::read_from_listener',
+        'notes' => '::notes',
+        'prayer_points' => '::prayer_points',
+        'prayer' => '::prayer',      
     ]);
     $event = new CreatingTeaching($request);
     $listener = new CreateTeaching();
     $listener->handle($event);
 
     $this->assertDatabaseHas('teachings', [
-        'title' => '$request->teaching_from_listener'
+        'title' => '::teaching_from_listener'
     ]);
 });

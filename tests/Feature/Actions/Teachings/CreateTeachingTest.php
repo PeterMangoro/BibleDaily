@@ -12,13 +12,13 @@ it('creates a Teaching Model', function () {
     $session = BibleSession::find($id);
     // dd($session);
     $request = (object)([
-        'title' => '$request->title',
+        'title' => '::title',
 
     ]);
 
     // dd($request);
     CreateTeachingAction::handle($session, $request);
     $this->assertDatabaseHas('teachings', [
-        'title' => '$request->title'
+        'title' => '::title'
     ]);
 });

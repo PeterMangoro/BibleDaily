@@ -28,17 +28,17 @@ test('that reading service can update an existing reading ', function () {
     $reading = Reading::first();
 
     $request = (object)([
-        'read' => 'updated_read',
-        'notes' => 'updated_notes',
-        'prayer_points' => 'updated_points',
-        'prayer' => 'updated_prayer',
+        'read' => '::updated_read',
+        'notes' => '::updated_notes',
+        'prayer_points' => '::updated_points',
+        'prayer' => '::updated_prayer',
     ]);
     ReadingService::update_reading($reading, $request);
 
-    $this->assertEquals('updated_read', $reading->fresh()->verse);
-    $this->assertEquals(MakePoints::from('updated_notes'), $reading->fresh()->notes);
-    $this->assertEquals(MakePoints::from('updated_points'), $reading->prayer_points);
-    $this->assertEquals('updated_prayer', $reading->prayer);
+    $this->assertEquals('::updated_read', $reading->fresh()->verse);
+    $this->assertEquals(MakePoints::from('::updated_notes'), $reading->fresh()->notes);
+    $this->assertEquals(MakePoints::from('::updated_points'), $reading->prayer_points);
+    $this->assertEquals('::updated_prayer', $reading->prayer);
 });
 
 test('that reading service can get readings ', function () {

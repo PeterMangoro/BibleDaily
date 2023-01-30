@@ -16,16 +16,16 @@ test('CreateReading Listener actualy creates a Reading', function () {
 
     login();
     $request = (object)([
-        'read' => '$request->read_from_listener',
-        'notes' => '$request->notes',
-        'prayer_points' => '$request->prayer_points',
-        'prayer' => '$request->prayer',
+        'read' => '::read_from_listener',
+        'notes' => '::notes',
+        'prayer_points' => '::prayer_points',
+        'prayer' => '::prayer',
     ]);
     $event = new CreatingReading($request);
     $listener = new CreateReading();
     $listener->handle($event);
 
     $this->assertDatabaseHas('readings', [
-        'verse' => '$request->read_from_listener'
+        'verse' => '::read_from_listener'
     ]);
 });

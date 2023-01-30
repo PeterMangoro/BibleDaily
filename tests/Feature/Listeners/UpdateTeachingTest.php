@@ -20,22 +20,22 @@ test('UpdateTeaching Listener actualy updates a Teaching', function () {
     Reading::factory()->create(['bible_session_id'=>1]);
      $teaching =Teaching::first();
     $request = (object)([
-        'title' => '$request->update_from_listener',
-        'read' => '$request->update_from_teaching_listener',
-        'notes' => '$request->notes',
-        'prayer_points' => '$request->prayer_points',
-        'prayer' => '$request->prayer',
+        'title' => '::update_from_listener',
+        'read' => '::update_from_teaching_listener',
+        'notes' => '::notes',
+        'prayer_points' => '::prayer_points',
+        'prayer' => '::prayer',
     ]);
     $event = new UpdatingTeaching($teaching,$request);
     $listener = new UpdateTeaching();
     $listener->handle($event);
 
     $this->assertDatabaseHas('teachings', [
-        'title' => '$request->update_from_listener'
+        'title' => '::update_from_listener'
     ]);
 
     $this->assertDatabaseHas('readings', [
-        'verse' => '$request->update_from_teaching_listener'
+        'verse' => '::update_from_teaching_listener'
     ]);
     
 });

@@ -12,14 +12,14 @@ it('creates a Reading Model', function () {
     $session = BibleSession::find($id);
 
     $request = (object)([
-        'read' => '$request->read',
-        'notes' => '$request->notes',
-        'prayer_points' => '$request->prayer_points',
-        'prayer' => '$request->prayer',
+        'read' => '::read::',
+        'notes' => '::notes::',
+        'prayer_points' => '::prayer_points::',
+        'prayer' => '::prayer::',
     ]);
     
-    (new CreateReadingAction($session,$request))->handle($session, $request);
+    CreateReadingAction::handle($session, $request);
     $this->assertDatabaseHas('readings', [
-        'verse' => '$request->read'
+        'verse' => '::read::'
     ]);
 });

@@ -1,38 +1,30 @@
 
 <?php
 
+use App\Actions\Reading\CreateReadingAction;
+use App\Actions\Teaching\CreateTeachingAction;
 use App\DataObjects\Create\CreateReadingData;
+use App\DataObjects\Create\CreateTeachingData;
 use App\Http\Requests\Reading\CreateReadingRequest;
+use App\Models\BibleSession;
 use Mockery\MockInterface;
 
 
-test('Reading Creation Data return a CreateReadingData Object', function () {
-    login();
-     $Data = [
-        'read'=>'read',
-         'notes' => 'notes',
-         'prayer_points' => 'null',         
-     ];
+// test('Reading Creation Data return a CreateReadingData Object', function () {
+//     login();
+//      $Data = [
+//         'title'=>'hi',
+//         'read'=>'read',
+//          'notes' => 'notes',
+//          'prayer_points' => 'null', 
+//          'prayer' => 'null',         
+//      ];
+// $session= BibleSession::factory()->create()->first();
 
-    //  $mock = $this->mock(CreateReadingData::class, function (MockInterface $mock) {
-    //     $mock->shouldReceive('from')->once();
-    // });
-    
-    // $mock=$this->mock(CreateReadingRequest::class, function ($mock) {
-    //     $mock->shouldReceive('passes')->andReturn(true);
-    //  });
-
-     $mock = $this->mock(CreateReadingRequest::class, function ( $mock) {
-        $mock->shouldReceive('passes')->andReturn(false);
-    });
-    
-    
-    
-    //  dd($mock);
-     $this->assertIsObject($mock);
-
-    //  $this->post(route('users.readings.store'), $Data)
-    //  ->assertRedirect(route('users.readings.index'));
- });
+//      CreateTeachingAction::handle(
+// $session,
+//         CreateTeachingData::from($Data),
+//      );
+//  });
  
 
