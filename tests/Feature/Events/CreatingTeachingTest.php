@@ -8,7 +8,7 @@ test('CreatingTeaching Event is dispatched', function () {
     login();
 
     Event::fake();
-    $response = $this->post(route('users.teachings.store'), [
+   $this->post(route('users.teachings.store'), [
         'title' => '::title->from_post',
         'read' => '::read->from_post',
         'notes' => '::notes',
@@ -22,8 +22,7 @@ test('CreatingTeaching Event is dispatched', function () {
 test('CreatingTeaching Event adds a Teaching into Database', function () {
     login();
 
-    // Event::fake();
-    $response = $this->post(route('users.teachings.store'), [
+   $this->post(route('users.teachings.store'), [
         'title' => '::title->from_post',
         'read' => '::read->from_post',
         'notes' => '::notes',

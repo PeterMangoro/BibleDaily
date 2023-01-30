@@ -10,5 +10,4 @@ class Date
     {
         return Carbon::parse($date)->calendar();
     }
-    
 }
