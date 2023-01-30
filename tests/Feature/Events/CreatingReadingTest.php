@@ -8,7 +8,7 @@ test('CreatingReading Event is dispatched', function () {
     login();
 
     Event::fake();
-    $response = $this->post(route('users.readings.store'), [
+    $this->post(route('users.readings.store'), [
         'read' => '::read->from_post',
         'notes' => '::notes',
         'prayer_points' => '::prayer_points',
@@ -21,8 +21,7 @@ test('CreatingReading Event is dispatched', function () {
 test('CreatingReading Event adds a Reading into Database', function () {
     login();
 
-    // Event::fake();
-    $response = $this->post(route('users.readings.store'), [
+    $this->post(route('users.readings.store'), [
         'read' => '::read->from_post',
         'notes' => '::notes',
         'prayer_points' => '::prayer_points',

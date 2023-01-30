@@ -12,7 +12,7 @@ it('returns to the Reading Index page', function () {
             ->component('User/Reading/Index'));
 });
 
-it('returns to the Reading Index page with user data', function () {
+it('returns to the Reading Index page with user readings', function () {
     $user = login();
     BibleSession::factory()->create(['user_id' => $user->id]);
     $session = BibleSession::where('user_id', $user->id)->first();
@@ -33,7 +33,7 @@ it('returns to the Reading Index page with user data', function () {
         ->assertInertia(
             fn (Assert $page) => $page
                 ->component('User/Reading/Index')
-                ->has('data')
+                ->has('data.readings')
         )
         ->AssertSee('Read_by_auth_user')
         ->AssertDontSee('Not_Read_by_auth_user');

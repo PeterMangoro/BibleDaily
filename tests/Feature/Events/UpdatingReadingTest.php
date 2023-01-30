@@ -11,7 +11,7 @@ test('UpdatingReading Event is dispatched', function () {
      
     $reading = Reading::first();
     Event::fake();
-    $response = $this->put(route('users.readings.update',[$reading->id]), [
+    $this->put(route('users.readings.update',[$reading->id]), [
         'read' => '::updated->read->from_post',
         'notes' => '::notes',
         'prayer_points' => '::prayer_points',
@@ -26,7 +26,7 @@ test('UpdatingReading Event is actually Updates Teaching', function () {
     Reading::factory()->create();     
     $reading = Reading::first();
   
-    $response = $this->put(route('users.readings.update',[$reading->id]), [
+    $this->put(route('users.readings.update',[$reading->id]), [
         'read' => '::updated->read->from_post',
         'notes' => '::notes',
         'prayer_points' => '::prayer_points',

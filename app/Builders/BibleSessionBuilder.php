@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 class BibleSessionBuilder extends Builder
 {
-    
     public function belongsToAuthUser()
     {
         return $this->where('user_id', Auth::user()->id);
