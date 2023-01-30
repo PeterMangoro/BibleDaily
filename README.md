@@ -13,6 +13,7 @@
 - run __composer update && npm install__
 - run __php artisan serve__
 - run __php artisan migrate --seed__
+- visit **[http://127.0.0.1:8000](http://127.0.0.1:8000/users/readings/)**
 - That's all
 
 ## License
