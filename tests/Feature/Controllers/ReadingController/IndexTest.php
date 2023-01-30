@@ -39,11 +39,36 @@ it('returns to the Reading Index page with user data', function () {
         ->AssertDontSee('Not_Read_by_auth_user');
 });
 
+it('returns searched user data', function () {
+    $user = login();
+    BibleSession::factory()->create(['user_id' => $user->id]);
+    $session = BibleSession::where('user_id', $user->id)->first();
 
+    //To show
+    Reading::factory()->create([
+        'bible_session_id' => $session->id,
+        'verse' => 'To be Searched'
+    ]);
 
-it('returns to the Reading Create page', function () {
-    login();
-    $response = $this->get(route('users.readings.create'));
+    //Dont Show
+    Reading::factory()->create([
+        'bible_session_id' => $session->id,
+        'verse' => '::some data'
+    ]);
 
-    $response->assertStatus(200);
+    //Other pples Readings
+    Reading::factory(2)->create([
+        'bible_session_id' => 20,
+        'verse' => 'Searched but not Users'
+    ]);
+    $this->get(route('users.readings.index',array('search'=>'Searched')))
+        ->assertStatus(200)
+        ->assertInertia(
+            fn (Assert $page) => $page
+                ->component('User/Reading/Index')
+                ->has('data')
+        )
+        ->AssertSee('To be Searched')
+        ->AssertDontSee('Searched but not Users')
+        ->AssertDontSee('::some data');
 });

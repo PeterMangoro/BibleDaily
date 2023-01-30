@@ -10,9 +10,9 @@
 - Download BibleDaily App as a compressed file
 - Extract the compressed file in your prefered folder
 - Open command line in the folder you just extracted the App
-- run __composer update && npm install__
-- run __php artisan serve__
-- run __php artisan migrate --seed__
+- run **composer update && npm install**
+- run **php artisan serve**
+- run **php artisan migrate --seed**
 - visit **[http://127.0.0.1:8000](http://127.0.0.1:8000/users/readings/)**
 - That's all
 
