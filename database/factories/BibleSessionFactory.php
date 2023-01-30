@@ -17,7 +17,7 @@ class BibleSessionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id'=>rand(),
         ];
     }
 }

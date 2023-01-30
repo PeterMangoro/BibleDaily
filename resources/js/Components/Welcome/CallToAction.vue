@@ -11,7 +11,7 @@
         <div class="flex flex-wrap gap-2">
           <p>Are you an entrepreneur or you have something to sell ?</p>
           <Link
-            :href="route('dashboard')"
+            :href="route('users.readings.index')"
             class="font-medium text-red-600 transition duration-200 ease-in-out hover:scale-105"
           >
             Advertise for free!!

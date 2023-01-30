@@ -2,10 +2,21 @@
 
 namespace App\Providers;
 
+use App\Events\Create\CreatingReading;
+use App\Events\Create\CreatingTeaching;
+use App\Events\Update\UpdatingReading;
+// CreatingEvents
+use App\Events\Update\UpdatingTeaching;
+use App\Listeners\Create\CreateReading;
+// UpdatingEvents
+use App\Listeners\Create\CreateTeaching;
+use App\Listeners\Update\UpdateReading;
+// CreatingListeners
+use App\Listeners\Update\UpdateTeaching;
 use Illuminate\Auth\Events\Registered;
+// UpdatingEvents
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,6 +29,24 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+        //Creating
+        CreatingReading::class => [
+            CreateReading::class,
+        ],
+
+        CreatingTeaching::class => [
+            CreateTeaching::class,
+        ],
+
+        //Updating
+        UpdatingReading::class => [
+            UpdateReading::class,
+        ],
+
+        UpdatingTeaching::class => [
+            UpdateTeaching::class,
+        ],
     ];
 
     /**
@@ -27,7 +56,6 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 
     /**
