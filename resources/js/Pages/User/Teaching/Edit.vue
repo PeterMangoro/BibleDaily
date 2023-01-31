@@ -8,13 +8,15 @@
             @reload="forceRerender"
             :books="data.books"
             :bible="data.bible"
+            :teaching="data.teaching"
           />
         </div>
 
         <div v-if="step_two">
           <create-notes-form
             :key="componentKey"
-            @prev="go_to_step_one"           
+            @prev="go_to_step_one"
+            :teaching="data.teaching"
             @reload="forceRerender"
           />
         </div>
@@ -26,8 +28,8 @@
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { ref } from "vue";
 import { router } from "@inertiajs/vue3";
-import BibleSelectForm from "@/Pages/User/Teaching/Partials/Create/BibleSelectForm.vue";
-import CreateNotesForm from "@/Pages/User/Teaching/Partials/Create/CreateNotesForm.vue";
+import BibleSelectForm from "@/Pages/User/Teaching/Partials/Update/BibleSelectForm.vue";
+import CreateNotesForm from "@/Pages/User/Teaching/Partials/Update/CreateNotesForm.vue";
 
 const props = defineProps({
   data: Object,

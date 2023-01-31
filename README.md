@@ -3,6 +3,7 @@
 - This App is made to keep track of your bible studies and helps you keep notes of your Bible reading.
 - It comes with build in Bible so you dont have to worry about that.
 - The Inbuilt bible is currently KJV , will upload more versions in the future.
+- The App is still under development, however feel free to use the Bible Reading Feature.
 
 ## Installing BibleDaily App
 

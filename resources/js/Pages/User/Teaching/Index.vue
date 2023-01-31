@@ -27,12 +27,12 @@
         button="Add new Teaching"
       >
         <template #tableHead>
-          <TableHead>Date</TableHead>
+         
            <TableHead>Title</TableHead>
           <TableHead>Verses</TableHead>
           <TableHead>Notes</TableHead>
           <TableHead>Prayer Points</TableHead>
-          
+           <TableHead>Prayer</TableHead>
 
           <TableHead class="text-center"></TableHead>
         </template>
@@ -40,9 +40,7 @@
           v-for="teaching in data.teachings.data"
           :key="teaching.id"
         >
-          <TableData>
-           {{ teaching.read_date }}
-          </TableData>
+         
           <TableData>
            {{ teaching.title }}
           </TableData>
@@ -60,19 +58,30 @@
             </p>
             <!-- {{ teaching.prayer_points }} -->
             </TableData>
-         
-          <!-- <TableData>
+          <TableData>
+            <p v-if="teaching.prayer === 'No Prayer Available'" class="text-red-500">{{ teaching.prayer }}</p>
+          <p v-else>{{ teaching.prayer }}</p>
+           
+          </TableData>
+          <TableData>
             <div class="flex space-x-1">
              
-              <botton
-               @click="showUpdateForm(teaching)"
+              <Link
+              
                 class="inline-flex items-center px-4 py-2 text-sm font-semibold tracking-widest text-white transition bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-800 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring focus:ring-indigo-300 disabled:opacity-25 hover:cursor-pointer"
+                :href="route('users.teachings.edit', teaching.slug)"
+                >View</Link
+              >
+
+               <botton
+               @click="showUpdateForm(teaching)"
+                class="inline-flex items-center px-4 py-2 text-sm font-semibold tracking-widest text-white transition bg-red-600 border border-transparent rounded-md hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring focus:ring-red-300 disabled:opacity-25 hover:cursor-pointer"
                 link="route('users.teachings.edit', teaching.uuid)"
-                >View</botton
+                >Delete</botton
               >
               
             </div>
-          </TableData> -->
+          </TableData>
         </TableRow>
       </Table>
       <!-- table End -->

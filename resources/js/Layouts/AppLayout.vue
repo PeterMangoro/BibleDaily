@@ -49,7 +49,7 @@ const logout = () => {
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('users.readings.index')" :active="route().current('users.readings.index')">
-                                    Dashboard
+                                    Your Readings
                                 </NavLink>
                             </div>
                              <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -213,7 +213,7 @@ const logout = () => {
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('users.readings.index')" :active="route().current('users.readings.index')">
-                            Dashboard
+                            Your Readings
                         </ResponsiveNavLink>
                     </div>
 

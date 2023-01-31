@@ -12,11 +12,13 @@ class DisplayTeachingData
      * @param array<string> $prayer_points
      */
     public function __construct(
-        public readonly  ?string $title,
-        public readonly  ?string $read_date,
-        public readonly  ?string $read_verses,
-        public readonly  ?array $notes,
-        public readonly  ?array $prayer_points,
+        public readonly  string $title,
+        public readonly  string $slug,
+        public readonly  string $read_date,
+        public readonly  string $read_verses,
+        public readonly  array $notes,
+        public readonly  array $prayer_points,
+        public readonly  ?string $prayer,
     ) {
         // $this->title = $title;
         // $this->read_date = $read_date;
@@ -25,15 +27,16 @@ class DisplayTeachingData
         // $this->prayer_points = $prayer_points;
     }
 
-    public static function from(?Teaching $teaching, ?Reading $reading): DisplayTeachingData
+    public static function from(Teaching $teaching, Reading $reading): DisplayTeachingData
     {
-        // dd([$teaching->title]);
         return new self(
-            $teaching->title ?? null,
+            $teaching->title,
+            $teaching->slug,
             $reading->created_at,
             $reading->verse,
             $reading->notes,
             $reading->prayer_points,
+            $reading->prayer ?? 'No Prayer Available',
         );
     }
 }
