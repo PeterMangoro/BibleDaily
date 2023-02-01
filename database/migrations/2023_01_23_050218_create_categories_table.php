@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('title_normalized')->virtualAs("regexp_replace(title,'[^A-Za-z0-9]','')")->index();
-            $table->string('slug')->nullable()->index();            
+            // $table->string('slug')->virtualAs("str(title)->slug()")->index();
+            ;            
         });
     }
 

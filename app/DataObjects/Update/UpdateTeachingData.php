@@ -12,6 +12,7 @@ class UpdateTeachingData
         public readonly  ?string $notes,
         public readonly  ?string $prayer_points,
         public readonly  ?string $prayer,
+        public readonly ?array $categories,
     ) {
         // $this->title = $title;
         // $this->read = $read;
@@ -28,6 +29,7 @@ class UpdateTeachingData
             $request->notes,
             $request->prayer_points,
             $request->prayer,
+            $request->categories,
         );
     }
 }

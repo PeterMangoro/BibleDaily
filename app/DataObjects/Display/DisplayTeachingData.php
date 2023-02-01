@@ -12,10 +12,12 @@ class DisplayTeachingData
      * @param array<string> $prayer_points
      */
     public function __construct(
+        public readonly  string $author,
         public readonly  string $title,
         public readonly  string $slug,
-        public readonly  string $read_date,
-        public readonly  string $read_verses,
+        public readonly  object $categories,
+        public readonly  string $written_date,
+        public readonly  string $verses,
         public readonly  array $notes,
         public readonly  array $prayer_points,
         public readonly  ?string $prayer,
@@ -27,11 +29,16 @@ class DisplayTeachingData
         // $this->prayer_points = $prayer_points;
     }
 
-    public static function from(Teaching $teaching, Reading $reading): DisplayTeachingData
-    {
+    public static function from(
+        Teaching $teaching,
+        Reading $reading,
+        string $name
+    ): DisplayTeachingData {
         return new self(
+            $name,
             $teaching->title,
             $teaching->slug,
+            $teaching->categories,
             $reading->created_at,
             $reading->verse,
             $reading->notes,

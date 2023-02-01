@@ -76,7 +76,7 @@
           :class="{ 'opacity-25': processing }"
           :disabled="processing"
         >
-          Save & Finish
+         Next
         </submit-button>
       </div>
     </template>
@@ -121,21 +121,11 @@ const form = useForm({
 });
 // let form.notes = useStorage("notes", null);
 
-const emit = defineEmits(["next", "prev", "reload"]);
+const emit = defineEmits(["next", "prev"]);
 
 const createTeaching = () => {
-  emit("reload"),
-    form.post(route("users.teachings.store"), {
-      errorBag: "createTeaching",
-      preserveScroll: true,
-      onSuccess: () => {
-        localStorage.removeItem("title");
-        localStorage.removeItem("notes");
-        localStorage.removeItem("verses");
-        localStorage.removeItem("prayer_points");
-        localStorage.removeItem("prayer");
-      },
-    });
+  emit("next")
+    
 };
 
 const back = () => {
@@ -146,9 +136,6 @@ const next = () => {
   emit("next");
 };
 
-const reload = () => {
-  emit("reload");
-};
 
 const notesInput = ref(null);
 </script>

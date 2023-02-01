@@ -44,7 +44,7 @@
           <TableData>
            {{ teaching.title }}
           </TableData>
-          <TableData>{{ teaching.read_verses }}</TableData>
+          <TableData>{{ teaching.verses }}</TableData>
           <TableData >
             <p v-for="point in teaching.notes" :key="point" class="flex gap-1" >
               - {{ point }}

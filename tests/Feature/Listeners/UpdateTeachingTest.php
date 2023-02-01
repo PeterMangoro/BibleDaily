@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Reading;
 use App\Models\Teaching;
+use App\Models\Classification;
 use Illuminate\Support\Facades\Event;
 use App\Events\Update\UpdatingTeaching;
 use App\Listeners\Update\UpdateTeaching;
-use App\Models\Reading;
 
 test('UpdateTeaching Listener is attached to UpdatingTeaching Event', function () {
     Event::fake();
@@ -25,7 +26,9 @@ test('UpdateTeaching Listener actualy updates a Teaching', function () {
         'notes' => '::notes',
         'prayer_points' => '::prayer_points',
         'prayer' => '::prayer',
+        'categories'=>[1,2]
     ]);
+
     $event = new UpdatingTeaching($teaching,$request);
     $listener = new UpdateTeaching();
     $listener->handle($event);

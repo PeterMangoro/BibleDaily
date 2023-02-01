@@ -3,12 +3,13 @@
 use App\Events\Create\CreatingTeaching;
 use Illuminate\Support\Facades\Event;
 
-#you cant test both at the same time.. i dont know why
+//you cant test both at the same time.. i dont know why
 test('CreatingTeaching Event is dispatched', function () {
     login();
 
     Event::fake();
-   $this->post(route('users.teachings.store'), [
+    $this->post(route('users.teachings.store'), [
+        'categories' => [1, 2],
         'title' => '::title->from_post',
         'read' => '::read->from_post',
         'notes' => '::notes',
@@ -18,11 +19,12 @@ test('CreatingTeaching Event is dispatched', function () {
 
     Event::assertDispatched(CreatingTeaching::class);
 });
- 
+
 test('CreatingTeaching Event adds a Teaching into Database', function () {
     login();
 
-   $this->post(route('users.teachings.store'), [
+    $this->post(route('users.teachings.store'), [
+        'categories' => [1, 2],
         'title' => '::title->from_post',
         'read' => '::read->from_post',
         'notes' => '::notes',
@@ -31,5 +33,4 @@ test('CreatingTeaching Event adds a Teaching into Database', function () {
     ])->assertRedirect(route('users.teachings.index'));
 
     $this->assertDatabaseHas('teachings', ['title' => '::title->from_post']);
-
 });

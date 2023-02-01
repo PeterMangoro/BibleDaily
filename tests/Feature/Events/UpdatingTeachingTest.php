@@ -12,6 +12,7 @@ test('UpdatingTeaching Event is dispatched', function () {
 
     Event::fake();
     $this->put(route('users.teachings.update',$teaching->slug), [
+        'title' => '::updated->title->from_post',
         'read' => '::updated->read->from_post',
         'notes' => '::notes',
         'prayer_points' => '::prayer_points',

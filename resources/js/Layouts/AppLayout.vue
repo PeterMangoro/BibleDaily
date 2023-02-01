@@ -33,7 +33,7 @@ const logout = () => {
 
         <Banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gradient-to-r from-blue-50 to-sky-50">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -219,13 +219,14 @@ const logout = () => {
 
                      <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('users.teachings.index')" :active="route().current('users.teachings.index')">
-                            Bible Community
+                            Your Teachings
                         </ResponsiveNavLink>
                     </div>
 
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('teachings.index')" :active="route().current('teachings.index')">
-                            Your Teachings
+                            
+                            Bible Community
                         </ResponsiveNavLink>
                     </div>
 

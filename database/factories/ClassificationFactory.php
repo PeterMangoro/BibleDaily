@@ -17,7 +17,8 @@ class ClassificationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'category_id'=>rand(1,16),
+            'teaching_id'=>rand(1,1000)
         ];
     }
 }

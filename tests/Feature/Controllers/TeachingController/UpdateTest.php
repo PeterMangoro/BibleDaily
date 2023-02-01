@@ -3,6 +3,7 @@
 use App\Models\Reading;
 use App\Models\Teaching;
 use App\Models\BibleSession;
+use App\Models\Classification;
 
 it('updates a Teaching', function () {
     $user = login();
@@ -47,7 +48,12 @@ it('redirect to teachings index page', function () {
 
     Reading::factory()->create([
         'bible_session_id' => $session->id,       
-    ]);  
+    ]); 
+
+    Classification::factory()->create([
+        'category_id' => 1,
+        'teaching_id'=> 1       
+    ]); 
     
     $this->put(route('users.teachings.update',$teaching->slug ),[
         'title' => '::title::',

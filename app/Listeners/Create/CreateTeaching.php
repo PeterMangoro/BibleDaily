@@ -4,7 +4,9 @@ namespace App\Listeners\Create;
 
 use App\Events\Create\CreatingTeaching;
 use App\Models\BibleSession;
+use App\Models\Teaching;
 use App\Services\BibleSessionService;
+use App\Services\CategoryService;
 use App\Services\ReadingService;
 use App\Services\TeachingService;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +38,8 @@ class CreateTeaching
             $bible_session = BibleSession::find($id);
             TeachingService::new_teaching($bible_session, $request);
             ReadingService::new_reading($bible_session, $request);
+            $teaching = Teaching::latest()->first();
+            CategoryService::for_model($teaching, $request->categories);
         });
     }
 }

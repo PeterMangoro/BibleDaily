@@ -29,6 +29,9 @@ class CreateTeachingRequest extends FormRequest
             'notes' => 'required|string',
             'prayer_points' => 'required|string',
             'prayer' => 'nullable|string|max:255',
+            'categories.*' => 'required|integer',
+            'categories' => 'required', #validate if array exists
+
         ];
     }
 }

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
-use Inertia\Response;
-use App\Models\Teaching;
 use App\Handlers\TeachingHandler;
-use Illuminate\Http\RedirectResponse;
-use App\View\Teaching\TeachingEditProps;
-use App\View\Teaching\TeachingIndexProps;
-use App\View\Teaching\TeachingCreateProps;
 use App\Http\Requests\Teaching\CreateTeachingRequest;
 use App\Http\Requests\Teaching\UpdateTeachingRequest;
+use App\Models\Teaching;
+use App\View\Teaching\TeachingCreateProps;
+use App\View\Teaching\TeachingEditProps;
+use App\View\Teaching\TeachingIndexProps;
+use Illuminate\Http\RedirectResponse;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class TeachingController extends Controller
 {

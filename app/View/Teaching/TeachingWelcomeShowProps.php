@@ -19,7 +19,11 @@ class TeachingWelcomeShowProps extends BaseView
     public function teaching(): object
     {
         return // TeachingHandler::get_teaching(
-            DisplayTeachingData::from($this->session->teaching, $this->session->reading);
+            DisplayTeachingData::from(
+                $this->session->teaching,
+                $this->session->reading,
+                $this->session->user->name
+            );
         // );
     }
 

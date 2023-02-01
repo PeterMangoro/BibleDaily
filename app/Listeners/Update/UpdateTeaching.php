@@ -4,6 +4,7 @@ namespace App\Listeners\Update;
 
 use App\Events\Update\UpdatingTeaching;
 use App\Models\Reading;
+use App\Services\CategoryService;
 use App\Services\ReadingService;
 use App\Services\TeachingService;
 
@@ -33,5 +34,6 @@ class UpdateTeaching
 
         TeachingService::update_teaching($teaching, $request);
         ReadingService::update_reading($reading, $request);
+        $request->categories ? CategoryService::for_model($teaching, $request->categories) : null;
     }
 }

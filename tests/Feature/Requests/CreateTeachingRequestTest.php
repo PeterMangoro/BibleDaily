@@ -11,6 +11,7 @@ test('Teaching Creation success with required fields', function () {
         'notes' => '::some_data',
         'prayer_points' => '::some_data',
         'prayer' => '::some_data',
+        'categories' =>[1,2],
     ];
     $this->post(route('users.teachings.store'), $Data)
         ->assertRedirect(route('users.teachings.index'));
@@ -24,6 +25,7 @@ test('Teaching Creation success without prayer field', function () {
         'notes' => '::some_data',
         'prayer_points' => '::some_data',
         'prayer' => null,
+        'categories' =>[1,2],
     ];
     $this->post(route('users.teachings.store'), $Data)
         ->assertRedirect(route('users.teachings.index'));
@@ -48,8 +50,13 @@ test('Create teaching fails', function ($Data, $key) {
             'notes' => '::some_data',
             'prayer_points' => '::some_data',
             'prayer' => '::some_data',
+            'categories' =>[1,2],
         ];
         [
+            yield 'missing categories' =>  [
+                Arr::except($all, 'categories'), 'categories'
+            ],
+
             yield 'missing title' =>  [
                 Arr::except($all, 'title'), 'title'
             ],

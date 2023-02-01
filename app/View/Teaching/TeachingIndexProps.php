@@ -20,7 +20,11 @@ class TeachingIndexProps extends BaseView
             9
         )
             ->through(
-                fn ($session) => DisplayTeachingData::from($session->teaching, $session->reading),
+                fn ($session) => DisplayTeachingData::from(
+                    $session->teaching,
+                    $session->reading,
+                    $session->user->name
+                ),
             );
     }
 

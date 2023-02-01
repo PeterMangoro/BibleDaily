@@ -7,6 +7,7 @@ use App\Http\Requests\Teaching\CreateTeachingRequest;
 class CreateTeachingData
 {
     public function __construct(
+        public readonly  array $categories,
         public readonly  string $title,
         public readonly  string $read,
         public readonly  string $notes,
@@ -23,6 +24,7 @@ class CreateTeachingData
     public static function from(CreateTeachingRequest $request): CreateTeachingData
     {
         return new self(
+            $request->categories,
             $request->title,
             $request->read,
             $request->notes,

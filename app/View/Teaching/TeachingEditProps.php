@@ -7,9 +7,10 @@ use Djunehor\Logos\Bible;
 use App\Models\BibleSession;
 use App\View\Shared\Filters;
 use App\View\Shared\BaseView;
-use App\Handlers\TeachingHandler;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use App\DataObjects\Display\DisplayTeachingData;
+use App\Models\Category;
 
 class TeachingEditProps extends BaseView
 {
@@ -23,14 +24,21 @@ class TeachingEditProps extends BaseView
 
     public function teaching()
     {
-        return 
-            DisplayTeachingData::from($this->session->teaching, $this->session->reading);
-      
+        return DisplayTeachingData::from(
+            $this->session->teaching,
+             $this->session->reading,
+             Auth::user()->name            
+            );
     }
-  
+
     public function books(): Collection
     {
         return BibleBook::toBase()->select('title', 'chapters', 'testament')->get()->groupBy('testament');
+    }
+
+    public function categories(): Collection
+    {
+        return Category::toBase()->select('id','title')->get();
     }
 
     /**

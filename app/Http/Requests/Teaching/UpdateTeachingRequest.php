@@ -29,6 +29,7 @@ class UpdateTeachingRequest extends FormRequest
             'notes' => 'required|string',
             'prayer_points' => 'required|string',
             'prayer' => 'nullable|string|max:255',
+            'categories.*' => 'nullable|integer',
         ];
     }
 }

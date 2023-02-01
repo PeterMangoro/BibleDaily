@@ -1,6 +1,6 @@
 
 <template >
-  <form-section @submitted="createTeaching">
+  <form-section @submitted="addBibleNotes">
     <template #title> Lessons Learnt </template>
 
     <template #description>
@@ -75,22 +75,12 @@
           :class="{ 'opacity-25': processing }"
           :disabled="processing"
         >
-          Save & Finish
+          Next
         </submit-button>
       </div>
     </template>
   </form-section>
-  <div v-if="form.hasErrors" class="m-auto mt-3">
-    <div class="w-auto gap-3 p-2 bg-white rounded-md">
-      <div
-        v-for="error in form.errors"
-        :key="error.id"
-        class="py-3 text-red-600"
-      >
-        *{{ error }}
-      </div>
-    </div>
-  </div>
+  
 </template>
 <script setup>
 import { ref, watch } from "vue";
@@ -118,42 +108,14 @@ let prayer_points = useStorage(
 );
 let prayer = useStorage("prayer", props.teaching.prayer);
 
-const form = useForm({
-  title: title.value,
-  notes: notes.value,
-  read: verses.value,
-  prayer_points: prayer_points.value,
-  prayer:prayer.value || 'No Prayer Avalable',  //havent found a way to remove prayer once saved
-  remember: true,
-});
-
-const emit = defineEmits(["next", "prev", "reload"]);
-
-const createTeaching = () => {
-  emit("reload"),
-    form.put(route("users.teachings.update", props.teaching.slug), {
-      errorBag: "createTeaching",
-      preserveScroll: true,
-      onSuccess: () => {
-        localStorage.removeItem("title");
-        localStorage.removeItem("notes");
-        localStorage.removeItem("verses");
-        localStorage.removeItem("prayer_points");
-        localStorage.removeItem("prayer");
-      },
-    });
-};
+const emit = defineEmits(["next", "prev"]);
 
 const back = () => {
   emit("prev");
 };
 
-const next = () => {
+const addBibleNotes = () => {
   emit("next");
-};
-
-const reload = () => {
-  emit("reload");
 };
 
 const notesInput = ref(null);

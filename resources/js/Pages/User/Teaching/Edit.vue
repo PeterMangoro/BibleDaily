@@ -4,8 +4,7 @@
       <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div v-if="step_one">
           <bible-select-form
-            @next="go_to_step_two"
-            @reload="forceRerender"
+            @next="go_to_step_two"           
             :books="data.books"
             :bible="data.bible"
             :teaching="data.teaching"
@@ -13,13 +12,24 @@
         </div>
 
         <div v-if="step_two">
-          <create-notes-form
+          <update-notes-form
             :key="componentKey"
             @prev="go_to_step_one"
             :teaching="data.teaching"
-            @reload="forceRerender"
+           @next="go_to_step_three"  
           />
         </div>
+        
+         <div v-if="step_three">
+          <update-categories-form
+            :key="componentKey"
+            @prev="go_to_step_one"
+            :teaching="data.teaching"
+            :categories="data.categories"
+           @next="go_to_step_three"  
+          />
+        </div>
+        
       </div>
     </div>
   </app-layout>
@@ -29,7 +39,8 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import { ref } from "vue";
 import { router } from "@inertiajs/vue3";
 import BibleSelectForm from "@/Pages/User/Teaching/Partials/Update/BibleSelectForm.vue";
-import CreateNotesForm from "@/Pages/User/Teaching/Partials/Update/CreateNotesForm.vue";
+import UpdateNotesForm from "@/Pages/User/Teaching/Partials/Update/UpdateNotesForm.vue";
+import UpdateCategoriesForm from "@/Pages/User/Teaching/Partials/Update/UpdateCategoriesForm.vue";
 
 const props = defineProps({
   data: Object,
@@ -37,6 +48,7 @@ const props = defineProps({
 
 const step_one = ref(true);
 const step_two = ref(false);
+const step_three = ref(false);
 
 function showCategoryType(type) {
   categoryType.value = type;
@@ -50,13 +62,8 @@ function go_to_step_two() {
   reset(), (step_two.value = true);
 }
 
-const componentKey = ref(0);
-
-function forceRerender() {
-  componentKey.value += 1;
+function go_to_step_three() {
+  reset(), (step_three.value = true);
 }
 
-function reset() {
-  forceRerender(), (step_one.value = false), (step_two.value = false);
-}
 </script>

@@ -20,7 +20,8 @@ test('CreateTeaching Listener actualy creates a Teaching', function () {
         'read' => '::read_from_listener',
         'notes' => '::notes',
         'prayer_points' => '::prayer_points',
-        'prayer' => '::prayer',      
+        'prayer' => '::prayer',  
+        'categories'=>[1,2,3]    
     ]);
     $event = new CreatingTeaching($request);
     $listener = new CreateTeaching();

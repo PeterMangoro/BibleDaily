@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             BibleBookSeeder::class,
-            
+            CategorySeeder::class
         ]);
     }
 }
