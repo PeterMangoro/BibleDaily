@@ -34,12 +34,12 @@ class CreateTeaching
         $request = $event->request;
 
         DB::transaction(function () use ($request) {
-            $id = BibleSessionService::new_session();
+            $id = BibleSessionService::newSession();
             $bible_session = BibleSession::find($id);
-            TeachingService::new_teaching($bible_session, $request);
-            ReadingService::new_reading($bible_session, $request);
+            TeachingService::newTeaching($bible_session, $request);
+            ReadingService::newReading($bible_session, $request);
             $teaching = Teaching::latest()->first();
-            CategoryService::for_model($teaching, $request->categories);
+            CategoryService::forModel($teaching, $request->categories);
         });
     }
 }

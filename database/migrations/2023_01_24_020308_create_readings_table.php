@@ -19,10 +19,10 @@ return new class extends Migration
             $table->foreignId('bible_session_id');
             $table->string('verse');
             $table->string('verse_normalized')->virtualAs("regexp_replace(verse,'[^A-Za-z0-9]','')")->index();
-            $table->string('notes');
-            $table->string('notes_normalized')->virtualAs("regexp_replace(notes,'[^A-Za-z0-9]','')")->index();
-            $table->string('prayer_points')->nullable();
-            $table->string('prayer')->nullable();
+            $table->text('notes')->fulltext();
+            $table->text('notes_normalized')->virtualAs("regexp_replace(notes,'[^A-Za-z0-9]','')")->index();
+            $table->text('prayer_points')->nullable();
+            $table->text('prayer')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

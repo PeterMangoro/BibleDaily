@@ -32,8 +32,8 @@ class UpdateTeaching
         $request = $event->request;
         $reading = (new Reading())->findBibleSession($teaching->bible_session_id);
 
-        TeachingService::update_teaching($teaching, $request);
-        ReadingService::update_reading($reading, $request);
-        $request->categories ? CategoryService::for_model($teaching, $request->categories) : null;
+        TeachingService::updateTeaching($teaching, $request);
+        ReadingService::updateReading($reading, $request);
+        $request->categories ? CategoryService::forModel($teaching, $request->categories) : null;
     }
 }

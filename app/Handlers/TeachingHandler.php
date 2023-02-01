@@ -12,29 +12,29 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class TeachingHandler
 {
-    public static function get_teachings(object $data, ?int $paginate = 9): LengthAwarePaginator
+    public static function getTeachings(object $data, ?int $paginate = 9): LengthAwarePaginator
     {
-        return TeachingService::get_teachings($data, $paginate);
+        return TeachingService::getTeachings($data, $paginate);
     }
 
-    public static function store_teaching(object $request): void
+    public static function storeTeaching(object $request): void
     {
         $validated_request = CreateTeachingData::from($request);
         event(new CreatingTeaching($validated_request));
     }
 
-    public static function update_teaching(object $teaching, object $request): void
+    public static function updateTeaching(object $teaching, object $request): void
     {
         $validated_request = UpdateTeachingData::from($request);
         event(new UpdatingTeaching($teaching, $validated_request));
     }
 
-    public static function get_teaching(object $data): object
+    public static function getTeaching(object $data): object
     {
-        return TeachingService::get_teaching($data);
+        return TeachingService::getTeaching($data);
     }
 
-    public static function delete_teaching(object $teaching): void
+    public static function deleteTeaching(object $teaching): void
     {
         DeleteTeachingAction::handle($teaching);
     }

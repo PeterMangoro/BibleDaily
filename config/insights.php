@@ -65,7 +65,8 @@ return [
     */
 
     'exclude' => [
-        //  'path/to/directory-or-file'
+         'lang/*',
+         'app/Http/Middleware/*'
     ],
 
     'add' => [

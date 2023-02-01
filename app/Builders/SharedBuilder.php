@@ -13,6 +13,6 @@ trait SharedBuilder
 
     public function belongsToAuthUser()
     {
-        return $this->whereRelation('bible_session', 'user_id', '=', Auth::user()->id);
+        return $this->whereRelation('bibleSession', 'user_id', '=', Auth::user()->id);
     }
 }

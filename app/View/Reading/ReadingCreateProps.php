@@ -12,7 +12,10 @@ class ReadingCreateProps extends BaseView
 {
     public function books(): Collection
     {
-        return BibleBook::toBase()->select('title', 'chapters', 'testament')->get()->groupBy('testament');
+        return BibleBook::toBase()
+            ->select('title', 'chapters', 'testament')
+            ->get()
+            ->groupBy('testament');
     }
 
     /**

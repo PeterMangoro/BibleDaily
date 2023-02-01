@@ -13,7 +13,7 @@ class TeachingWelcomeIndexProps extends BaseView
 {
     public function teachings(): LengthAwarePaginator
     {
-        return TeachingHandler::get_teachings(
+        return TeachingHandler::getTeachings(
             BibleSession::with('teaching.categories', 'reading', 'user')
                 ->search(request('search'))
                 ->has('teaching'),

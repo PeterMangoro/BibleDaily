@@ -6,7 +6,7 @@ use App\Actions\BibleSession\CreateBibleSession;
 
 class BibleSessionService
 {
-    public static function new_session(): int
+    public static function newSession(): int
     {
         return CreateBibleSession::handle();
     }

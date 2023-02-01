@@ -8,7 +8,7 @@ use App\Services\BibleSessionService;
 
 test('that reading service can create a new reading ', function () {
     login();
-    BibleSessionService::new_session();
+    BibleSessionService::newSession();
     $session = BibleSession::first();
     $request = (object)([
         'read' => 'Genesis4:8',
@@ -16,7 +16,7 @@ test('that reading service can create a new reading ', function () {
         'prayer_points' => '$request->prayer_points',
         'prayer' => '$request->prayer',
     ]);
-    ReadingService::new_reading($session, $request);
+    ReadingService::newReading($session, $request);
 
     $this->assertDatabaseHas('readings', [
         'verse' => 'Genesis4:8'
@@ -33,7 +33,7 @@ test('that reading service can update an existing reading ', function () {
         'prayer_points' => '::updated_points',
         'prayer' => '::updated_prayer',
     ]);
-    ReadingService::update_reading($reading, $request);
+    ReadingService::updateReading($reading, $request);
 
     $this->assertEquals('::updated_read', $reading->fresh()->verse);
     $this->assertEquals(MakePoints::from('::updated_notes'), $reading->fresh()->notes);
@@ -44,7 +44,7 @@ test('that reading service can update an existing reading ', function () {
 test('that reading service can get readings ', function () {
     Reading::factory(2)->create();
 
-    $response = ReadingService::get_readings(new Reading());
+    $response = ReadingService::getReadings(new Reading());
 
     $this->assertNotEmpty($response);
 });

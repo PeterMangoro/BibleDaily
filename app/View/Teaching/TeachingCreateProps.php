@@ -2,18 +2,21 @@
 
 namespace App\View\Teaching;
 
-use App\Models\Category;
 use App\Models\BibleBook;
-use Djunehor\Logos\Bible;
-use App\View\Shared\Filters;
+use App\Models\Category;
 use App\View\Shared\BaseView;
+use App\View\Shared\Filters;
+use Djunehor\Logos\Bible;
 use Illuminate\Support\Collection;
 
 class TeachingCreateProps extends BaseView
 {
     public function books(): Collection
     {
-        return BibleBook::toBase()->select('title', 'chapters', 'testament')->get()->groupBy('testament');
+        return BibleBook::toBase()
+            ->select('title', 'chapters', 'testament')
+            ->get()
+            ->groupBy('testament');
     }
 
     /**
@@ -29,7 +32,7 @@ class TeachingCreateProps extends BaseView
 
     public function categories(): Collection
     {
-        return Category::toBase()->select('id','title')->get();
+        return Category::toBase()->select('id', 'title')->get();
     }
     /**
      * @return array<int , string>

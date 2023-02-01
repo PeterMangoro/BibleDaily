@@ -15,7 +15,7 @@ class GetTeachingsAction
             ->withQueryString();
     }
 
-    public static function handle_one(object $data): object
+    public static function handleOne(object $data): object
     {
         return $data
             // ->selectDetailAttributes()

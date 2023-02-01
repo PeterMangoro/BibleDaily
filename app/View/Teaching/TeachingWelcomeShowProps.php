@@ -13,12 +13,13 @@ class TeachingWelcomeShowProps extends BaseView
     public function __construct(
         public readonly string $slug,
     ) {
-        $this->session = BibleSession::whereRelation('teaching', 'slug', $slug)->first();
+        $this->session =
+            BibleSession::whereRelation('teaching', 'slug', $slug)->first();
     }
 
     public function teaching(): object
     {
-        return // TeachingHandler::get_teaching(
+        return // TeachingHandler::getTeaching(
             DisplayTeachingData::from(
                 $this->session->teaching,
                 $this->session->reading,

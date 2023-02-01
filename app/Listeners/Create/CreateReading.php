@@ -31,9 +31,9 @@ class CreateReading
         $request = $event->request;
 
         DB::transaction(function () use ($request) {
-            $id = BibleSessionService::new_session();
+            $id = BibleSessionService::newSession();
             $bible_session = BibleSession::find($id);
-            ReadingService::new_reading($bible_session, $request);
+            ReadingService::newReading($bible_session, $request);
         });
     }
 }

@@ -38,13 +38,13 @@ class TeachingController extends Controller
 
     public function store(CreateTeachingRequest $request): RedirectResponse
     {
-        TeachingHandler::store_teaching($request);
+        TeachingHandler::storeTeaching($request);
         return to_route('users.teachings.index');
     }
 
     public function update(Teaching $teaching, UpdateTeachingRequest $request): RedirectResponse
     {
-        TeachingHandler::update_teaching($teaching, $request);
+        TeachingHandler::updateTeaching($teaching, $request);
         return to_route('users.teachings.index');
     }
 }

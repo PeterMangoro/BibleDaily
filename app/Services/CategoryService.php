@@ -6,7 +6,7 @@ use App\Actions\Category\AddCategory;
 
 class CategoryService
 {
-    public static function for_model(object $model, array $categories)
+    public static function forModel(object $model, array $categories)
     {
         return AddCategory::handle($model, $categories);
     }

@@ -13,8 +13,9 @@ class ReadingIndexProps extends BaseView
 {
     public function readings(): LengthAwarePaginator
     {
-        return ReadingHandler::get_readings(
-            (new Reading())->belongsToAuthUser()->latest('id'),
+        return ReadingHandler::getReadings(
+            (new Reading())->belongsToAuthUser()
+                ->latest('id'),
             9
         )
             ->through(

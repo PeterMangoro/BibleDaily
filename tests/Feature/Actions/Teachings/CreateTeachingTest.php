@@ -7,7 +7,7 @@ use App\Services\BibleSessionService;
 it('creates a Teaching Model', function () {
 
     login();
-    $id = BibleSessionService::new_session();
+    $id = BibleSessionService::newSession();
 
     $session = BibleSession::find($id);
     // dd($session);

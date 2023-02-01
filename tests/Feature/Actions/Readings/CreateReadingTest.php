@@ -7,7 +7,7 @@ use App\Services\BibleSessionService;
 it('creates a Reading Model', function () {
 
     login();
-    $id = BibleSessionService::new_session();
+    $id = BibleSessionService::newSession();
 
     $session = BibleSession::find($id);
 
@@ -17,7 +17,7 @@ it('creates a Reading Model', function () {
         'prayer_points' => '::prayer_points::',
         'prayer' => '::prayer::',
     ]);
-    
+
     CreateReadingAction::handle($session, $request);
     $this->assertDatabaseHas('readings', [
         'verse' => '::read::'

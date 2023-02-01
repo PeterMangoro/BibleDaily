@@ -66,7 +66,7 @@ class User extends Authenticatable
         return $this->hasMany(Social::class);
     }
 
-    public function bible_sessions(): HasMany
+    public function bibleSessions(): HasMany
     {
         return $this->hasMany(BibleSession::class);
     }
