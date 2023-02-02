@@ -18,8 +18,9 @@ class UpdateReadingData
         // $this->prayer = $prayer;
     }
 
-    public static function from(UpdateReadingRequest $request): UpdateReadingData
-    {
+    public static function from(
+        UpdateReadingRequest $request
+    ): UpdateReadingData {
         return new self(
             $request->read,
             $request->notes,

@@ -11,6 +11,7 @@ class DisplayReadingData
      * @param array<string> $prayer_points
      */
     public function __construct(
+        public readonly  string $uuid,
         public readonly  string $read_date,
         public readonly  string $read_verses,
         public readonly  array $notes,
@@ -25,6 +26,7 @@ class DisplayReadingData
     public static function from(?Reading $reading): DisplayReadingData
     {
         return new self(
+            $reading->uuid,
             $reading->created_at,
             $reading->verse,
             $reading->notes,

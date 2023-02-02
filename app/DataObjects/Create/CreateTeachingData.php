@@ -24,8 +24,9 @@ class CreateTeachingData
         // $this->prayer = $prayer;
     }
 
-    public static function from(CreateTeachingRequest $request): CreateTeachingData
-    {
+    public static function from(
+        CreateTeachingRequest $request
+    ): CreateTeachingData {
         return new self(
             $request->categories,
             $request->title,

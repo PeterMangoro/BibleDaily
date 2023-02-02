@@ -27,11 +27,20 @@ class BibleSessionBuilder extends Builder
             $query
                 ->whereRelation('teaching', 'title_normalized', 'like', $term)
                 ->orWhere(function ($query) use ($term) {
-                    $query->orwhereRelation('reading', 'notes_normalized', 'like', $term)
-                        ->orWhereRelation('reading', 'verse_normalized', 'like', $term);
-                })
-
-            ;
+                    $query
+                        ->orwhereRelation(
+                            'reading',
+                            'notes_normalized',
+                            'like',
+                            $term
+                        )
+                        ->orWhereRelation(
+                            'reading',
+                            'verse_normalized',
+                            'like',
+                            $term
+                        );
+                });
         });
     }
 }

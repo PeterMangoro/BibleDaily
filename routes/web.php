@@ -2,11 +2,10 @@
 
 use App\Http\Controllers\ReadingController;
 use App\Http\Controllers\TeachingController;
-use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\WelcomeTeachingController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('/', [WelcomeTeachingController::class, 'index'])->name('welcome');
 Route::resource('teachings', WelcomeTeachingController::class)
     ->only('index', 'show');
 
@@ -19,7 +18,8 @@ Route::middleware([
         ->name('users.')
         ->group(function () {
             Route::resource('readings', ReadingController::class)
-                ->except('delete', 'show');
+                ->except('delete', 'show')
+                ->scoped(['reading' => 'uuid']);
             Route::resource('teachings', TeachingController::class)
                 ->scoped(['teaching' => 'slug']);
         });

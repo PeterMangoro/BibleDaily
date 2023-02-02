@@ -67,10 +67,13 @@ return [
     'exclude' => [
          'lang',
          'app/Http/Middleware',
+         'app/Http/Kernel',
          'app/Exceptions',
          'app/Console',
          'app/Providers',
-         'app/Casts'
+         'app/Casts',
+         'app/Actions/Fortify',
+         'app/Actions/Jetstream'
     ],
 
     'add' => [
@@ -90,6 +93,7 @@ return [
         PropertyTypeHintSniff::class,
         ReturnTypeHintSniff::class,
         UselessFunctionDocCommentSniff::class,
+        DisallowShortTernaryOperator::class,
     ],
 
     'config' => [

@@ -11,8 +11,10 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class ReadingHandler
 {
-    public static function getReadings(object $data, ?int $paginate = 9): LengthAwarePaginator
-    {
+    public static function getReadings(
+        object $data,
+        ?int $paginate = 9
+    ): LengthAwarePaginator {
         return ReadingService::getReadings($data, $paginate);
     }
 
@@ -23,8 +25,10 @@ class ReadingHandler
         event(new CreatingReading($validated_request));
     }
 
-    public static function updateReading(object $reading, object $request): void
-    {
+    public static function updateReading(
+        object $reading,
+        object $request
+    ): void {
         $validated_request = UpdateReadingData::from($request);
         event(new UpdatingReading($reading, $validated_request));
     }

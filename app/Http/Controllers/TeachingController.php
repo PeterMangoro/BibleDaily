@@ -42,8 +42,10 @@ class TeachingController extends Controller
         return to_route('users.teachings.index');
     }
 
-    public function update(Teaching $teaching, UpdateTeachingRequest $request): RedirectResponse
-    {
+    public function update(
+        Teaching $teaching,
+        UpdateTeachingRequest $request
+    ): RedirectResponse {
         TeachingHandler::updateTeaching($teaching, $request);
         return to_route('users.teachings.index');
     }

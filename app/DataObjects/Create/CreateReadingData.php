@@ -18,8 +18,9 @@ class CreateReadingData
         // $this->prayer = $prayer;
     }
 
-    public static function from(CreateReadingRequest $request): CreateReadingData
-    {
+    public static function from(
+        CreateReadingRequest $request
+    ): CreateReadingData {
         return new self(
             $request->read,
             $request->notes,

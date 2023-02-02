@@ -6,8 +6,10 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class GetTeachingsAction
 {
-    public static function handle(object $data, ?int $paginate = 9): LengthAwarePaginator
-    {
+    public static function handle(
+        object $data,
+        ?int $paginate = 9
+    ): LengthAwarePaginator {
         $paginate = request('per_page') ?: $paginate;
         return $data
             ->selectDetailAttributes()

@@ -4,8 +4,10 @@ namespace App\Actions\Reading;
 
 class UpdateReadingAction
 {
-    public static function handle(object $reading, object $request): void
-    {
+    public static function handle(
+        object $reading,
+        object $request
+    ): void {
         $reading->verse = $request->read;
         $reading->notes = $request->notes;
         $reading->prayer_points = $request->prayer_points;

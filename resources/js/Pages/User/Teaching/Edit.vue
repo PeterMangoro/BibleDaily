@@ -12,8 +12,7 @@
         </div>
 
         <div v-if="step_two">
-          <update-notes-form
-            :key="componentKey"
+          <update-notes-form            
             @prev="go_to_step_one"
             :teaching="data.teaching"
            @next="go_to_step_three"  
@@ -21,8 +20,7 @@
         </div>
         
          <div v-if="step_three">
-          <update-categories-form
-            :key="componentKey"
+          <update-categories-form            
             @prev="go_to_step_one"
             :teaching="data.teaching"
             :categories="data.categories"

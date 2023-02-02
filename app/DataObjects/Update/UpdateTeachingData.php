@@ -24,8 +24,9 @@ class UpdateTeachingData
         // $this->prayer = $prayer;
     }
 
-    public static function from(UpdateTeachingRequest $request): UpdateTeachingData
-    {
+    public static function from(
+        UpdateTeachingRequest $request
+    ): UpdateTeachingData {
         return new self(
             $request->title,
             $request->read,

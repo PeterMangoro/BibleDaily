@@ -7,8 +7,10 @@ class AddCategory
     /**
      * @param array<int , int> $categories
      */
-    public static function handle(object $model, array $categories): void
-    {
+    public static function handle(
+        object $model,
+        array $categories
+    ): void {
         $model->categories()->sync($categories);
     }
 }

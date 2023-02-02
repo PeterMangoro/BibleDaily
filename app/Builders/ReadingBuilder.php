@@ -9,6 +9,7 @@ class ReadingBuilder extends Builder
     public function selectDetailAttributes()
     {
         return $this->select(
+            'uuid',
             'bible_session_id',
             'verse',
             'notes',
