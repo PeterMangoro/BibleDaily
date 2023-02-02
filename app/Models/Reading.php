@@ -28,15 +28,6 @@ class Reading extends SharedModel
         // 'points' => MakePointsCast::class, #when they are related
     ];
 
-    // protected $appends = ['date_read'];
-
-    // protected function dateRead(): Attribute
-    // {
-    //     return  Attribute::make(
-    //         get: fn ($value,$attributes) => Date::readable($attributes['created_at']),
-    //     );
-    // }
-
     public function newEloquentBuilder($query): ReadingBuilder
     {
         return new ReadingBuilder($query);

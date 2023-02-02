@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TeachingEditProps extends BaseView
 {
-    public $session;
+    public object $session;
 
     public function __construct(
         public readonly string $slug,
@@ -23,7 +23,7 @@ class TeachingEditProps extends BaseView
             BibleSession::whereRelation('teaching', 'slug', $slug)->first();
     }
 
-    public function teaching()
+    public function teaching(): DisplayTeachingData
     {
         return DisplayTeachingData::from(
             $this->session->teaching,
@@ -44,6 +44,7 @@ class TeachingEditProps extends BaseView
     {
         return Category::toBase()
             ->select('id', 'title')
+            ->orderBy('title')
             ->get();
     }
 

@@ -6,6 +6,9 @@ use App\Http\Requests\Teaching\UpdateTeachingRequest;
 
 class UpdateTeachingData
 {
+    /**
+     * @param array<int> $categories
+     */
     public function __construct(
         public readonly  ?string $title,
         public readonly  ?string $read,

@@ -65,5 +65,9 @@ function go_to_step_two() {
 function go_to_step_three() {
   reset(), (step_three.value = true);
 }
-
+function reset() {
+  (step_one.value = false),
+   (step_two.value = false);
+   (step_three.value = false);
+}
 </script>

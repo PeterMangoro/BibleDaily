@@ -31,8 +31,8 @@
            <TableHead>Title</TableHead>
           <TableHead>Verses</TableHead>
           <TableHead>Notes</TableHead>
-          <TableHead>Prayer Points</TableHead>
-           <TableHead>Prayer</TableHead>
+          <!-- <TableHead>Prayer Points</TableHead> -->
+           <!-- <TableHead>Prayer</TableHead> -->
 
           <TableHead class="text-center"></TableHead>
         </template>
@@ -52,17 +52,17 @@
             </TableData
           >
          
-          <TableData>
+          <!-- <TableData>
             <p v-for="point in teaching.prayer_points" :key="point" class="flex gap-1" >
               - {{ point }}
             </p>
-            <!-- {{ teaching.prayer_points }} -->
-            </TableData>
-          <TableData>
+       
+            </TableData> -->
+          <!-- <TableData>
             <p v-if="teaching.prayer === 'No Prayer Available'" class="text-red-500">{{ teaching.prayer }}</p>
           <p v-else>{{ teaching.prayer }}</p>
            
-          </TableData>
+          </TableData> -->
           <TableData>
             <div class="flex space-x-1">
              

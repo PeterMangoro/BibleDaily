@@ -9,8 +9,10 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class TeachingService
 {
-    public static function getTeachings(object $data, ?int $paginate = 9): LengthAwarePaginator
-    {
+    public static function getTeachings(
+        object $data,
+        ?int $paginate = 9
+    ): LengthAwarePaginator {
         return GetTeachingsAction::handle($data, $paginate);
     }
 
@@ -19,13 +21,17 @@ class TeachingService
         return GetTeachingsAction::handleOne($data);
     }
 
-    public static function newTeaching(object $bible_session, object $request): void
-    {
+    public static function newTeaching(
+        object $bible_session,
+        object $request
+    ): void {
         CreateTeachingAction::handle($bible_session, $request);
     }
 
-    public static function updateTeaching(object $teaching, object $request): void
-    {
+    public static function updateTeaching(
+        object $teaching,
+        object $request
+    ): void {
         UpdateTeachingAction::handle($teaching, $request);
     }
 }

@@ -6,6 +6,9 @@ use App\Http\Requests\Teaching\CreateTeachingRequest;
 
 class CreateTeachingData
 {
+    /**
+     * @param array<int> $categories
+     */
     public function __construct(
         public readonly  array $categories,
         public readonly  string $title,

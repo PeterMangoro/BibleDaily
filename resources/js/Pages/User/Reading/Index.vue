@@ -31,54 +31,31 @@
           <TableHead>Verses</TableHead>
           <TableHead>Notes</TableHead>
           <TableHead>Prayer Points</TableHead>
-          
 
           <TableHead class="text-center"></TableHead>
         </template>
-        <TableRow
-          v-for="reading in data.readings.data"
-          :key="reading.id"
-        >
+        <TableRow v-for="reading in data.readings.data" :key="reading.id">
           <TableData>
-           {{ reading.read_date }}
+            {{ reading.read_date }}
           </TableData>
           <TableData>{{ reading.read_verses }}</TableData>
-          <TableData >
-            <p v-for="point in reading.notes" :key="point" class="flex gap-1" >
+          <TableData class="w-1/3">
+            <p v-for="point in reading.notes" :key="point" class="flex gap-1">
               - {{ point }}
             </p>
-            </TableData
-          >
-         
+          </TableData>
+
           <TableData>
-            <p v-for="point in reading.prayer_points" :key="point" class="flex gap-1" >
+            <p
+              v-for="point in reading.prayer_points"
+              :key="point"
+              class="flex gap-1"
+            >
               - {{ point }}
             </p>
-            <!-- {{ reading.prayer_points }} -->
-            </TableData>
-         
-          <!-- <TableData>
-            <div class="flex space-x-1">
-             
-              <botton
-               @click="showUpdateForm(reading)"
-                class="inline-flex items-center px-4 py-2 text-sm font-semibold tracking-widest text-white transition bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-800 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring focus:ring-indigo-300 disabled:opacity-25 hover:cursor-pointer"
-                link="route('users.readings.edit', reading.uuid)"
-                >View</botton
-              >
-              
-            </div>
-          </TableData> -->
+          </TableData>
         </TableRow>
       </Table>
-      <!-- table End -->
-
-      <!-- <div v-if="showForm">
-        <update-reading-form 
-        :reading="selectedReading"
-        @close="showForm = false"
-         />
-      </div> -->
     </div>
   </app-layout>
 </template>
@@ -92,17 +69,16 @@ import TableHead from "@/Components/Shared/Table/TableHead.vue";
 import TableRow from "@/Components/Shared/Table/TableRow.vue";
 import ButtonLink from "@/Components/Shared/Table/ButtonLink.vue";
 import SearchTable from "@/Components/Shared/Table/SearchTable.vue";
-// import UpdateReadingForm from "@/Pages/User/Reading/Partials/Update/UpdateReadingForm.vue"
 
 const props = defineProps({
   data: Object,
 });
 
-const showForm = ref(false)
-const selectedReading = ref(null)
+const showForm = ref(false);
+const selectedReading = ref(null);
 
 function showUpdateForm(reading) {
-  selectedReading.value = reading
-  showForm.value=true
+  selectedReading.value = reading;
+  showForm.value = true;
 }
 </script>

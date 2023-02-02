@@ -4,7 +4,10 @@ namespace App\Actions\Category;
 
 class AddCategory
 {
-    public static function handle(object $model, array $categories)
+    /**
+     * @param array<int , int> $categories
+     */
+    public static function handle(object $model, array $categories): void
     {
         $model->categories()->sync($categories);
     }

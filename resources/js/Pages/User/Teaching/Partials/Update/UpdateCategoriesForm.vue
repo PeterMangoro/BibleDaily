@@ -41,9 +41,10 @@
         </span>
         <p class="my-1 border-b-2"></p>
         <input-error class="mt-2" :message="form.errors.categories" />
-        <span  :key="id" class="flex gap-2">
-          <span>
+        <span  :key="id" class="flex flex-wrap justify-start gap-2">
+        
             <check-box-group
+            class="w-auto w"
               v-for="category in categories"
               :key="category.id"
               :items="[
@@ -54,7 +55,7 @@
               ]"
               @on-change="onChange"
             />
-          </span>
+          
         </span>
       </div>
       <input-error
@@ -100,6 +101,11 @@ import TextArea from "@/Components/Shared/Form/TextArea.vue";
 import InputError from "@/Components/Shared/Form/InputError.vue";
 import InputLabel from "@/Components/Shared/Form/InputLabel.vue";
 import CheckBoxGroup from "@/Components/Shared/Checkbox/check-box-group.vue";
+import {
+  ChevronDoubleRightIcon,
+  CheckCircleIcon,
+} from "@heroicons/vue/24/solid";
+import { InformationCircleIcon } from "@heroicons/vue/24/outline";
 import { useStorage } from "@/Composables/useStorage";
 
 const title = useStorage("title",null);

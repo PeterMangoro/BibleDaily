@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'ide' => null,
+    'ide' => "vscode",
 
     /*
     |--------------------------------------------------------------------------
@@ -65,8 +65,12 @@ return [
     */
 
     'exclude' => [
-         'lang/*',
-         'app/Http/Middleware/*'
+         'lang',
+         'app/Http/Middleware',
+         'app/Exceptions',
+         'app/Console',
+         'app/Providers',
+         'app/Casts'
     ],
 
     'add' => [

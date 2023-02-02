@@ -34,6 +34,8 @@ class UpdateTeaching
 
         TeachingService::updateTeaching($teaching, $request);
         ReadingService::updateReading($reading, $request);
-        $request->categories ? CategoryService::forModel($teaching, $request->categories) : null;
+        $request->categories ?
+            CategoryService::forModel($teaching, $request->categories) :
+            null;
     }
 }
