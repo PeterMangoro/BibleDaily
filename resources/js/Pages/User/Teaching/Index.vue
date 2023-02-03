@@ -21,7 +21,7 @@
       </div>
 
       <Table
-        heading="Read Verses"
+        heading="Teachings"
         :pagination="data.teachings.links"
         path="users.teachings.create"
         button="Add new Teaching"
@@ -41,13 +41,13 @@
           :key="teaching.id"
         >
          
-          <TableData>
-           {{ teaching.title }}
+          <TableData >
+           <p class="font-semibold">{{ teaching.title }}</p>
           </TableData>
           <TableData>{{ teaching.verses }}</TableData>
-          <TableData >
-            <p v-for="point in teaching.notes" :key="point" class="flex gap-1" >
-              - {{ point }}
+          <TableData class="w-6/12">
+            <p v-for="(point,index) in teaching.notes" :key="index" class="flex gap-1 line-clamp-1" >
+              <span v-if="index < 3"> - {{ point }} </span>
             </p>
             </TableData
           >
@@ -73,12 +73,12 @@
                 >View</Link
               >
 
-               <botton
+               <!-- <botton
                @click="showUpdateForm(teaching)"
                 class="inline-flex items-center px-4 py-2 text-sm font-semibold tracking-widest text-white transition bg-red-600 border border-transparent rounded-md hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring focus:ring-red-300 disabled:opacity-25 hover:cursor-pointer"
                 link="route('users.teachings.edit', teaching.uuid)"
                 >Delete</botton
-              >
+              > -->
               
             </div>
           </TableData>

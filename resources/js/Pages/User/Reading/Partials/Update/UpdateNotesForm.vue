@@ -17,16 +17,17 @@
 
     <template #form>
       <div class="col-span-6 sm:col-span-4">
-        <input-label for="notes" value="Notes" />
+        <input-label for="notes" :value="addPoint('hie')" />
         <text-area
           id="notes"
           ref="notesInput"
-          v-model="notes"
+          v-model="form.notes"
           type="text"
           class="block w-full mt-1"
           autocomplete="notes"
           rows="5"
           required
+          @keyup.enter="addPoint(notes)"
         />
       </div>
 
@@ -35,7 +36,7 @@
         <text-area
           id="prayer_points"
           ref="prayer_pointsInput"
-          v-model="prayer_points"
+          v-model="form.prayer_points"
           type="text"
           class="block w-full mt-1"
           autocomplete="prayer_points"
@@ -43,33 +44,15 @@
           required
         />
       </div>
-
-      <div class="col-span-6 sm:col-span-4">
-        <input-label for="prayer" value="Prayer" />
-        <text-area
-          id="prayer"
-          ref="prayerInput"
-          v-model="prayer"
-          type="text"
-          class="block w-full mt-1"
-          autocomplete="prayer"
-          rows="5"
-        />
-      </div>
+   
     </template>
 
     <template #actions>
-      <action-message :on="recentlySuccessful" class="mr-3">
+     
+     
+         <action-message :on="form.wasSuccessful" class="mr-3">
         Saved.
       </action-message>
-
-      <div class="flex justify-between w-full">
-        <div
-          @click="back"
-          class="gap-2 p-1 px-4 text-black rounded bg-slate-300 hover:bg-gray-400 hover:cursor-pointer"
-        >
-          Back
-        </div>
 
         <submit-button
           :class="{ 'opacity-25': processing }"
@@ -77,7 +60,7 @@
         >
           Update
         </submit-button>
-      </div>
+    
     </template>
   </form-section>
   
@@ -97,10 +80,11 @@ import { pointConverter } from "@/Composables/pointConverter";
 
 const props = defineProps({
   reading: Object,
+ 
 });
 
 const notes = useStorage("notes", pointConverter(props.reading.notes));
-let verses = ref(useStorage("verses"));
+
 let prayer_points = useStorage(
   "prayer_points",
   pointConverter(props.reading.prayer_points)
@@ -108,19 +92,27 @@ let prayer_points = useStorage(
 
 
 const form = useForm({ 
-  notes: notes.value,
-  read: verses.value,
-  prayer_points: prayer_points.value,  
+  read:props.reading.read_verses,
+  notes: pointConverter(props.reading.notes),  
+  prayer_points: pointConverter(props.reading.prayer_points),  
   remember: true,
 });
 const notesInput = ref(null);
 
+const new_point = ref(null)
+
+function addPoint(user_input) {
+  new_point.value = user_input.concat('- ')
+  
+  console.log(user_input.concat('- '))
+
+}
+
 const updateNotes = () => {
- form.put(route("users.readings.update", props.reading.slug), {
+ form.put(route("users.readings.update", props.reading.uuid), {
     errorBag: "updateReadingDetail",
     preserveScroll: true,
-    onSuccess: () => {
-     
+    onSuccess: () => {     
       localStorage.removeItem("notes");
       localStorage.removeItem("verses");
       localStorage.removeItem("prayer_points");

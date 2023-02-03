@@ -12,71 +12,22 @@
         <text-input
           id="verses"
           ref="versesInput"
-          v-model="verses"
+          :value="verse"
           type="text"
-          class="block w-full mt-1 cursor-not-allowed"
+          class="block w-full mt-1 cursor-alias"
           autocomplete="verses"
           disabled
         />
       </div>
 
-      <div class="col-span-6 sm:col-span-4">
-        <div class="flex flex-wrap justify-evenly">
-          <!-- book -->
-          <div class="col-span-6 sm:col-span-4">
-            <input-label for="book" value="Book" />
-            <select
-              id="book"
-              v-model="book"
-              ref="versesInput"
-              type="text"
-              class="border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              autocomplete="book"
-              required
-            >
-              <optgroup
-                v-for="(book, testaments) in books"
-                :key="testaments"
-                :label="testaments"
-              >
-                <option
-                  v-for="scripture in book"
-                  :key="scripture.title"
-                  :value="scripture.title"
-                  @click="selectedBookChapters(scripture)"
-                >
-                  {{ scripture.title }}
-                </option>
-              </optgroup>
-            </select>
-          </div>
-          <!-- chapter -->
-          <div class="col-span-6 sm:col-span-4">
-            <input-label for="chapter" value="Chapter" />
-            <text-input
-              id="chapter"
-              ref="chapterInput"
-              v-model="chapter"
-              type="number"
-              :max="maximum"
-              class="block w-full mt-1"
-              autocomplete="chapter"
-              required
-            />
-          </div>
-        </div>
-      </div>
 
-      <div class="col-span-6 sm:col-span-4">
-        <div
-          v-for="verse in bible.verses"
-          :key="verse.verse"
-          class="flex gap-2 py-2 border-b"
-        >
-          <p class="text-xs">{{ verse.verse }}</p>
-          <p>{{ verse.text }}</p>
-        </div>
+      
+      <div>
+        <button class="px-5 py-1 my-auto bg-green-300 border border-green-700 rounded-full" @click="clicked">
+        Read
+      </button> 
       </div>
+ 
     </template>
 
   </form-section>
@@ -89,57 +40,20 @@ import TextArea from "@/Components/Shared/Form/TextArea.vue";
 import InputError from "@/Components/Shared/Form/InputError.vue";
 import InputLabel from "@/Components/Shared/Form/InputLabel.vue";
 
+
 const props = defineProps({
   books: Object,
   bible: Object,
-  reading: Object,
+  verse: String,
 });
 
-const back = () => {
-  emit("prev");
+const emit = defineEmits(['bible'])
+
+const clicked = () => {
+  emit("bible");
 };
 const detailInput = ref(null);
 const versesInput = ref(null);
 
 </script>
-<script>
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  data() {
-    return {
-      // page.props.book will come from the backend after book has returned.
-      book: this.$inertia.page.props.data.filters.book || "Psalms",
-      chapter: this.$inertia.page.props.data.filters.chapter || 23,
-    };
-  },
-
-  watch: {
-    book() {
-      // if you type something in the book input
-      this.bookMethod();
-    },
-    chapter() {
-      // if you type something in the chapter input
-      this.chapterMethod();
-    },
-  },
-
-  methods: {
-    bookMethod: _.debounce(function () {
-      this.$inertia.get(
-        route("users.readings.create"),
-        { book: this.book, chapter: this.chapter },
-        { preserveState: true, replace: true, preserveScroll: true }
-      );
-    }, 200),
-    chapterMethod: _.debounce(function () {
-      this.$inertia.get(
-        route("users.readings.create"),
-        { book: this.book, chapter: this.chapter },
-        { preserveState: true, replace: true }
-      );
-    }, 500),
-  },
-});
-</script>
+  components: { BibleCard },
