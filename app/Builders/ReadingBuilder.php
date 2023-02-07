@@ -24,8 +24,8 @@ class ReadingBuilder extends Builder
         $term = '%' . preg_replace('/[^A-Za-z0-9]/', '', $terms) . '%';
         return $this->when($terms, function ($query) use ($term) {
             $query
-                ->where('verse_normalized', 'like', $term)
-                ->orWhere('notes_normalized', 'like', $term);
+                ->where('verse', 'like', $term)
+                ->orWhere('notes', 'like', $term);
         });
     }
 }

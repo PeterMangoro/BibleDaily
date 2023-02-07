@@ -25,18 +25,18 @@ class BibleSessionBuilder extends Builder
         $term = '%' . preg_replace('/[^A-Za-z0-9]/', '', $terms) . '%';
         return $this->when($terms, function ($query) use ($term) {
             $query
-                ->whereRelation('teaching', 'title_normalized', 'like', $term)
+                ->whereRelation('teaching', 'title', 'like', $term)
                 ->orWhere(function ($query) use ($term) {
                     $query
                         ->orwhereRelation(
                             'reading',
-                            'notes_normalized',
+                            'notes',
                             'like',
                             $term
                         )
                         ->orWhereRelation(
                             'reading',
-                            'verse_normalized',
+                            'verse',
                             'like',
                             $term
                         );
