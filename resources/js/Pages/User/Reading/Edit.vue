@@ -10,10 +10,14 @@
             @bible="showBible = !showBible"
           />
         </div>
-<div class="pt-2">
-  <bible-card class="" v-if="showBible" :bible="data.bible" :books="data.books" />
-
-</div>
+        <div class="pt-2">
+          <bible-card
+            class=""
+            v-if="showBible"
+            :bible="data.bible"
+            :books="data.books"
+          />
+        </div>
 
         <div class="my-3">
           <create-notes-form :reading="data.reading" />
@@ -37,5 +41,5 @@ const props = defineProps({
 function showCategoryType(type) {
   categoryType.value = type;
 }
-const showBible = ref(true)
+const showBible = ref(false);
 </script>

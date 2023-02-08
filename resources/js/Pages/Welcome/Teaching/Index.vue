@@ -1,12 +1,23 @@
 <template>
   <app-layout>
     <div class="m-auto max-w-7xl">
-      <div class="flex flex-wrap gap-2 mt-10 justify-evenly">
+      <div class="flex flex-wrap justify-evenly items-center">
+        <search-table
+          class="py-2 mt-5"
+          route-name="welcome"
+          placeholder="Search a Sermon..."
+          show_per_page="true"
+        />
+      </div>
+      <div
+        v-if="(data.teachings.data).length"
+        class="flex flex-wrap gap-2 mt-10 justify-evenly"
+      >
         <Link
           v-for="teaching in data.teachings.data"
           :key="teaching.slug"
           class="p-2 bg-white rounded-lg shadow-lg sm:w-1/4"
-          :href="route('teachings.show',teaching.slug)"
+          :href="route('teachings.show', teaching.slug)"
         >
           <p class="my-2 text-lg font-bold text-green-500 underline">
             {{ teaching.title }}
@@ -48,13 +59,24 @@
           </p>
         </Link>
       </div>
+
+      <div v-else class="items-center">
+        <p class="font-semibold italic text-2xl">
+          No Sermons Found... Please Try Another Search...
+        </p>
+      </div>
+
+      <div v-if="data.teachings.data.length" class="p-2 m-2 flex justify-evenly">
+        <Pagination :links="data.teachings.links" />
+      </div>
     </div>
   </app-layout>
 </template>
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import WelcomeCard from "@/Components/Welcome/WelcomeCard.vue";
-
+import SearchTable from "@/Components/Shared/Table/SearchTable.vue";
+import Pagination from "@/Components/Shared/Pagination.vue";
 const props = defineProps({
   data: Object,
 });

@@ -3,7 +3,7 @@
   <form-section @submitted="addBibleVerse">
     <template #title> Study Details </template>
 
-    <template #description> Record Today's Bible Reading Study. </template>
+    <template #description> Scripture Read Recently. </template>
 
     <template #form>
       <div class="col-span-6 sm:col-span-4">
@@ -11,52 +11,27 @@
         <text-input
           id="verses"
           ref="versesInput"
-          :value="verse"
+          v-model="verses"
           type="text"
-          class="block w-full mt-1 cursor-alias"
+          class="block w-full mt-1"
           autocomplete="verses"
-          disabled
+          required
         />
-      </div>
-
-      <div>
-        <button
-          class="
-            px-5
-            py-1
-            my-auto
-            bg-green-300
-            border border-green-700
-            rounded-full
-          "
-          @click="clicked"
-        >
-          Read
-        </button>
       </div>
     </template>
   </form-section>
 </template>
-<script setup>
+  <script setup>
 import { ref } from "vue";
+import { useForm } from "@inertiajs/vue3";
+import ActionMessage from "@/Components/Shared/Form/ActionMessage.vue";
+import SubmitButton from "@/Components/Shared/Form/SubmitButton.vue";
 import FormSection from "@/Components/Shared/Form/FormSection.vue";
 import TextInput from "@/Components/Shared/Form/TextInput.vue";
 import TextArea from "@/Components/Shared/Form/TextArea.vue";
 import InputError from "@/Components/Shared/Form/InputError.vue";
 import InputLabel from "@/Components/Shared/Form/InputLabel.vue";
+import { useStorage } from "@/Composables/useStorage";
 
-const props = defineProps({
-  books: Object,
-  bible: Object,
-  verse: String,
-});
-
-const emit = defineEmits(["bible"]);
-
-const clicked = () => {
-  emit("bible");
-};
-const detailInput = ref(null);
-const versesInput = ref(null);
+let verses = useStorage("verses", null);
 </script>
-  components: { BibleCard },

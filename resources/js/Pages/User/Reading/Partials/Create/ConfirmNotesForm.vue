@@ -1,6 +1,6 @@
 
 <template >
-  <form-section @submitted="updateNotes">
+  <form-section @submitted="confirmReading">
     <template #title> Lessons Learnt </template>
 
     <template #description>
@@ -21,13 +21,12 @@
         <text-area
           id="notes"
           ref="notesInput"
-          v-model="form.notes"
+          v-model="notes"
           type="text"
           class="block w-full mt-1"
           autocomplete="notes"
           rows="5"
-          required
-          @keyup.enter="addPoint(notes)"
+          readonly
         />
       </div>
 
@@ -36,29 +35,59 @@
         <text-area
           id="prayer_points"
           ref="prayer_pointsInput"
-          v-model="form.prayer_points"
+          v-model="prayer_points"
           type="text"
           class="block w-full mt-1"
           autocomplete="prayer_points"
           rows="5"
-          required
+          readonly
         />
       </div>
     </template>
 
     <template #actions>
-      <action-message :on="form.wasSuccessful" class="mr-3">
-        Saved.
-      </action-message>
+      <div class="flex justify-between w-full">
+        <div
+          @click="back"
+          class="
+            gap-2
+            p-1
+            px-4
+            text-black
+            rounded
+            bg-slate-300
+            hover:bg-gray-400 hover:cursor-pointer
+          "
+        >
+          Back
+        </div>
 
-      <submit-button
-        :class="{ 'opacity-25': processing }"
-        :disabled="processing"
-      >
-        Update
-      </submit-button>
+        <span>
+          <action-message :on="form.wasSuccessful" class="mr-3">
+            Saved.
+          </action-message>
+
+          <submit-button
+            :class="{ 'opacity-25': processing }"
+            :disabled="processing"
+          >
+            Save
+          </submit-button>
+        </span>
+      </div>
     </template>
   </form-section>
+  <div v-if="form.hasErrors" class="m-auto mt-3">
+    <div class="w-auto gap-3 p-2 bg-white rounded-md">
+      <div
+        v-for="error in form.errors"
+        :key="error.id"
+        class="py-3 text-red-600"
+      >
+        *{{ error }}
+      </div>
+    </div>
+  </div>
 </template>
 <script setup>
 import { ref, watch } from "vue";
@@ -77,17 +106,15 @@ const props = defineProps({
   reading: Object,
 });
 
-const notes = useStorage("notes", pointConverter(props.reading.notes));
-
-let prayer_points = useStorage(
-  "prayer_points",
-  pointConverter(props.reading.prayer_points)
-);
+const notes = useStorage("notes");
+const read = useStorage("verses");
+let prayer_points = useStorage("prayer_points");
+let verses = useStorage("verses", null);
 
 const form = useForm({
-  read: props.reading.read_verses,
-  notes: pointConverter(props.reading.notes),
-  prayer_points: pointConverter(props.reading.prayer_points),
+  read: read.value,
+  notes: notes.value,
+  prayer_points: prayer_points.value,
   remember: true,
 });
 const notesInput = ref(null);
@@ -100,9 +127,9 @@ function addPoint(user_input) {
   console.log(user_input.concat("- "));
 }
 
-const updateNotes = () => {
-  form.put(route("users.readings.update", props.reading.uuid), {
-    errorBag: "updateReadingDetail",
+const confirmReading = () => {
+  form.post(route("users.readings.store"), {
+    errorBag: "confirmReading",
     preserveScroll: true,
     onSuccess: () => {
       localStorage.removeItem("notes");

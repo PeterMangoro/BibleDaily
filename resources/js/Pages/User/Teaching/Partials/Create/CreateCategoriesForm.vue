@@ -20,11 +20,11 @@
       
         <p class="my-1 border-b-2"></p>
         <input-error class="mt-2" :message="form.errors.categories" />
-        <span  :key="id" class="flex gap-2">
-          <span>
+        <span   class="flex flex-wrap justify-between space-y-3">
+          <span class="flex gap-2  sm:w-1/5"   v-for="category in categories"
+              :key="category.id">
             <check-box-group
-              v-for="category in categories"
-              :key="category.id"
+            
               :items="[
                 {
                   label: category.title,
