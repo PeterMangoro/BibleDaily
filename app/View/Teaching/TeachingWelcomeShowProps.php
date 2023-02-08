@@ -44,7 +44,7 @@ class TeachingWelcomeShowProps extends BaseView
     {
         $bible = new Bible();
         $bible->book(request('book') ?? 'Psalms');
-        $bible->chapter(request('chapter') ?? 23);
+        $bible->chapter(request('chapter') ?? 1);
 
         return $bible->getChapter();
     }

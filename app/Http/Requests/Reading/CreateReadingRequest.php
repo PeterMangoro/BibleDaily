@@ -27,7 +27,7 @@ class CreateReadingRequest extends FormRequest
             'read' => 'required|string|max:255',
             'notes' => 'required|string',
             'prayer_points' => 'required|string',
-            'prayer' => 'nullable|string|max:255',
+            'prayer' => 'nullable|string',
         ];
     }
 }
