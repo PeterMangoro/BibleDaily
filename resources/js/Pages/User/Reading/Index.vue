@@ -2,7 +2,13 @@
   <app-layout>
     <template #header>
       <h2
-        class="text-xl font-semibold leading-tight text-black  dark:text-slate-50"
+        class="
+          text-xl
+          font-semibold
+          leading-tight
+          text-black
+          dark:text-slate-50
+        "
       >
         User Dashboard
       </h2>
@@ -61,7 +67,28 @@
 
           <TableData>
             <Link
-              class="inline-flex items-center px-4 py-2 text-sm font-semibold tracking-widest text-white transition bg-indigo-600 border border-transparent rounded-md  hover:bg-indigo-800 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring focus:ring-indigo-300 disabled:opacity-25 hover:cursor-pointer"
+              class="
+                inline-flex
+                items-center
+                px-4
+                py-2
+                text-sm
+                font-semibold
+                tracking-widest
+                text-white
+                transition
+                bg-indigo-600
+                border border-transparent
+                rounded-md
+                hover:bg-indigo-800
+                active:bg-indigo-900
+                focus:outline-none
+                focus:border-indigo-900
+                focus:ring
+                focus:ring-indigo-300
+                disabled:opacity-25
+                hover:cursor-pointer
+              "
               :href="route('users.readings.edit', reading.uuid)"
               >View</Link
             >

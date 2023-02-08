@@ -53,7 +53,15 @@
       <div class="flex justify-between w-full">
         <div
           @click="back"
-          class="gap-2 p-1 px-4 text-black rounded  bg-slate-300 hover:bg-gray-400 hover:cursor-pointer"
+          class="
+            gap-2
+            p-1
+            px-4
+            text-black
+            rounded
+            bg-slate-300
+            hover:bg-gray-400 hover:cursor-pointer
+          "
         >
           Back
         </div>
@@ -62,22 +70,11 @@
           :class="{ 'opacity-25': processing }"
           :disabled="processing"
         >
-          Save & Finish
+          Save & Review
         </submit-button>
       </div>
     </template>
   </form-section>
-  <div v-if="form.hasErrors" class="m-auto mt-3">
-    <div class="w-auto gap-3 p-2 bg-white rounded-md">
-      <div
-        v-for="error in form.errors"
-        :key="error.id"
-        class="py-3 text-red-600"
-      >
-        *{{ error }}
-      </div>
-    </div>
-  </div>
 </template>
 <script setup>
 import { ref, watch } from "vue";
@@ -103,27 +100,18 @@ let prayer_points = useStorage("prayer_points", null);
 //  updatedNotes = notes.value
 // })
 
-const form = useForm({
-  notes: updatedNotes,
-  read: verses.value,
-  prayer_points: prayer_points.value,
-  remember: true,
-});
+// const form = useForm({
+//   notes: updatedNotes,
+//   read: verses.value,
+//   prayer_points: prayer_points.value,
+//   remember: true,
+// });
 // let form.notes = useStorage("notes", null);
 
-const emit = defineEmits(["next", "prev", "reload"]);
+const emit = defineEmits(["next", "prev"]);
 
 const createReading = () => {
-  emit("reload"),
-    form.post(route("users.readings.store"), {
-      errorBag: "createReading",
-      preserveScroll: true,
-      onSuccess: () => {
-        localStorage.removeItem("notes");
-        localStorage.removeItem("verses");
-        localStorage.removeItem("prayer_points");
-      },
-    });
+  emit("next");
 };
 
 const back = () => {
@@ -132,10 +120,6 @@ const back = () => {
 
 const next = () => {
   emit("next");
-};
-
-const reload = () => {
-  emit("reload");
 };
 
 const notesInput = ref(null);
