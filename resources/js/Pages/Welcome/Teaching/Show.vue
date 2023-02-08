@@ -26,7 +26,17 @@
           :data="data.teaching.prayer_points"
           icon="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
         />
+
+        <prayer-card
+        v-if="data.teaching.prayer"
+          heading="Prayer "
+          :prayer="data.teaching.prayer"
+          
+        />
+
       </div>
+
+    
 
 <div class="text-center">
    <button class="px-5 bg-indigo-300 border border-indigo-700 rounded-full py-auto" @click="createReading" >
@@ -45,6 +55,7 @@
 import AppLayout from "@/Layouts/AppLayout.vue";
 import WelcomeCard from "@/Components/Welcome/WelcomeCard.vue";
 import PointsCard from "@/Pages/Welcome/Teaching/Partials/PointsCard.vue";
+import PrayerCard from "@/Pages/Welcome/Teaching/Partials/PrayerCard.vue";
 import BibleCard from "@/Pages/Welcome/Teaching/Partials/BibleCard.vue";
 import VersesCard from "@/Pages/Welcome/Teaching/Partials/VersesCard.vue";
 import TitleSection from "@/Pages/Welcome/Teaching/Partials/TitleSection.vue";
