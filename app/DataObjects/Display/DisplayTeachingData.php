@@ -45,7 +45,7 @@ class DisplayTeachingData
             $reading->verse,
             $reading->notes,
             $reading->prayer_points,
-            $reading->prayer ?? 'No Prayer Available',
+            $reading->prayer ?: 'No Prayer Available',
         );
     }
 }
