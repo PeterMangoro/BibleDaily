@@ -11,13 +11,13 @@ test('UpdatingTeaching Event is dispatched', function () {
     $teaching = Teaching::factory()->create();
 
     Event::fake();
-    $this->put(route('users.teachings.update',$teaching->slug), [
+    $this->put(route('users.teachings.update',$teaching->uuid), [
         'title' => '::updated->title->from_post',
         'read' => '::updated->read->from_post',
         'notes' => '::notes',
         'prayer_points' => '::prayer_points',
         'prayer' => '::updated_prayer_from_teachings',
-    ])->assertRedirect(route('users.teachings.index'));
+    ])->assertSuccessful();
 
     Event::assertDispatched(UpdatingTeaching::class);
 });
@@ -29,13 +29,13 @@ test('UpdatingTeaching Event actualy updates Teaching', function () {
     $teaching = Teaching::factory()->create(['bible_session_id'=>1]);
     Reading::factory()->create(['bible_session_id'=>1]);   
   
-   $this->put(route('users.teachings.update',[$teaching->slug]), [
+   $this->put(route('users.teachings.update',[$teaching->uuid]), [
         'title'=> 'Update_title',
         'read' => '::updated->read->from_post',
         'notes' => '::notes',
         'prayer_points' => '::prayer_points',
         'prayer' => '::updated_prayer_from_teachings',
-    ])->assertRedirect(route('users.teachings.index'));
+    ])->assertSuccessful();
 
     $this->assertDatabaseHas('readings', ['prayer' => '::updated_prayer_from_teachings']);
     

@@ -7,6 +7,7 @@ use App\DataObjects\Create\CreateTeachingData;
 use App\DataObjects\Update\UpdateTeachingData;
 use App\Events\Create\CreatingTeaching;
 use App\Events\Update\UpdatingTeaching;
+use App\Models\Teaching;
 use App\Services\TeachingService;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -26,9 +27,10 @@ class TeachingHandler
     }
 
     public static function updateTeaching(
-        object $teaching,
+        string $uuid,
         object $request
     ): void {
+        $teaching = Teaching::where('uuid',$uuid)->first();
         $validated_request = UpdateTeachingData::from($request);
         event(new UpdatingTeaching($teaching, $validated_request));
     }

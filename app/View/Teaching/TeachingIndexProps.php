@@ -21,7 +21,8 @@ class TeachingIndexProps extends BaseView
                     'user'
                 )
                 ->search(request('search'))
-                ->has('teaching'),
+                ->has('teaching')
+                ->latest('id'),
             9
         )
             ->through(

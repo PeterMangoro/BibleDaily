@@ -19,7 +19,7 @@ it('updates a Teaching', function () {
         'bible_session_id' => $session->id,       
     ]);
 
-    $this->put(route('users.teachings.update', $teaching->slug),[
+    $this->put(route('users.teachings.update', $teaching->uuid),[
         'title' => '::updated_title',
         'read' => '::updated_read',
         'notes' => '::notes',
@@ -35,33 +35,5 @@ it('updates a Teaching', function () {
     ]);
 });
 
-it('redirect to teachings index page', function () {
-    login();
-    $user = login();
-    $session = BibleSession::factory()->create(['user_id' => $user->id])->first();
-   
-    //User Teaching
-    $teaching = Teaching::factory()->create([
-        'bible_session_id' => $session->id,
-        'title' => 'Read_by_auth_user'
-    ])->first();
 
-    Reading::factory()->create([
-        'bible_session_id' => $session->id,       
-    ]); 
-
-    Classification::factory()->create([
-        'category_id' => 1,
-        'teaching_id'=> 1       
-    ]); 
-    
-    $this->put(route('users.teachings.update',$teaching->slug ),[
-        'title' => '::title::',
-        'read' => '::read::',
-        'notes' => '::notes::',
-        'prayer_points' => '::prayer_points::',
-        'prayer' => '::prayer::',
-    ])
-        ->assertRedirect(route('users.teachings.index'));
-});
 

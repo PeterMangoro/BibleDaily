@@ -29,10 +29,10 @@ class TeachingController extends Controller
         ]);
     }
 
-    public function edit(string $slug): Response
+    public function edit(string $uuid): Response
     {
         return Inertia::render('User/Teaching/Edit', [
-            'data' => new TeachingEditProps($slug),
+            'data' => new TeachingEditProps($uuid),
         ]);
     }
 
@@ -43,10 +43,9 @@ class TeachingController extends Controller
     }
 
     public function update(
-        Teaching $teaching,
+         $teaching,
         UpdateTeachingRequest $request
-    ): RedirectResponse {
-        TeachingHandler::updateTeaching($teaching, $request);
-        return to_route('users.teachings.index');
+    ): void {
+        TeachingHandler::updateTeaching($teaching, $request);       
     }
 }

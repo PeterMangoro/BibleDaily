@@ -12,6 +12,7 @@ test('that teaching service can create a new teaching ', function () {
     $session = BibleSession::first();
     $request = (object)([
         'title' => 'Genesis4:8',
+        'read' => '::Genesis4:8',
     ]);
     TeachingService::newTeaching($session, $request);
 

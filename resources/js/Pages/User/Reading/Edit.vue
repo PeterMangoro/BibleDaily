@@ -20,7 +20,7 @@
         </div>
 
         <div class="my-3">
-          <create-notes-form :reading="data.reading" />
+          <update-notes-form :reading="data.reading" />
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import { ref } from "vue";
 import { router } from "@inertiajs/vue3";
 import BibleSelectForm from "@/Pages/User/Reading/Partials/Update/BibleSelectForm.vue";
-import CreateNotesForm from "@/Pages/User/Reading/Partials/Update/UpdateNotesForm.vue";
+import UpdateNotesForm from "@/Pages/User/Reading/Partials/Update/UpdateNotesForm.vue";
 import BibleCard from "@/Pages/User/Reading/Partials/Update/BibleCard.vue";
 
 const props = defineProps({
