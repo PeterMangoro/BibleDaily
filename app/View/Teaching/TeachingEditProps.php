@@ -17,10 +17,10 @@ class TeachingEditProps extends BaseView
     public object $session;
 
     public function __construct(
-        public readonly string $slug,
+        public readonly string $uuid,
     ) {
         $this->session =
-            BibleSession::whereRelation('teaching', 'slug', $slug)->first();
+            BibleSession::whereRelation('teaching', 'uuid', $uuid)->first();
     }
 
     public function teaching(): DisplayTeachingData

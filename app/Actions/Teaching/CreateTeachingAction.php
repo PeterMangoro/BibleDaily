@@ -10,7 +10,7 @@ class CreateTeachingAction
     ): void {
         $bible_session->teaching()->create([
             'title' => $request->title,
-            'slug' => str($request->title)->slug(),
+            'slug' => str($request->title)->slug().'-'.str($request->read)->slug(),
         ]);
     }
 }

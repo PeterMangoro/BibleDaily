@@ -1,10 +1,11 @@
 
 <template >
-  <form-section @submitted="addBibleNotes">
-    <template #title> Lessons Learnt </template>
+ 
+  <form-section @submitted="updateNotes">
+    <template #title> Sermon Details </template>
 
     <template #description>
-      Give brief notes of what you learnt in the Bible today.
+      Give brief notes of what the Scripture  teaches.
       <p class="pt-2">
         For points, mark at the beginning of each point with
         <span class="text-lg font-medium">*</span> eg
@@ -17,16 +18,60 @@
 
     <template #form>
       <div class="col-span-6 sm:col-span-4">
-        <input-label for="notes" value="Notes" />
+        <input-label for="title" value="Sermon Title" />
+        <text-input
+          id="title"
+          ref="versesInput"
+          v-model="form.title"
+          type="text"
+          class="block w-full mt-1 "
+          autocomplete="title"
+          required
+        />
+      </div>
+
+      <div class="col-span-6 sm:col-span-4">
+        <input-label for="verses" value="Bible Verses Read" />
+        <text-input
+          id="verses"
+          ref="versesInput"
+          v-model="form.read"
+          type="text"
+          class="block w-full mt-1 "
+          autocomplete="verses"
+          required
+        />
+      </div>
+
+      <div>
+        <span
+          class="
+            px-5
+            py-1
+            my-auto
+            bg-green-300
+            border border-green-700
+            rounded-full 
+            cursor-pointer
+            w-full
+          "
+          @click="clicked"
+        >
+          Bible
+        </span>
+      </div>
+      <div class="col-span-6 sm:col-span-4">
+        <input-label for="notes" :value="addPoint('hie')" />
         <text-area
           id="notes"
           ref="notesInput"
-          v-model="notes"
+          v-model="form.notes"
           type="text"
           class="block w-full mt-1"
           autocomplete="notes"
           rows="5"
           required
+          @keyup.enter="addPoint(notes)"
         />
       </div>
 
@@ -35,7 +80,7 @@
         <text-area
           id="prayer_points"
           ref="prayer_pointsInput"
-          v-model="prayer_points"
+          v-model="form.prayer_points"
           type="text"
           class="block w-full mt-1"
           autocomplete="prayer_points"
@@ -43,44 +88,21 @@
           required
         />
       </div>
-
-      <div class="col-span-6 sm:col-span-4">
-        <input-label for="prayer" value="Prayer" />
-        <text-area
-          id="prayer"
-          ref="prayerInput"
-          v-model="prayer"
-          type="text"
-          class="block w-full mt-1"
-          autocomplete="prayer"
-          rows="5"
-        />
-      </div>
     </template>
 
     <template #actions>
-      <action-message :on="recentlySuccessful" class="mr-3">
+      <action-message :on="form.wasSuccessful" class="mr-3">
         Saved.
       </action-message>
 
-      <div class="flex justify-between w-full">
-        <div
-          @click="back"
-          class="gap-2 p-1 px-4 text-black rounded bg-slate-300 hover:bg-gray-400 hover:cursor-pointer"
-        >
-          Back
-        </div>
-
-        <submit-button
-          :class="{ 'opacity-25': processing }"
-          :disabled="processing"
-        >
-          Next
-        </submit-button>
-      </div>
+      <submit-button
+        :class="{ 'opacity-25': processing }"
+        :disabled="processing"
+      >
+        Update
+      </submit-button>
     </template>
   </form-section>
-  
 </template>
 <script setup>
 import { ref, watch } from "vue";
@@ -99,24 +121,38 @@ const props = defineProps({
   teaching: Object,
 });
 
-const title = useStorage("title");
-const notes = useStorage("notes", pointConverter(props.teaching.notes));
-let verses = ref(useStorage("verses"));
-let prayer_points = useStorage(
-  "prayer_points",
-  pointConverter(props.teaching.prayer_points)
-);
-let prayer = useStorage("prayer", props.teaching.prayer);
-
-const emit = defineEmits(["next", "prev"]);
-
-const back = () => {
-  emit("prev");
-};
-
-const addBibleNotes = () => {
-  emit("next");
-};
-
+const form = useForm({
+  title: props.teaching.title,
+  read: props.teaching.verses,
+  notes: pointConverter(props.teaching.notes),
+  prayer_points: pointConverter(props.teaching.prayer_points),
+  remember: true,
+});
 const notesInput = ref(null);
+
+const new_point = ref(null);
+
+function addPoint(user_input) {
+  new_point.value = user_input.concat("- ");
+
+  console.log(user_input.concat("- "));
+}
+const emit = defineEmits(["bible"]);
+
+const clicked = () => {
+  emit("bible");
+};
+
+const updateNotes = () => {
+  form.put(route("users.teachings.update", props.teaching.uuid), {
+    errorBag: "updateTeachingDetail",
+    preserveScroll: true,
+    onSuccess: () => {
+      localStorage.removeItem("notes");
+      localStorage.removeItem("verses");
+      localStorage.removeItem("prayer_points");
+    },
+   
+  });
+};
 </script>

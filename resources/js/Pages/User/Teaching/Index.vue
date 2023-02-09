@@ -69,7 +69,7 @@
               <Link
               
                 class="inline-flex items-center px-4 py-2 text-sm font-semibold tracking-widest text-white transition bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-800 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring focus:ring-indigo-300 disabled:opacity-25 hover:cursor-pointer"
-                :href="route('users.teachings.edit', teaching.slug)"
+                :href="route('users.teachings.edit', teaching.uuid)"
                 >View</Link
               >
 

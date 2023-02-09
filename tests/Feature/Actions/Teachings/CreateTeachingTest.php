@@ -13,6 +13,7 @@ it('creates a Teaching Model', function () {
     // dd($session);
     $request = (object)([
         'title' => '::title',
+        'read' => '::read',
 
     ]);
 
