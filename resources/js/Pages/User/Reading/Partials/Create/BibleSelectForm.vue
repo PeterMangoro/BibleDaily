@@ -147,7 +147,7 @@ export default defineComponent({
     return {
       // page.props.book will come from the backend after book has returned.
       book: this.$inertia.page.props.data.filters.book || "Psalms",
-      chapter: this.$inertia.page.props.data.filters.chapter || 23,
+      chapter: this.$inertia.page.props.data.filters.chapter || 1,
     };
   },
 
