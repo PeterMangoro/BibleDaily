@@ -30,6 +30,31 @@
             
           </ul>
         </div>
+        
+        <div>
+          <h2
+            class="
+              mb-6
+              text-sm
+              font-semibold
+              text-black
+              uppercase
+              underline
+              
+            "
+          >
+            Uploading & Sharing
+          </h2>
+          <ul class="text-gray-600 ">
+            <li class="mb-4">
+              <Link :href="route('users.teachings.create')" class="hover:underline ">Upload a Sermon</Link>
+            </li>
+            <li class="mb-4">
+              <Link :href="route('users.readings.create')" class="hover:underline">Upload Personal Reading</Link>
+            </li>
+          </ul>
+        </div>
+
         <div>
           <h2
             class="
@@ -46,39 +71,17 @@
           </h2>
           <ul class="text-gray-600 ">
             <li class="mb-4">
-              <Link :href="route('users.teachings.create')" class="hover:underline ">Upload a Sermon</Link>
+              <Link :href="route('teachings.index')" class="hover:underline "> Shared Sermons</Link>
             </li>
             <li class="mb-4">
-              <Link :href="route('users.readings.create')" class="hover:underline">Upload a Reading</Link>
+              <Link :href="route('users.readings.index')" class="hover:underline"> Personal Readings</Link>
+            </li>
+            <li class="mb-4">
+              <Link :href="route('users.teachings.index')" class="hover:underline"> Personal Teachings</Link>
             </li>
           </ul>
         </div>
-        <!-- <div>
-          <h2
-            class="
-              mb-6
-              text-sm
-              font-semibold
-              text-black
-              uppercase
-              
-            "
-          >
-            Legal
-          </h2>
-          <ul class="text-gray-600 ">
-            <li class="mb-4">
-              <Link href="route('policy.show')" class="hover:underline"
-                >Privacy Policy</Link
-              >
-            </li>
-            <li>
-              <Link href="route('terms.show')" class="hover:underline"
-                >Terms &amp; Conditions</Link
-              >
-            </li>
-          </ul>
-        </div> -->
+        
       </div>
     </div>
     <hr class="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
