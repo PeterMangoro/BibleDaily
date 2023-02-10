@@ -16,7 +16,7 @@
         <Link
           v-for="teaching in data.teachings.data"
           :key="teaching.slug"
-          class="p-2 bg-white rounded-lg shadow-lg sm:w-1/4"
+          class="p-2 bg-white rounded-lg shadow-lg sm:w-1/4 w-80"
           :href="route('teachings.show', teaching.slug)"
         >
           <p class="my-2 text-lg font-bold text-green-500 underline">
