@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('page_visits')->index()->default(0)->nullable();
             $table->foreignId('bible_session_id');
             $table->string('title')->index();
-            // $table->string('title_normalized')->virtualAs("regexp_replace(title,'[^A-Za-z0-9]','')")->index();
+            $table->string('title_normalized')->virtualAs("regexp_replace(title,'[^A-Za-z0-9]','')")->index();
             $table->string('slug')->index();
             $table->timestamps();
         });

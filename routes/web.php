@@ -6,6 +6,8 @@ use App\Http\Controllers\WelcomeTeachingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeTeachingController::class, 'index'])->name('welcome');
+Route::get('/users', [WelcomeTeachingController::class, 'users'])->name('welcome');
+
 Route::resource('teachings', WelcomeTeachingController::class)
     ->only('index', 'show');
 

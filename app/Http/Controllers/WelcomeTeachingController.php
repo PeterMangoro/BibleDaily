@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\View\Teaching\TeachingWelcomeIndexProps;
-use App\View\Teaching\TeachingWelcomeShowProps;
+use App\Models\User;
 use Inertia\Response;
+use App\View\Teaching\TeachingWelcomeShowProps;
+use App\View\Teaching\TeachingWelcomeIndexProps;
 
 class WelcomeTeachingController extends Controller
 {
@@ -19,6 +20,15 @@ class WelcomeTeachingController extends Controller
     {
         return inertia('Welcome/Teaching/Show', [
             'data' => new TeachingWelcomeShowProps($slug),
+        ]);
+    }
+
+    public function users(): Response
+    {
+        $user = User::with('bibleSessions.reading','bibleSessions.teaching')->get();
+       
+        return inertia('Welcome/Teaching/Users', [
+            'data' => $user,
         ]);
     }
 }
