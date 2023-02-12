@@ -30,13 +30,13 @@ class BibleSessionBuilder extends Builder
                     $query
                         ->orwhereRelation(
                             'reading',
-                            'notes',
+                            'notes_normalized',
                             'like',
                             $term
                         )
                         ->orWhereRelation(
                             'reading',
-                            'verse',
+                            'verse_normalized',
                             'like',
                             $term
                         );
