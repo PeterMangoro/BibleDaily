@@ -19,7 +19,7 @@ INSERT INTO `bible-daily`.`bible_books` (`id`,`alais`,`title`,`chapters`,`testam
 INSERT INTO `bible-daily`.`bible_books` (`id`,`alais`,`title`,`chapters`,`testament`) VALUES ('19','Ps','Psalms','150','OT');
 INSERT INTO `bible-daily`.`bible_books` (`id`,`alais`,`title`,`chapters`,`testament`) VALUES ('20','Prov','Proverbs','31','OT');
 INSERT INTO `bible-daily`.`bible_books` (`id`,`alais`,`title`,`chapters`,`testament`) VALUES ('21','Eccl','Ecclesiastes','12','OT');
-INSERT INTO `bible-daily`.`bible_books` (`id`,`alais`,`title`,`chapters`,`testament`) VALUES ('22','Song','Song of Solomon','8','OT');
+INSERT INTO `bible-daily`.`bible_books` (`id`,`alais`,`title`,`chapters`,`testament`) VALUES ('22','Song','SongofSolomon','8','OT');
 INSERT INTO `bible-daily`.`bible_books` (`id`,`alais`,`title`,`chapters`,`testament`) VALUES ('23','Isa','Isaiah','66','OT');
 INSERT INTO `bible-daily`.`bible_books` (`id`,`alais`,`title`,`chapters`,`testament`) VALUES ('24','Jer','Jeremiah','52','OT');
 INSERT INTO `bible-daily`.`bible_books` (`id`,`alais`,`title`,`chapters`,`testament`) VALUES ('25','Lam','Lamentations','5','OT');

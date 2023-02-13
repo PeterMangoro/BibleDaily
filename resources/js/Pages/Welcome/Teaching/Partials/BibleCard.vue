@@ -87,14 +87,14 @@ export default defineComponent({
   methods: {
     bookMethod: _.debounce(function () {
       this.$inertia.get(
-        route("users.teachings.create"),
+        this.currentUrl = window.location.href,
         { book: this.book, chapter: this.chapter },
         { preserveState: true, replace: true, preserveScroll: true }
       );
     }, 200),
     chapterMethod: _.debounce(function () {
       this.$inertia.get(
-        route("users.teachings.create"),
+        this.currentUrl = window.location.href,
         { book: this.book, chapter: this.chapter },
         { preserveState: true, replace: true }
       );
