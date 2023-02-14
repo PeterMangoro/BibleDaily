@@ -33,33 +33,11 @@ const props = defineProps({
   data: Object,
 });
 
-const deleteImage = (attachmentId) => {
-  const result = confirm("Delete Image ?");
-  if (result) {
-    router.delete(route("attachment.delete", attachmentId), {
-      preserveScroll: true,
-    });
-  }
-};
 
-const routes = [
-  {
-    name: "User Accommodations",
-    link: "accommodations.index",
-  },
-  {
-    name: "Accommodation-Edit",
-    link: "accommodations.edit",
-  },
-];
 
 const step_one = ref(true);
 const step_two = ref(false);
 const step_three = ref(false);
-
-function showCategoryType(type) {
-  categoryType.value = type;
-}
 
 function go_to_step_one() {
   reset(), (step_one.value = true);
