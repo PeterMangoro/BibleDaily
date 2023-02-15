@@ -12,7 +12,7 @@ class CreateReadingAction
             'verse' => $request->read,
             'notes' => $request->notes,
             'prayer_points' => $request->prayer_points,
-            // 'prayer' => $request->prayer,
+            'prayer' => $request->prayer,
         ]);
     }
 }

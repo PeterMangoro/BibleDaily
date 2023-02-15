@@ -10,7 +10,7 @@ class CreateReadingData
         public readonly  string $read,
         public readonly  string $notes,
         public readonly  string $prayer_points,
-        // public  string $prayer,
+        public readonly ?string $prayer,
     ) {
         // $this->read = $read;
         // $this->notes = $notes;
@@ -25,7 +25,7 @@ class CreateReadingData
             $request->read,
             $request->notes,
             $request->prayer_points,
-            // $request->prayer,
+            $request->prayer,
         );
     }
 }
