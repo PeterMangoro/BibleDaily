@@ -16,7 +16,8 @@ class TeachingWelcomeIndexProps extends BaseView
         return TeachingHandler::getTeachings(
             BibleSession::with('teaching.categories', 'reading', 'user')
                 ->search(request('search'))
-                ->has('teaching'),
+                ->has('teaching')
+                ->latest('id'),
             9
         )
             ->through(
