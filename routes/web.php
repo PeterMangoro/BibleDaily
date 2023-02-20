@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\ReadingController;
 use App\Http\Controllers\TeachingController;
 use App\Http\Controllers\WelcomeTeachingController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeTeachingController::class, 'index'])->name('welcome');
 Route::get('/users', [WelcomeTeachingController::class, 'users'])->name('welcome');
@@ -25,4 +26,8 @@ Route::middleware([
             Route::resource('teachings', TeachingController::class)
                 ->scoped(['teaching' => 'slug']);
         });
+});
+
+Route::get('/symlink/a', function () {    
+    Artisan::call('storage:link');
 });

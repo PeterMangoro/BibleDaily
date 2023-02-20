@@ -33,7 +33,7 @@ const logout = () => {
 </script>
 
 <template>
-    <div class="bg-bible8 bg-cover bg-no-repeat bg-opacity-50 bg-blend-darken bg-slate-900"
+    <div class="bg-bible7 bg-cover bg-no-repeat bg-opacity-50 bg-blend-darken bg-slate-900"
     
     >
         <Head :title="title" />
