@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-wrap gap-2 m-3 justify-evenly">
-      <p class="sm:w-1/12 w-full text-center">Prayer</p>
+      <p class="sm:w-1/12 w-full text-center text-slate-50">Prayer</p>
       <div class="flex gap-2 p-4 bg-white w-full rounded shadow-xl sm:w-5/6">
         <span class="flex flex-wrap space-x-4">
       <p class="flex gap-2"> 

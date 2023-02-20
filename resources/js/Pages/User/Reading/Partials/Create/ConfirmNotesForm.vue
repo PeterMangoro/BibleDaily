@@ -1,18 +1,25 @@
 
 <template >
   <form-section @submitted="confirmReading">
-    <template #title> Lessons Learnt </template>
+    <template #title> 
+      <p class="text-slate-50">
+        Lessons Learnt
+      </p>
+       </template>
 
     <template #description>
-      Give brief notes of what you learnt in the Bible today.
-      <p class="pt-2">
+      <p class="text-slate-50">
+        Give brief notes of what you learnt in the Bible today.
+      </p>
+      
+      <p class="pt-2 text-slate-50">
         For points, mark at the beginning of each point with
         <span class="text-lg font-medium">*</span> eg
       </p>
 
-      <p>* God is Love</p>
-      <p>* He will always protect us</p>
-      <p>* We are safe in His arms</p>
+      <p class="text-slate-50">* God is Love</p>
+      <p class="text-slate-50">* He will always protect us</p>
+      <p class="text-slate-50">* We are safe in His arms</p>
     </template>
 
     <template #form>
@@ -126,6 +133,13 @@ function addPoint(user_input) {
 
   console.log(user_input.concat("- "));
 }
+const emit = defineEmits(["next", "prev"]);
+
+
+const back = () => {
+  emit("prev");
+};
+
 
 const confirmReading = () => {
   form.post(route("users.readings.store"), {

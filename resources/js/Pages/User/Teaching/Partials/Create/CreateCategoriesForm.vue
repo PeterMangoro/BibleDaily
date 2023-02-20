@@ -1,11 +1,19 @@
 
 <template>
   <form-section @submitted="createTeaching">
-    <template #title> Category Selection </template>
+    <template #title> 
+      <p class="text-slate-50">
+
+        Category Selection
+      </p>
+       </template>
 
     <template #description>
-      Categories are helpful in grouping your teachings according to client
+      <p class="text-slate-50">
+        Categories are helpful in grouping your teachings according to client
       preferences
+      </p>
+     
     </template>
 
     <template #form>

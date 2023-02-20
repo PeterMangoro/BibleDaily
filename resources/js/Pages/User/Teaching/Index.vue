@@ -30,7 +30,7 @@
          
            <TableHead>Title</TableHead>
           <TableHead>Verses</TableHead>
-          <TableHead>Notes</TableHead>
+          <TableHead class="hidden sm:table-cell">Notes</TableHead>
           <!-- <TableHead>Prayer Points</TableHead> -->
            <!-- <TableHead>Prayer</TableHead> -->
 
@@ -45,7 +45,7 @@
            <p class="font-semibold">{{ teaching.title }}</p>
           </TableData>
           <TableData>{{ teaching.verses }}</TableData>
-          <TableData class="w-6/12">
+          <TableData class="w-6/12 hidden sm:table-cell">
             <p v-for="(point,index) in teaching.notes" :key="index" class="flex gap-1 line-clamp-1" >
               <span v-if="index < 3"> - {{ point }} </span>
             </p>

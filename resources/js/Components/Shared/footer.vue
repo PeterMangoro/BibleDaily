@@ -1,5 +1,5 @@
 <template>
-  <footer class="p-4  sm:p-6 bg-blue-100 mt-5">
+  <footer class="p-4  sm:p-6 bg-slate-300 bg-opacity-50 mt-5">
     <div class="md:flex md:justify-between">
       <div class="mb-6 md:mb-0"></div>
       <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -16,7 +16,7 @@
           >
             Auth
           </h2>
-          <ul class="text-gray-600 ">
+          <ul class="text-black ">
             <li class="mb-4">
               <Link :href="route('login')" class="hover:underline"
                 >Login</Link
@@ -45,7 +45,7 @@
           >
             Uploading & Sharing
           </h2>
-          <ul class="text-gray-600 ">
+          <ul class="text-black ">
             <li class="mb-4">
               <Link :href="route('users.teachings.create')" class="hover:underline ">Upload a Sermon</Link>
             </li>
@@ -69,7 +69,7 @@
           >
             Bible Study
           </h2>
-          <ul class="text-gray-600 ">
+          <ul class="text-black ">
             <li class="mb-4">
               <Link :href="route('teachings.index')" class="hover:underline "> Shared Sermons</Link>
             </li>

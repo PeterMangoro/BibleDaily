@@ -10,7 +10,7 @@
       </div>
 
       <div class="my-3">
-        <confirm-notes-form />
+        <confirm-notes-form @prev="back" />
       </div>
     </div>
   </div>
@@ -30,6 +30,13 @@ function showCategoryType(type) {
   categoryType.value = type;
 }
 const showBible = ref(true);
+
+const emit = defineEmits(["next", "prev"]);
+
+
+const back = () => {
+  emit("prev");
+};
 
 //   form.post(route("users.readings.store"), {
 //       errorBag: "createReading",

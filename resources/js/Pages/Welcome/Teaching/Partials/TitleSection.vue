@@ -1,8 +1,8 @@
 <template>
-  <h1 class="text-2xl font-extrabold text-center">
+  <h1 class="text-2xl font-extrabold text-center text-slate-50">
     {{ title }}
   </h1>
-  <div class="flex flex-wrap justify-center gap-1">
+  <div class="flex flex-wrap justify-center gap-1 text-slate-50">
     <span> {{ author }} </span>
     <span class="my-auto">
       <svg

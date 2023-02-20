@@ -35,8 +35,8 @@
         <template #tableHead>
           <TableHead>Date</TableHead>
           <TableHead>Verses</TableHead>
-          <TableHead>Notes</TableHead>
-          <TableHead>Prayer Points</TableHead>
+          <TableHead class="hidden sm:table-cell">Notes</TableHead>
+          <TableHead class="hidden sm:table-cell">Prayer Points</TableHead>
 
           <TableHead class="text-center"></TableHead>
         </template>
@@ -45,7 +45,7 @@
             {{ reading.read_date }}
           </TableData>
           <TableData>{{ reading.read_verses }}</TableData>
-          <TableData class="w-1/3">
+          <TableData class="w-1/3 hidden sm:table-cell">
             <p
               v-for="(point, index) in reading.notes"
               :key="index"
@@ -55,7 +55,7 @@
             </p>
           </TableData>
 
-          <TableData class="w-1/3">
+          <TableData class="w-1/3 hidden sm:table-cell">
             <p
               v-for="(point, index) in reading.prayer_points"
               :key="index"

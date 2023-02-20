@@ -3,12 +3,14 @@
     <div class="m-auto max-w-7xl">
       <div class="mx-auto my-3">
         <title-section
+        class="text-slate-50"
           :title="data.teaching.title"
           :author="data.teaching.author"
           :date="data.teaching.written_date"
         />
 
         <verses-card
+        
           :verses="data.teaching.verses"
           @bible="showBible = !showBible"
         />

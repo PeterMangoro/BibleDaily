@@ -2,18 +2,25 @@
 <template >
  
   <form-section @submitted="updateNotes">
-    <template #title> Sermon Details </template>
+    <template #title>
+      <p class="text-slate-50">
+        Sermon Details
+      </p>
+      </template>
 
     <template #description>
-      Give brief notes of what the Scripture  teaches.
-      <p class="pt-2">
+      <p class="text-slate-50">
+        Give brief notes of what the Scripture  teaches.
+      </p>
+      
+      <p class="pt-2 text-slate-50">
         For points, mark at the beginning of each point with
         <span class="text-lg font-medium">*</span> eg
       </p>
 
-      <p>* God is Love</p>
-      <p>* He will always protect us</p>
-      <p>* We are safe in His arms</p>
+      <p class="text-slate-50">* God is Love</p>
+      <p class="text-slate-50">* He will always protect us</p>
+      <p class="text-slate-50">* We are safe in His arms</p>
     </template>
 
     <template #form>

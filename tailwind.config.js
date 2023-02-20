@@ -15,6 +15,21 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+
+            backgroundImage: {           
+                'bible': "url('/storage/background/bible.jpg')",
+                'bible1': "url('/storage/background/bible1.jpg')",
+                'bible2': "url('/storage/background/bible2.jpg')",
+                'bible3': "url('/storage/background/bible3.jpg')",
+                'bible4': "url('/storage/background/bible4.jpg')",
+                'bible5': "url('/storage/background/bible5.jpg')",
+                'bible6': "url('/storage/background/bible6.jpg')",
+                'bible7': "url('/storage/background/bible7.jpg')",
+                'bible8': "url('/storage/background/bible8.jpg')",
+                'bible9': "url('/storage/background/bible9.jpg')",
+                'bible10': "url('/storage/background/bible10.jpg')",
+                'bible11': "url('/storage/background/bible11.jpg')",
+              },
         },
     },
 

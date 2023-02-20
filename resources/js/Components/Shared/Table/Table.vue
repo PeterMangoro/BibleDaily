@@ -71,9 +71,9 @@
 <script setup>
 import Pagination from "@/Components/Shared/Pagination.vue";
 const props = defineProps({
-  heading: Object,
-  path: Object,
-  button: Object,
+  heading: String,
+  path: String,
+  button: String,
   pagination: Object,
 });
 </script>

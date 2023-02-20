@@ -29,6 +29,7 @@
         focus:ring
         focus:ring-indigo-200
         focus:ring-opacity-50
+        hidden sm:table-cell
       "
     >
       <option value="5">5 Per Page</option>
@@ -49,7 +50,7 @@ export default defineComponent({
     routeName: String,
     routeParameter: Object,
     placeholder: String,
-    show_per_page: Boolean,
+    show_per_page: String,
   },
 
   components: {

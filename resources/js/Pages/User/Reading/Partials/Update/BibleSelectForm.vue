@@ -1,9 +1,17 @@
 
 <template>
   <form-section @submitted="addBibleVerse">
-    <template #title> Study Details </template>
+    <template #title>
+      <p class="text-slate-50">
+        Study Details
+      </p>
+       </template>
 
-    <template #description> Record Today's Bible Reading Study. </template>
+    <template #description>
+      <p class="text-slate-50">
+        Record Today's Bible Reading Study.
+      </p>
+       </template>
 
     <template #form>
       <div class="col-span-6 sm:col-span-4">

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref,watch } from 'vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import ApplicationMark from '@/Components/ApplicationMark.vue';
 import Banner from '@/Components/Banner.vue';
@@ -9,9 +9,13 @@ import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import footerNav from "@/Components/Shared/footer.vue";
 
+router.on('start', (event) => {
+  console.log(`The route changed to ${event.detail.visit.url}`)
+})
 defineProps({
     title: String,
 });
+
 
 const showingNavigationDropdown = ref(false);
 
@@ -29,12 +33,14 @@ const logout = () => {
 </script>
 
 <template>
-    <div>
+    <div class="bg-bible8 bg-cover bg-no-repeat bg-opacity-50 bg-blend-darken bg-slate-900"
+    
+    >
         <Head :title="title" />
 
         <Banner />
 
-        <div class="min-h-screen bg-gradient-to-r from-blue-50 to-sky-50">
+        <div class="min-h-screen ">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -307,14 +313,14 @@ const logout = () => {
             </nav>
 
             <!-- Page Heading -->
-            <header v-if="$slots.header" class="bg-white shadow">
+            <header v-if="$slots.header" class="shadow">
                 <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <slot name="header" />
                 </div>
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main class="min-h-screen">
                 <slot />
             </main>
 
