@@ -69,7 +69,7 @@ export default defineComponent({
     return {
       // page.props.book will come from the backend after book has returned.
       book: this.$inertia.page.props.data.filters.book || "Psalms",
-      chapter: this.$inertia.page.props.data.filters.chapter || 1,
+      chapter:  1,
     };
   },
 
@@ -88,7 +88,7 @@ export default defineComponent({
     bookMethod: _.debounce(function () {
       this.$inertia.get(
         this.currentUrl = window.location.href,
-        { book: this.book, chapter: this.chapter },
+        { book: this.book, chapter: 1 },
         { preserveState: true, replace: true, preserveScroll: true }
       );
     }, 200),

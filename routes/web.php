@@ -28,6 +28,14 @@ Route::middleware([
         });
 });
 
-Route::get('/symlink/a', function () {    
-    Artisan::call('storage:link');
-});
+// //this one didn't work
+// Route::get('/symlink/a', function () {    
+//     Artisan::call('storage:link');
+// });
+
+
+// Route::get('/symlink/a', function () {    
+//     $target = '/home3/cvzxnudf/public_html/storage/app/public';
+//     $shortcut = '/home3/cvzxnudf/public_html/public/storage';
+//     symlink($target, $shortcut);
+//  });

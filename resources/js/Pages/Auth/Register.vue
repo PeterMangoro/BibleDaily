@@ -53,6 +53,7 @@ const submit = () => {
             v-model="form.username"
             type="text"
             class="block w-full mt-1"
+            @keydown.space.prevent
             required
           />
           <p class="text-sm text-green-500">
