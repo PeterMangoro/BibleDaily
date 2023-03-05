@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('contact');
             $table->string('gender');
             $table->string('dob');
+            $table->string('country')->default('Zimbabwe');
             $table->string('province');
             $table->string('status')->nullable();
             $table->string('assembly')->nullable();

@@ -14,9 +14,8 @@
         </div>
   
         <Table
-          heading="Product Table"
-          :pagination="users.links"
-          
+         
+          :pagination="users.links"          
         >
           <template #tableHead>
             <TableHead class="cursor-pointer" @click="sort('name')" name="name"

@@ -34,7 +34,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-})->name('registerCamp');
+})->name('registerForCamp');
 
 Route::get('thank-you', function () {
     return Inertia::render('Camp/Register/Redirect', );

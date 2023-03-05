@@ -9,8 +9,10 @@ import TextInput from "@/Components/TextInput.vue";
 import {ref} from 'vue'
 
 const member = ref(null)
+const foreigner = ref(null)
 
 const form = useForm({
+  country:"",
   name: "",
   username: "",
   contact: "",
@@ -71,7 +73,7 @@ const submit = () => {
 
     <form @submit.prevent="submit" >
       <div>
-        <InputLabel for="name" value="Name" />
+        <InputLabel for="name" value="Full Name" />
         <TextInput
           id="name"
           v-model="form.name"
@@ -91,15 +93,13 @@ const submit = () => {
             v-model="form.contact"
             type="text"
             class="block w-full mt-1"
-            required
-            
-          />         
-
+            required            
+          /> 
           <InputError class="mt-2" :message="form.errors.contact" />
         </div>
 
-      <div class="flex flex-wrap">
-        <div class="mt-4">
+     
+        <div class="mt-4 col-span-2">
           <InputLabel for="dob" value="Date of Birth" />
           <TextInput
             id="dob"
@@ -120,25 +120,63 @@ const submit = () => {
           </select>
           <InputError class="mt-2" :message="form.errors.gender" />
         </div>
-      </div>
+     
 
       <div class="mt-4">
         <fieldset>
-                <InputLabel >Are you a member of our Church?</InputLabel>              
+                <InputLabel >Are you a member of our Church(FCC)?</InputLabel>              
                 <div class="mt-4 space-y-4">
                  
                   <div class="flex items-center">
                     <input id="member_yes" name="member_yes" v-model="member" value="yes" type="radio" class="h-3 w-3 border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                    <label for="member_yes" class="ml-3 block text-sm font-medium text-gray-700">Yes. I am a member</label>
+                    <label for="member_yes" class="ml-3 block text-sm font-medium text-gray-700">Yes. I am a member.</label>
                   </div>
                   <div class="flex items-center">
                     <input id="member_no" name="member_no" v-model="member" value="no" type="radio" class="h-3 w-3 border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                    <label for="member_no" class="ml-3 block text-sm font-medium text-gray-700">No. I am a Guest</label>
+                    <label for="member_no" class="ml-3 block text-sm font-medium text-gray-700">No. I am a Guest.</label>
                   </div>
                 </div>
               </fieldset>
       </div>
       <div class="mt-4">
+        <fieldset>
+                <InputLabel >Are you visiting from outside Zimbabwe?</InputLabel>              
+                <div class="mt-4 space-y-4">
+                 
+                  <div class="flex items-center">
+                    <input id="foreigner" name="foreigner" v-model="foreigner" value="yes" type="radio" class="h-3 w-3 border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+                    <label for="foreigner" class="ml-3 block text-sm font-medium text-gray-700">Yes. I am visiting from Outside Zimbabwe. </label>
+                  </div>   
+                  <div class="flex items-center">
+                    <input id="foreigner_no" name="foreigner_no" v-model="foreigner" value="no" type="radio" class="h-3 w-3 border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+                    <label for="foreigner_no" class="ml-3 block text-sm font-medium text-gray-700">No. I am currently from Zimbabwe. </label>
+                  </div>                
+                </div>
+              </fieldset>
+      </div>
+      <div v-if="foreigner==='yes'"  class="mt-4">
+          <InputLabel for="country" value="Country" />
+          <TextInput
+            id="country"
+            v-model="form.country"
+            type="text"
+            class="block w-full mt-1"
+            required            
+          /> 
+          <InputError class="mt-2" :message="form.errors.country" />
+        </div>
+        <div v-if="foreigner==='yes'"  class="mt-4">
+          <InputLabel for="province" value="Province/State" />
+          <TextInput
+            id="province"
+            v-model="form.province"
+            type="text"
+            class="block w-full mt-1"
+            required            
+          /> 
+          <InputError class="mt-2" :message="form.errors.province" />
+        </div>
+      <div v-else class="mt-4">
           <InputLabel for="province" value="Province" class="pb-1.5" />
           <select
             name="province"

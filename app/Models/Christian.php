@@ -15,6 +15,7 @@ class Christian extends Model
         'password',
         'username',
         'dob',
+        'country',
         'province',
         'assembly',
         'pastor',
