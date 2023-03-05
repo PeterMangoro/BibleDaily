@@ -6,7 +6,8 @@ use App\Http\Controllers\ReadingController;
 use App\Http\Controllers\TeachingController;
 use App\Http\Controllers\WelcomeTeachingController;
 
-Route::get('/', [WelcomeTeachingController::class, 'index'])->name('welcome');
+Route::get('/welcome', [WelcomeTeachingController::class, 'index'])->name('welcome');
+// Route::get('/', [WelcomeTeachingController::class, 'index'])->name('welcome');
 Route::get('/users', [WelcomeTeachingController::class, 'users'])->name('welcome');
 
 Route::resource('teachings', WelcomeTeachingController::class)

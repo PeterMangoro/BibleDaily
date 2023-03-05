@@ -39,7 +39,7 @@ class ChristianController extends Controller
             'need_accommodation' => $input['need_accommodation'],          
         ]);
 
-        return to_route('campDashboard');
+        return to_route('campRedirect');
 
     }
 

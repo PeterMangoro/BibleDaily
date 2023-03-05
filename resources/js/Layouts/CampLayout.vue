@@ -51,7 +51,7 @@ const logout = () => {
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('campDashboard')" :active="route().current('campDashboard')">
+                                <NavLink v-if="$page.props.user" :href="route('campDashboard')" :active="route().current('campDashboard')">
                                     Dashboard
                                 </NavLink>
                             </div>
@@ -108,14 +108,15 @@ const logout = () => {
                                     </template>
                                 </Dropdown>
                                         </div>
-                               <div v-else>
+                               <!-- <div v-else>
                   <Link
+                  
                     :href="route('login')"
                     class="flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600"
                   >
                     Login
                   </Link>
-                </div>
+                </div> -->
                             </div>
                         </div>
 
@@ -151,7 +152,7 @@ const logout = () => {
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('campDashboard')" :active="route().current('campDashboard')">
+                        <ResponsiveNavLink v-if="$page.props.user" :href="route('campDashboard')" :active="route().current('campDashboard')">
                             Dashboard
                         </ResponsiveNavLink>
                     </div>

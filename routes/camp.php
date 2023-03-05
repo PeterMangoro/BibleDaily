@@ -27,6 +27,20 @@ Route::get('camp-registration', function () {
     ]);
 })->name('registerCamp');
 
+Route::get('/', function () {
+    return Inertia::render('Camp/Register/Register', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+})->name('registerCamp');
+
+Route::get('thank-you', function () {
+    return Inertia::render('Camp/Register/Redirect', );
+})->name('campRedirect');
+
+
 Route::post('register/', [ChristianController::class, 'create'])->name('campRegister');
 
 
