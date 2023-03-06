@@ -7,6 +7,7 @@ import InputLabel from "@/Components/InputLabel.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
 import {ref} from 'vue'
+import PageHead from "@/Components/Shared/PageHead.vue";
 
 const member = ref(null)
 const foreigner = ref(null)
@@ -66,7 +67,14 @@ const submit = () => {
 </script>
 
 <template>
-  <Head title="Register" />
+  <PageHead
+  description="Family Covenant Church Invites you to Our Easter Conference , Stepping into the Extraordinary at Masvingo Polytechnic from 6-9 April 2023. Please make sure you register before the 6th of April 2023"
+
+    pageTitle="Easter Conference Registration"
+
+    :url="route('registerCamp')"
+    cover = "/storage/fcc/easter.jpeg"
+  />
 
   
 

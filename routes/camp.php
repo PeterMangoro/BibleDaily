@@ -28,6 +28,15 @@ Route::get('camp-registration', function () {
     ]);
 })->name('registerCamp');
 
+Route::get('fcc-camp-registration', function () {
+    return Inertia::render('Camp/Register/Register', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+})->name('registerCamp');
+
 Route::get('/', function () {
     return Inertia::render('Camp/Register/Register', [
         'canLogin' => Route::has('login'),
