@@ -13,42 +13,42 @@ class ProvinceController extends Controller
 {
     public function show()
     {
-        $total = Christian::where('status', 'present')->count();
+        $total = Christian::wherePresent()->count();
 
-        $Bulawayo = Christian::where('status', 'present')->where('province', 'Bulawayo')->count();
+        $Bulawayo = Christian::wherePresent()->where('province', 'Bulawayo')->count();
         $bulawayo_total = Christian::where('province', 'Bulawayo')->count();
         $bulawayo_percentage = Percentage::calculate($Bulawayo, $total);
 
-        $Harare = Christian::where('status', 'present')->where('province', 'Harare')->count();
+        $Harare = Christian::wherePresent()->where('province', 'Harare')->count();
         $harare_total = Christian::where('province', 'Harare')->count();
         $harare_percentage = Percentage::calculate($Harare, $total);
 
-        $Manicaland = Christian::where('status', 'present')->where('province', 'Manicaland')->count();
+        $Manicaland = Christian::wherePresent()->where('province', 'Manicaland')->count();
         $manicaland_total = Christian::where('province', 'Manicaland')->count();
         $manicaland_percentage = Percentage::calculate($Manicaland, $total);
 
-        $MashonalandCentral = Christian::where('status', 'present')->where('province', 'Mashonaland Central')->count();
+        $MashonalandCentral = Christian::wherePresent()->where('province', 'Mashonaland Central')->count();
         $mashonalandCentral_total = Christian::where('province', 'Mashonaland Central')->count();
         $mashonalandCentral_percentage = Percentage::calculate($MashonalandCentral, $total);
 
-        $MashonalandEast = Christian::where('status', 'present')->where('province', 'Mashonaland East')->count();
+        $MashonalandEast = Christian::wherePresent()->where('province', 'Mashonaland East')->count();
         $mashonalandEast_total = Christian::where('province', 'Mashonaland East')->count();
         $mashonalandEast_percentage = Percentage::calculate($MashonalandEast, $total);
 
-        $MashonalandWest = Christian::where('status', 'present')->where('province', 'Mashonaland West')->count();
+        $MashonalandWest = Christian::wherePresent()->where('province', 'Mashonaland West')->count();
         $mashonalandWest_total = Christian::where('province', 'Mashonaland West')->count();
         $mashonalandWest_percentage = Percentage::calculate($MashonalandWest, $total);
 
-        $Masvingo = Christian::where('status', 'present')->where('province', 'Masvingo')->count();
+        $Masvingo = Christian::wherePresent()->where('province', 'Masvingo')->count();
         $masvingo_total = Christian::where('province', 'Masvingo')->count();
         $masvingo_percentage = Percentage::calculate($Masvingo, $total);
 
-        $MatebelelandNorth = Christian::where('status', 'present')->where('province', 'Matebeleland North')->count();
+        $MatebelelandNorth = Christian::wherePresent()->where('province', 'Matebeleland North')->count();
         $matebelelandNorth_total = Christian::where('province', 'Matebeleland North')->count();;
         $matebelelandNorth_percentage = Percentage::calculate($MatebelelandNorth, $total);
 
         // dd($matebelelandNorth_total);
-        $MatebelelandSouth = Christian::where('status', 'present')->where('province', 'Matebeleland South')->count();
+        $MatebelelandSouth = Christian::wherePresent()->where('province', 'Matebeleland South')->count();
         $matebelelandSouth_total = Christian::where('province', 'Matebeland South')->count();
         $matebelelandSouth_percentage = Percentage::calculate($MatebelelandSouth, $total);
 
@@ -102,7 +102,7 @@ class ProvinceController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('province', 'Bulawayo')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('province', 'Bulawayo')->search(request('search'))->latest('id')->paginate(15),
                 'path' => 'bulawayo',
                 Filters::filters()
             ]
@@ -113,7 +113,7 @@ class ProvinceController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('province', 'Harare')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('province', 'Harare')->search(request('search'))->latest('id')->paginate(15),
                 Filters::filters(),
                 'path' => 'harare'
             ]
@@ -124,7 +124,7 @@ class ProvinceController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('province', 'Manicaland')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('province', 'Manicaland')->search(request('search'))->latest('id')->paginate(15),
                 Filters::filters(),
                 'path' => 'manicaland',
             ]
@@ -135,7 +135,7 @@ class ProvinceController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('province', 'Mashonaland Central')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('province', 'Mashonaland Central')->search(request('search'))->latest('id')->paginate(15),
                 Filters::filters(),
                 'path' => 'mashonalandCentral',
             ]
@@ -146,7 +146,7 @@ class ProvinceController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('province', 'Mashonaland East')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('province', 'Mashonaland East')->search(request('search'))->latest('id')->paginate(15),
                 Filters::filters(),
                 'path' => 'mashonalandEast',
             ]
@@ -157,7 +157,7 @@ class ProvinceController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('province', 'Mashonaland West')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('province', 'Mashonaland West')->search(request('search'))->latest('id')->paginate(15),
                 Filters::filters(),
                 'path' => 'mashonalandWest',
             ]
@@ -168,7 +168,7 @@ class ProvinceController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('province', 'Masvingo')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('province', 'Masvingo')->search(request('search'))->latest('id')->paginate(15),
                 Filters::filters(),
                 'path' => 'masvingo',
             ]
@@ -179,7 +179,7 @@ class ProvinceController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('province', 'Matebeleland North')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('province', 'Matebeleland North')->search(request('search'))->latest('id')->paginate(15),
                 Filters::filters(),
                 'path' => 'matebelelandNorth',
             ]
@@ -190,7 +190,7 @@ class ProvinceController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('province', 'Matebeleland South')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('province', 'Matebeleland South')->search(request('search'))->latest('id')->paginate(15),
                 Filters::filters(),
                 'path' => 'matebelelandSouth',
             ]

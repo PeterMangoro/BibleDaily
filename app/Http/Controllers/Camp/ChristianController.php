@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Camp;
 
 use App\Http\Controllers\Controller;
 use App\Models\Christian;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class ChristianController extends Controller
 {
-    public function create(Request $input)
+    public function create(Request $input): RedirectResponse
     {
         $input = request()->all();
         Validator::make($input, [

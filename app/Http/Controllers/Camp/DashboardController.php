@@ -10,45 +10,14 @@ use App\View\Shared\Filters;
 use Illuminate\Http\Request;
 use App\ValueObjects\Percentage;
 use App\Http\Controllers\Controller;
+use App\View\Camp\Dashboard\DashboardShowProps;
 
 class DashboardController extends Controller
 {
     public function show()
     {
-        $twelve_years = Carbon::now()->subYears(12);
-        $thirty_years = Carbon::now()->subYears(30);
-
-        // dd($twelve_years)
-
-        $all = Christian::count();
-        $attended = Christian::where('status', 'present')->count();
-        // $turnup =  number_format(($attended/$all)*100, 2).'%';
-        $turnup = Percentage::calculate($attended, $all);
-        $new_believers = Christian::where('status', 'present')->whereNull('pastor')->count();
-        $believers = Christian::where('status', 'present')->whereNotNull('pastor')->count();
-        $sunday_school = Christian::where('status', 'present')->where('dob', '>', $twelve_years)->count();
-        $youth = Christian::where('status', 'present')->where('dob', '<', $twelve_years)->where('dob', '>', $thirty_years)->count();
-        $over_comers = Christian::where('status', 'present')->where('dob', '<', $thirty_years)->count();
-        $male = Christian::where('status', 'present')->where('gender', 'male')->count();
-        $female = Christian::where('status', 'present')->where('gender', 'female')->count();
-        $need_accommodation = Christian::where('need_accommodation', 'yes')->count();
-
-
         return inertia('Camp/Dashboard', [
-            'data' => [
-                'all' => $all,
-                'attended' => $attended,
-                'turnup' => $turnup,
-                'new_believers' => $new_believers,
-                'believers' => $believers,
-                'sunday_school' => $sunday_school,
-                'youth' => $youth,
-                'over_comers' => $over_comers,
-                'male' => $male,
-                'female' => $female,
-                'need_accommodation' => $need_accommodation,
-            ]
-
+            'data' => new DashboardShowProps()
         ]);
     }
 
@@ -76,7 +45,7 @@ class DashboardController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->search(request('search'))->latest('id')->paginate(15),
                 'path' => 'present',
                 Filters::filters()
 
@@ -88,7 +57,7 @@ class DashboardController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->whereNull('pastor')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->whereNull('pastor')->search(request('search'))->latest('id')->paginate(15),
                 'path' => 'new',
                 Filters::filters()
             ]
@@ -99,7 +68,7 @@ class DashboardController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->whereNotNull('pastor')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->whereNotNull('pastor')->search(request('search'))->latest('id')->paginate(15),
                 'path' => 'members',
                 Filters::filters()
             ]
@@ -111,7 +80,7 @@ class DashboardController extends Controller
         $twelve_years = Carbon::now()->subYears(12);
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('dob', '>', $twelve_years)->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('dob', '>', $twelve_years)->search(request('search'))->latest('id')->paginate(15),
                 'path' => 'sundaySchool',
                 Filters::filters()
             ]
@@ -125,7 +94,7 @@ class DashboardController extends Controller
 
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('dob', '<', $twelve_years)->where('dob', '>', $thirty_years)->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('dob', '<', $twelve_years)->where('dob', '>', $thirty_years)->search(request('search'))->latest('id')->paginate(15),
                 'path' => 'youth',
                 Filters::filters()
             ]
@@ -137,7 +106,7 @@ class DashboardController extends Controller
         $thirty_years = Carbon::now()->subYears(30);
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('dob', '<', $thirty_years)->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('dob', '<', $thirty_years)->search(request('search'))->latest('id')->paginate(15),
                 'path' => 'overComers',
                 Filters::filters()
             ]
@@ -148,7 +117,7 @@ class DashboardController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('gender', 'male')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('gender', 'male')->search(request('search'))->latest('id')->paginate(15),
                 'path' => 'male',
                 Filters::filters()
             ]
@@ -159,7 +128,7 @@ class DashboardController extends Controller
     {
         return inertia('Camp/Present', [
             'data' => [
-                'users' => Christian::where('status', 'present')->where('gender', 'female')->search(request('search'))->latest('id')->paginate(15),
+                'users' => Christian::wherePresent()->where('gender', 'female')->search(request('search'))->latest('id')->paginate(15),
                 'path' => 'female',
                 Filters::filters()
             ]
