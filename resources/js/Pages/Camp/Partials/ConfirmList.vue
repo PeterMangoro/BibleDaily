@@ -26,9 +26,7 @@
           <TableHead class="hidden sm:table-cell">Province</TableHead>
          
           <TableHead
-            class="cursor-pointer"
-            @click="sort('sale_status')"
-            name="sale_status"
+          class="hidden sm:table-cell"
             >Pastor</TableHead
           >
 

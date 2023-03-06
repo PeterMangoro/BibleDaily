@@ -60,6 +60,15 @@ const logout = () => {
                                     Register Someone
                                 </NavLink>
                             </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-slate-700">
+                                <p class="m-auto" >
+                                    for help call: (+263 772 251 463)
+                                </p>
+
+                                <p class="m-auto" >
+                                    whatsApp: (+263 784 352 080)
+                                </p>
+                            </div>
                             
                         </div>
 
@@ -171,7 +180,7 @@ const logout = () => {
                            
 
                             <div>
-                                <div class="text-base font-medium text-gray-800">
+                                <div class="text-base font-medium text-gray-700">
                                     {{ $page.props.user.name }}
                                 </div>
                                 <div class="text-sm font-medium text-gray-500">
@@ -181,16 +190,26 @@ const logout = () => {
                         </div>
 
                         <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink :href="route('profile.show')" :active="route().current('profile.show')">
+                            <ResponsiveNavLink v-if="$page.props.user" :href="route('profile.show')" :active="route().current('profile.show')">
                                 Profile
                             </ResponsiveNavLink>
+
+                            <div class="m-auto px-2 text-slate-800"  :href="route('profile.show')" :active="route().current('profile.show')">
+                                <p class="m-auto" >
+                                    for help Call: (+263 772 251 463)
+                                </p>
+
+                                <p class="m-auto" >
+                                    WhatsApp: (+263 784 352 080)
+                                </p>
+                            </div>
 
                             <ResponsiveNavLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')" :active="route().current('api-tokens.index')">
                                 API Tokens
                             </ResponsiveNavLink>
 
                             <!-- Authentication -->
-                            <form method="POST" @submit.prevent="logout">
+                            <form  v-if="$page.props.user" method="POST" @submit.prevent="logout">
                                 <ResponsiveNavLink as="button">
                                     Log Out
                                 </ResponsiveNavLink>
