@@ -2,145 +2,126 @@
 
 namespace App\Http\Controllers\Camp;
 
-use Carbon\Carbon;
 use App\Models\Christian;
-
-
-use App\View\Shared\Filters;
-use Illuminate\Http\Request;
-use App\ValueObjects\Percentage;
 use App\Http\Controllers\Controller;
+use App\View\Camp\Dashboard\ChristianProps;
 use App\View\Camp\Dashboard\DashboardShowProps;
+use Illuminate\Http\RedirectResponse;
+use Inertia\Response;
 
 class DashboardController extends Controller
 {
-    public function show()
+    public function show(): Response
     {
         return inertia('Camp/Dashboard', [
             'data' => new DashboardShowProps()
         ]);
     }
 
-    public function attend(Christian $user)
+    public function attend(Christian $user): RedirectResponse
     {
-       Christian::markAsPresent($user);
-
+        Christian::markAsPresent($user);
         return back()->with('flash.banner', 'Successfully Marked as Present');
     }
 
-    public function all()
+    public function all(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::search(request('search'))->latest('id')->paginate(15),
-                'path' => 'all',
-                Filters::filters()
-            ]
+            'data' => new ChristianProps(new Christian(), 'all')
         ]);
     }
 
-    public function present()
+    public function present(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->search(request('search'))->latest('id')->paginate(15),
-                'path' => 'present',
-                Filters::filters()
-
-            ]
+            'data' => new ChristianProps(Christian::wherePresent(), 'present')
         ]);
     }
 
-    public function new()
+    public function new(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->whereNull('pastor')->search(request('search'))->latest('id')->paginate(15),
-                'path' => 'new',
-                Filters::filters()
-            ]
+            'data' => new ChristianProps(
+                Christian::wherePresent()
+                    ->whereNull('pastor'),
+                'new'
+            )
         ]);
     }
 
-    public function members()
+    public function members(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->whereNotNull('pastor')->search(request('search'))->latest('id')->paginate(15),
-                'path' => 'members',
-                Filters::filters()
-            ]
+            'data' => new ChristianProps(
+                Christian::wherePresent()
+                    ->whereNotNull('pastor'),
+                'members'
+            )
         ]);
     }
 
-    public function sundaySchool()
+    public function sundaySchool(): Response
     {
-        $twelve_years = Carbon::now()->subYears(12);
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('dob', '>', $twelve_years)->search(request('search'))->latest('id')->paginate(15),
-                'path' => 'sundaySchool',
-                Filters::filters()
-            ]
+            'data' => new ChristianProps(
+                Christian::wherePresent()
+                    ->sundaySchool(),
+                'sundaySchool'
+            )
         ]);
     }
 
-    public function youth()
+    public function youth(): Response
     {
-        $twelve_years = Carbon::now()->subYears(12);
-        $thirty_years = Carbon::now()->subYears(30);
-
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('dob', '<', $twelve_years)->where('dob', '>', $thirty_years)->search(request('search'))->latest('id')->paginate(15),
-                'path' => 'youth',
-                Filters::filters()
-            ]
+            'data' => new ChristianProps(
+                Christian::wherePresent()
+                    ->youth(),
+                'youth'
+            )
         ]);
     }
 
-    public function overComers()
+    public function overComers() :Response
     {
-        $thirty_years = Carbon::now()->subYears(30);
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('dob', '<', $thirty_years)->search(request('search'))->latest('id')->paginate(15),
-                'path' => 'overComers',
-                Filters::filters()
-            ]
+            'data' => new ChristianProps(
+                Christian::wherePresent()
+                    ->overComers(),
+                'overComers'
+            )
         ]);
     }
 
-    public function male()
+    public function male() :Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('gender', 'male')->search(request('search'))->latest('id')->paginate(15),
-                'path' => 'male',
-                Filters::filters()
-            ]
+            'data' => new ChristianProps(
+                Christian::wherePresent()
+                    ->male(),
+                'male'
+            )
         ]);
     }
 
-    public function female()
+    public function female() :Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('gender', 'female')->search(request('search'))->latest('id')->paginate(15),
-                'path' => 'female',
-                Filters::filters()
-            ]
+            'data' => new ChristianProps(
+                Christian::wherePresent()
+                    ->female(),
+                'female'
+            )
         ]);
     }
 
-    public function needAccommodation()
+    public function needAccommodation() :Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::where('need_accommodation', 'yes')->search(request('search'))->latest('id')->paginate(15),
-                'path' => 'needAccommodation',
-                Filters::filters()
-            ]
+            'data' => new ChristianProps(
+                Christian::needsAccommodation(),
+                'needAccommodation'
+            )
         ]);
     }
 }
