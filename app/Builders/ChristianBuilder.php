@@ -2,6 +2,7 @@
 
 namespace App\Builders;
 
+use App\Models\Christian;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -47,25 +48,23 @@ class ChristianBuilder extends Builder
             $this->where('dob', '<', $this->overComerAge());
     }
 
-    public function search( ?string $terms = null)
+    public function markAsPresent(Christian $user)
     {
-        collect(str_getcsv($terms, ' ', '"'))->filter()
-            ->each(function ($term)  {
-                $term = '%' . preg_replace('/[^A-Za-z0-9]/', '', $term) . '%';
-
-                $this->whereIn('id', function ($query) use ($term) {
-                    $query->select('id')
-                        ->from(function ($query) use ($term) {
-                            $query->select('id')
-                                ->from('christians')
-                                ->where('name_normalized', 'like', $term)
-                                
-                            ;
-                        }, 'matches');
-                });
-            });
+        $user->status = 'present';
+        $user->save();
     }
-    
+
+    public function search(?string $terms = null)
+    {
+
+        $term = '%' . preg_replace('/[^A-Za-z0-9]/', '', $terms) . '%';
+
+        return   
+        $this->when($terms, function ($query) use ($term) {
+            $query
+                ->where('name_normalized', 'like', $term);
+        });
+    }
     private function SundaySchoolAge()
     {
         return Carbon::now()->subYears(12); #12 years

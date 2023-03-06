@@ -23,9 +23,7 @@ class DashboardController extends Controller
 
     public function attend(Christian $user)
     {
-        $user->status = 'present';
-
-        $user->save();
+       Christian::markAsPresent($user);
 
         return back()->with('flash.banner', 'Successfully Marked as Present');
     }
