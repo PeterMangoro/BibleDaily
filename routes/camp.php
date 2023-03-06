@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Camp\ChristianController;
+use App\Http\Controllers\Camp\ConfirmRegistrationController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
@@ -42,7 +43,14 @@ Route::get('thank-you', function () {
 
 
 Route::post('register/', [ChristianController::class, 'create'])->name('campRegister');
-
+Route::get('confirm-camp-dashboard', [ConfirmRegistrationController::class, 'show'])->name('confirm-campDashboard');
+Route::get('confirm-registered-users', [ConfirmRegistrationController::class, 'all'])->name('confirm-all');
+Route::get('confirm-sunday-school', [ConfirmRegistrationController::class, 'sundaySchool'])->name('confirm-sundaySchool');
+Route::get('confirm-youth', [ConfirmRegistrationController::class, 'youth'])->name('confirm-youth');
+Route::get('confirm-over-comers', [ConfirmRegistrationController::class, 'overComers'])->name('confirm-overComers');
+Route::get('confirm-male', [ConfirmRegistrationController::class, 'male'])->name('confirm-male');
+Route::get('confirm-female', [ConfirmRegistrationController::class, 'female'])->name('confirm-female');
+Route::get('confirm-needing-accommodation', [ConfirmRegistrationController::class, 'needAccommodation'])->name('confirm-needAccommodation');
 
 Route::middleware([
     'auth:sanctum',

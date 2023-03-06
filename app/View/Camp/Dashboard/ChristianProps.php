@@ -2,9 +2,10 @@
 
 namespace App\View\Camp\Dashboard;
 
-use App\View\Shared\BaseView;
 use App\View\Shared\Filters;
+use App\View\Shared\BaseView;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\DataObjects\Display\DisplayChristianData;
 
 class ChristianProps extends BaseView
 {
@@ -20,7 +21,9 @@ class ChristianProps extends BaseView
         return $this->data
             ->search(request('search'))
             ->latest('id')
-            ->paginate(15);
+            ->paginate(15)->through(
+                fn ($christian) => DisplayChristianData::from($christian),
+            );;
     }
 
     public function path(): string

@@ -36,7 +36,7 @@
           </template>
   
           <TableRow v-for="user in users.data" :key="user.id">
-            <TableData>{{ user.name }}</TableData>
+            <TableData class="capitalize">{{ user.name }}</TableData>
             <TableData class="hidden sm:table-cell">{{ user.contact }}</TableData>
             <TableData class="hidden sm:table-cell">{{ user.gender }}</TableData>
             <TableData class="hidden sm:table-cell">{{ user.province }}</TableData>

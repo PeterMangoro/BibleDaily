@@ -24,6 +24,7 @@ class Christian extends Model
         'need_accommodation',
         'contact'
     ];
+    
 
     // public function scopeSearch($query, ?string $terms = null)
     // {

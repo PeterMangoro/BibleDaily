@@ -23,11 +23,7 @@ class DisplayTeachingData
         public readonly  array $prayer_points,
         public readonly  ?string $prayer,
     ) {
-        // $this->title = $title;
-        // $this->read_date = $read_date;
-        // $this->read_verses = $read_verses;
-        // $this->notes = $notes;
-        // $this->prayer_points = $prayer_points;
+        
     }
 
     public static function from(

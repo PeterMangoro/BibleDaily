@@ -1,5 +1,5 @@
 <script setup>
-import AppLayout from "@/Layouts/AppLayout.vue";
+import CampLayout from "@/Layouts/CampLayout.vue";
 import Welcome from "@/Components/Welcome.vue";
 import DashboardCard from "@/Components/Shared/DashboardCard.vue";
 
@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <AppLayout title="Provinces">
+  <CampLayout title="Provinces">
     <!-- <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         Provinces
@@ -109,5 +109,5 @@ const props = defineProps({
         </div>
       </div>
     </div>
-  </AppLayout>
+  </CampLayout>
 </template>

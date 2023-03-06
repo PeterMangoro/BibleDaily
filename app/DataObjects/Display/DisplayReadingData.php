@@ -17,10 +17,7 @@ class DisplayReadingData
         public readonly  array $notes,
         public readonly  array $prayer_points,
     ) {
-        // $this->read_date = $read_date;
-        // $this->read_verses = $read_verses;
-        // $this->notes = $notes;
-        // $this->prayer_points = $prayer_points;
+      
     }
 
     public static function from(?Reading $reading): DisplayReadingData
