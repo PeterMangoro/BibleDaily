@@ -1,7 +1,7 @@
 <script setup>
 import { Head, Link, useForm } from "@inertiajs/vue3";
 import AuthenticationCard from "@/Components/CampAuthenticationCard.vue";
-import AuthenticationCardLogo from "@/Components/AuthenticationCardLogo.vue";
+import FccLogo from "@/Components/FccLogo.vue";
 import InputError from "@/Components/InputError.vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
@@ -68,8 +68,15 @@ const submit = () => {
 <template>
   <Head title="Register" />
 
+  
+
   <AuthenticationCard>
-   
+    <template #logo>
+      <div class="bg-slate-300 p-4  mt-3 rounded-full">
+        <FccLogo class="h-10  object-cover" />
+      </div>
+            
+        </template>
 
     <form @submit.prevent="submit" >
       <div>

@@ -8,6 +8,7 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import footerNav from "@/Components/Shared/footer.vue";
+import FccLogo from '@/Components/FccLogo.vue';
 
 router.on('start', (event) => {
   console.log(`The route changed to ${event.detail.visit.url}`)
@@ -47,7 +48,11 @@ const logout = () => {
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
-                            
+                            <div class="flex items-center shrink-0">
+                                <Link :href="route('users.readings.index')">
+                                    <FccLogo class="h-10 m-auto" />
+                                </Link>
+                            </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

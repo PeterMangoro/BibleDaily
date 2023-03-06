@@ -1,7 +1,7 @@
 <script setup>
 import { ref,watch } from 'vue';
 import { Head, Link, router } from '@inertiajs/vue3';
-import ApplicationMark from '@/Components/ApplicationMark.vue';
+import FccLogo from '@/Components/FccLogo.vue';
 import Banner from '@/Components/Banner.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
@@ -47,7 +47,7 @@ const logout = () => {
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
-                            
+<fcc-logo class="h-10 m-auto" />                            
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
