@@ -6,7 +6,6 @@ use App\Models\Christian;
 use App\Http\Controllers\Controller;
 use App\View\Camp\Dashboard\ChristianProps;
 use App\View\Camp\Dashboard\DashboardShowProps;
-use Illuminate\Http\RedirectResponse;
 use Inertia\Response;
 
 class ConfirmRegistrationController extends Controller
@@ -22,7 +21,7 @@ class ConfirmRegistrationController extends Controller
     public function all(): Response
     {
         return inertia('Camp/Confirm', [
-            'data' => new ChristianProps(new Christian(), 'all')
+            'data' => new ChristianProps(new Christian(), 'confirm-all')
         ]);
     }
 
@@ -32,7 +31,7 @@ class ConfirmRegistrationController extends Controller
         return inertia('Camp/Confirm', [
             'data' => new ChristianProps(
                 Christian::sundaySchool(),
-                'sundaySchool'
+                'confirm-sundaySchool'
             )
         ]);
     }
@@ -42,7 +41,7 @@ class ConfirmRegistrationController extends Controller
         return inertia('Camp/Confirm', [
             'data' => new ChristianProps(
                 Christian::youth(),
-                'youth'
+                'confirm-youth'
             )
         ]);
     }
@@ -51,8 +50,8 @@ class ConfirmRegistrationController extends Controller
     {
         return inertia('Camp/Confirm', [
             'data' => new ChristianProps(
-                Christian::overComers(),
-                'overComers'
+                Christian::overComer(),
+                'confirm-overComers'
             )
         ]);
     }
@@ -62,7 +61,7 @@ class ConfirmRegistrationController extends Controller
         return inertia('Camp/Confirm', [
             'data' => new ChristianProps(
                 Christian::male(),
-                'male'
+                'confirm-male'
             )
         ]);
     }
@@ -72,7 +71,7 @@ class ConfirmRegistrationController extends Controller
         return inertia('Camp/Confirm', [
             'data' => new ChristianProps(
                 Christian::female(),
-                'female'
+                'confirm-female'
             )
         ]);
     }
@@ -82,7 +81,7 @@ class ConfirmRegistrationController extends Controller
         return inertia('Camp/Confirm', [
             'data' => new ChristianProps(
                 Christian::needsAccommodation(),
-                'needAccommodation'
+                'confirm-needAccommodation'
             )
         ]);
     }

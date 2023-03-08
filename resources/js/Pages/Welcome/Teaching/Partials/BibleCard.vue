@@ -56,6 +56,7 @@
   </div>
 </template>
 <script setup>
+import TextInput from "@/Components/Shared/Form/TextInput.vue";
 const props = defineProps({
   books: Object,
   bible: Object,
@@ -63,7 +64,7 @@ const props = defineProps({
 </script>
 <script>
 import { defineComponent } from "vue";
-import TextInput from "@/Components/Shared/Form/TextInput.vue";
+
 export default defineComponent({
   data() {
     return {

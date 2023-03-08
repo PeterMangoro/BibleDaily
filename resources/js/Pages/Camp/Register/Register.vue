@@ -73,7 +73,7 @@ const submit = () => {
     pageTitle="Easter Conference Registration"
 
     :url="route('registerCamp')"
-    cover = "/storage/fcc/easter.jpeg"
+    cover = "/storage/fcc/fcc.png"
   />
 
   
