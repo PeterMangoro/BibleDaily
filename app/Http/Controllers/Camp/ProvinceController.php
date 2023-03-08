@@ -57,7 +57,7 @@ class ProvinceController extends Controller
                 'bulawayo' => $Bulawayo,
                 'bulawayo_total' => $bulawayo_total,
                 'bulawayo_percentage' => $bulawayo_percentage,
-
+                
                 'harare' => $Harare,
                 'harare_total' => $harare_total,
                 'harare_percentage' => $harare_percentage,
