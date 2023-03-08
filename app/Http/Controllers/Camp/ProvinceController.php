@@ -2,58 +2,55 @@
 
 namespace App\Http\Controllers\Camp;
 
-
-use App\Models\Christian;
-use App\View\Shared\Filters;
-use App\ValueObjects\Percentage;
 use App\Http\Controllers\Controller;
-
+use App\Models\Christian;
+use App\ValueObjects\Percentage;
+use App\View\Camp\Dashboard\ChristianProps;
+use Inertia\Response;
 
 class ProvinceController extends Controller
 {
-    public function show()
+    public function show(): Response
     {
         $total = Christian::wherePresent()->count();
 
-        $Bulawayo = Christian::wherePresent()->where('province', 'Bulawayo')->count();
-        $bulawayo_total = Christian::where('province', 'Bulawayo')->count();
+        $Bulawayo = Christian::wherePresent()->comingFrom('Bulawayo')->count();
+        $bulawayo_total = Christian::comingFrom('Bulawayo')->count();
         $bulawayo_percentage = Percentage::calculate($Bulawayo, $total);
 
-        $Harare = Christian::wherePresent()->where('province', 'Harare')->count();
-        $harare_total = Christian::where('province', 'Harare')->count();
+        $Harare = Christian::wherePresent()->comingFrom('Harare')->count();
+        $harare_total = Christian::comingFrom('Harare')->count();
         $harare_percentage = Percentage::calculate($Harare, $total);
 
-        $Manicaland = Christian::wherePresent()->where('province', 'Manicaland')->count();
-        $manicaland_total = Christian::where('province', 'Manicaland')->count();
+        $Manicaland = Christian::wherePresent()->comingFrom('Manicaland')->count();
+        $manicaland_total = Christian::comingFrom('Manicaland')->count();
         $manicaland_percentage = Percentage::calculate($Manicaland, $total);
 
-        $MashonalandCentral = Christian::wherePresent()->where('province', 'Mashonaland Central')->count();
-        $mashonalandCentral_total = Christian::where('province', 'Mashonaland Central')->count();
+        $MashonalandCentral = Christian::wherePresent()->comingFrom('Mashonaland Central')->count();
+        $mashonalandCentral_total = Christian::comingFrom('Mashonaland Central')->count();
         $mashonalandCentral_percentage = Percentage::calculate($MashonalandCentral, $total);
 
-        $MashonalandEast = Christian::wherePresent()->where('province', 'Mashonaland East')->count();
-        $mashonalandEast_total = Christian::where('province', 'Mashonaland East')->count();
+        $MashonalandEast = Christian::wherePresent()->comingFrom('Mashonaland East')->count();
+        $mashonalandEast_total = Christian::comingFrom('Mashonaland East')->count();
         $mashonalandEast_percentage = Percentage::calculate($MashonalandEast, $total);
 
-        $MashonalandWest = Christian::wherePresent()->where('province', 'Mashonaland West')->count();
-        $mashonalandWest_total = Christian::where('province', 'Mashonaland West')->count();
+        $MashonalandWest = Christian::wherePresent()->comingFrom('Mashonaland West')->count();
+        $mashonalandWest_total = Christian::comingFrom('Mashonaland West')->count();
         $mashonalandWest_percentage = Percentage::calculate($MashonalandWest, $total);
 
-        $Masvingo = Christian::wherePresent()->where('province', 'Masvingo')->count();
-        $masvingo_total = Christian::where('province', 'Masvingo')->count();
+        $Masvingo = Christian::wherePresent()->comingFrom('Masvingo')->count();
+        $masvingo_total = Christian::comingFrom('Masvingo')->count();
         $masvingo_percentage = Percentage::calculate($Masvingo, $total);
 
-        $MatebelelandNorth = Christian::wherePresent()->where('province', 'Matebeleland North')->count();
-        $matebelelandNorth_total = Christian::where('province', 'Matebeleland North')->count();;
+        $MatebelelandNorth = Christian::wherePresent()->comingFrom('Matebeleland North')->count();
+        $matebelelandNorth_total = Christian::comingFrom('Matebeleland North')->count();
+
         $matebelelandNorth_percentage = Percentage::calculate($MatebelelandNorth, $total);
 
         // dd($matebelelandNorth_total);
-        $MatebelelandSouth = Christian::wherePresent()->where('province', 'Matebeleland South')->count();
-        $matebelelandSouth_total = Christian::where('province', 'Matebeland South')->count();
+        $MatebelelandSouth = Christian::wherePresent()->comingFrom('Matebeleland South')->count();
+        $matebelelandSouth_total = Christian::comingFrom('Matebeland South')->count();
         $matebelelandSouth_percentage = Percentage::calculate($MatebelelandSouth, $total);
-
-
-
 
         return inertia('Camp/Provinces', [
             'data' => [
@@ -93,107 +90,71 @@ class ProvinceController extends Controller
                 'matebelelandSouth_total' => $matebelelandSouth_total,
                 'matebelelandSouth_percentage' => $matebelelandSouth_percentage,
 
-            ]
+            ],
 
         ]);
     }
 
-    public function bulawayo()
+    public function bulawayo(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('province', 'Bulawayo')->search(request('search'))->latest('id')->paginate(15),
-                'path' => 'bulawayo',
-                Filters::filters()
-            ]
+            'data' => new ChristianProps(Christian::comingFrom('Bulawayo'), 'bulawayo'),
         ]);
     }
 
-    public function harare()
+    public function harare(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('province', 'Harare')->search(request('search'))->latest('id')->paginate(15),
-                Filters::filters(),
-                'path' => 'harare'
-            ]
+            'data' => new ChristianProps(Christian::comingFrom('Harare'), 'harare'),
         ]);
     }
 
-    public function manicaland()
+    public function manicaland(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('province', 'Manicaland')->search(request('search'))->latest('id')->paginate(15),
-                Filters::filters(),
-                'path' => 'manicaland',
-            ]
+            'data' => new ChristianProps(Christian::comingFrom('Manicaland'), 'manicaland'),
         ]);
     }
 
-    public function mashonalandCentral()
+    public function mashonalandCentral(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('province', 'Mashonaland Central')->search(request('search'))->latest('id')->paginate(15),
-                Filters::filters(),
-                'path' => 'mashonalandCentral',
-            ]
+            'data' => new ChristianProps(Christian::comingFrom('Mashonaland Central'), 'mashonalandCentral'),
         ]);
     }
 
-    public function mashonalandEast()
+    public function mashonalandEast(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('province', 'Mashonaland East')->search(request('search'))->latest('id')->paginate(15),
-                Filters::filters(),
-                'path' => 'mashonalandEast',
-            ]
+            'data' => new ChristianProps(Christian::comingFrom('Mashonaland East'), 'mashonalandEast'),
         ]);
     }
 
-    public function mashonalandWest()
+    public function mashonalandWest(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('province', 'Mashonaland West')->search(request('search'))->latest('id')->paginate(15),
-                Filters::filters(),
-                'path' => 'mashonalandWest',
-            ]
+            'data' => new ChristianProps(Christian::comingFrom('Mashonaland West'), 'mashonalandWest'),
         ]);
     }
 
-    public function masvingo()
+    public function masvingo(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('province', 'Masvingo')->search(request('search'))->latest('id')->paginate(15),
-                Filters::filters(),
-                'path' => 'masvingo',
-            ]
+            'data' => new ChristianProps(Christian::comingFrom('Masvingo'), 'masvingo'),
         ]);
     }
 
-    public function matebelelandNorth()
+    public function matebelelandNorth(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('province', 'Matebeleland North')->search(request('search'))->latest('id')->paginate(15),
-                Filters::filters(),
-                'path' => 'matebelelandNorth',
-            ]
+            'data' => new ChristianProps(Christian::comingFrom('Matebeleland North'), 'matebelelandNorth'),
         ]);
     }
 
-    public function matebelelandSouth()
+    public function matebelelandSouth(): Response
     {
         return inertia('Camp/Present', [
-            'data' => [
-                'users' => Christian::wherePresent()->where('province', 'Matebeleland South')->search(request('search'))->latest('id')->paginate(15),
-                Filters::filters(),
-                'path' => 'matebelelandSouth',
-            ]
+            'data' => new ChristianProps(Christian::comingFrom('Matebeleland South'), 'matebelelandSouth'),
         ]);
     }
 }

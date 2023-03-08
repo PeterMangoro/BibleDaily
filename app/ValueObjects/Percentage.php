@@ -1,13 +1,14 @@
 <?php
+
 namespace App\ValueObjects;
 
 class Percentage
 {
-    public static function calculate(int $actual, int $total):string
+    public static function calculate(int $actual, int $total): string
     {
-        if ($total>0) {
-            return  number_format(($actual/$total)*100, 2).'%';
+        if ($total > 0) {
+            return number_format($actual / $total * 100, 2).'%';
         }
-       return '0 %';
+        return '0 %';
     }
 }

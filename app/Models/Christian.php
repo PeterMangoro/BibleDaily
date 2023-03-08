@@ -22,9 +22,8 @@ class Christian extends Model
         'pastor',
         'invite',
         'need_accommodation',
-        'contact'
+        'contact',
     ];
-    
 
     // public function scopeSearch($query, ?string $terms = null)
     // {
@@ -38,7 +37,7 @@ class Christian extends Model
     //                         $query->select('id')
     //                             ->from('christians')
     //                             ->where('name_normalized', 'like', $term)
-                                
+
     //                         ;
     //                     }, 'matches');
     //             });

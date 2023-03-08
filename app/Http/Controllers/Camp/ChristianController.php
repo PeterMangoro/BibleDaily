@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Camp;
 use App\Http\Controllers\Controller;
 use App\Models\Christian;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ChristianController extends Controller
 {
@@ -25,26 +25,23 @@ class ChristianController extends Controller
             'pastor' => ['required_with:assembly', 'string', 'max:255','nullable'],
             'invite' => ['nullable', 'string', 'max:255'],
             'need_accommodation' => ['required', 'string', 'max:255'],
-          
+
         ])->validate();
 
-         Christian::create([
+        Christian::create([
             'name' => $input['name'],
             'gender' => $input['gender'],
             'contact' => $input['contact'],
             'username' => $input['username'],
             'dob' => $input['dob'],
-            'country' => $input['country']??'Zimbabwe',
+            'country' => $input['country'] ?? 'Zimbabwe',
             'province' => $input['province'],
             'assembly' => $input['assembly'],
             'pastor' => $input['pastor'],
             'invite' => $input['invite'],
-            'need_accommodation' => $input['need_accommodation'],          
+            'need_accommodation' => $input['need_accommodation'],
         ]);
 
         return to_route('campRedirect');
-
     }
-
-  
 }

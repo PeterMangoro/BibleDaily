@@ -11,6 +11,7 @@ use NunoMaduro\PhpInsights\Domain\Metrics\Architecture\Classes;
 use SlevomatCodingStandard\Sniffs\Classes\ForbiddenPublicPropertySniff;
 use SlevomatCodingStandard\Sniffs\Commenting\UselessFunctionDocCommentSniff;
 use SlevomatCodingStandard\Sniffs\ControlStructures\DisallowShortTernaryOperatorSniff;
+use SlevomatCodingStandard\Sniffs\Functions\FunctionLengthSniff;
 use SlevomatCodingStandard\Sniffs\Namespaces\AlphabeticallySortedUsesSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff;
@@ -70,12 +71,16 @@ return [
          'lang',
          'app/Http/Middleware',
          'app/Http/Kernel',
+         'app/Http/Controllers',
          'app/Exceptions',
+         'app/Models',
+         'app/Actions/Teaching',
          'app/Console',
          'app/Providers',
          'app/Casts',
          'app/Actions/Fortify',
-         'app/Actions/Jetstream'
+         'app/Actions/Jetstream',
+         'routes'
     ],
 
     'add' => [
@@ -96,7 +101,8 @@ return [
         ReturnTypeHintSniff::class,
         UselessFunctionDocCommentSniff::class,
         ForbiddenPublicPropertySniff::class,
-        DisallowShortTernaryOperatorSniff::class
+        DisallowShortTernaryOperatorSniff::class,
+        FunctionLengthSniff::class
     ],
 
     'config' => [

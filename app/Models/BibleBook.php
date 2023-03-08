@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class BibleBook extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
     protected $fillable = [
         'alais',
         'title',
@@ -15,6 +17,4 @@ class BibleBook extends Model
         'testament',
         // 'bible_session_id',
     ];
-
-    public $timestamps = false;
 }

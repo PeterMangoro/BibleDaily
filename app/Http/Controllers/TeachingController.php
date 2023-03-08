@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Handlers\TeachingHandler;
 use App\Http\Requests\Teaching\CreateTeachingRequest;
 use App\Http\Requests\Teaching\UpdateTeachingRequest;
-use App\Models\Teaching;
 use App\View\Teaching\TeachingCreateProps;
 use App\View\Teaching\TeachingEditProps;
 use App\View\Teaching\TeachingIndexProps;
@@ -43,9 +42,9 @@ class TeachingController extends Controller
     }
 
     public function update(
-         $teaching,
+        string $teaching,
         UpdateTeachingRequest $request
     ): void {
-        TeachingHandler::updateTeaching($teaching, $request);       
+        TeachingHandler::updateTeaching($teaching, $request);
     }
 }

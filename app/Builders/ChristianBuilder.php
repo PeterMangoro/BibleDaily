@@ -13,6 +13,11 @@ class ChristianBuilder extends Builder
         return $this->where('status', 'present');
     }
 
+    public function comingFrom($province)
+    {
+        return $this->where('province', $province);
+    }
+
     public function male()
     {
         return $this->where('gender', 'male');
@@ -28,24 +33,20 @@ class ChristianBuilder extends Builder
         return $this->where('need_accommodation', 'yes');
     }
 
-
     public function sundaySchool()
     {
-        return
-            $this->where('dob', '>=', $this->SundaySchoolAge());
+        return $this->where('dob', '>=', $this->sundaySchoolAge());
     }
 
     public function youth()
     {
-        return
-            $this->where('dob', '<', $this->SundaySchoolAge())
+        return $this->where('dob', '<', $this->sundaySchoolAge())
             ->where('dob', '>', $this->overComerAge());
     }
 
     public function overComer()
     {
-        return
-            $this->where('dob', '<', $this->overComerAge());
+        return $this->where('dob', '<', $this->overComerAge());
     }
 
     public function markAsPresent(Christian $user)
@@ -56,19 +57,16 @@ class ChristianBuilder extends Builder
 
     public function search(?string $terms = null)
     {
-
         $term = '%' . preg_replace('/[^A-Za-z0-9]/', '', $terms) . '%';
 
-        return   
-        $this->when($terms, function ($query) use ($term) {
+        return $this->when($terms, function ($query) use ($term) {
             $query
                 ->where('name_normalized', 'like', $term);
         });
     }
-    private function SundaySchoolAge()
+    private function sundaySchoolAge()
     {
         return Carbon::now()->subYears(12); #12 years
-
     }
 
     private function overComerAge()

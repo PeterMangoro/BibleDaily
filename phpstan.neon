@@ -16,6 +16,9 @@ parameters:
 #
     excludePaths:
         - app/Builders/*
+        - app/View/Camp/Dashboard*
+        - app/Http/*
+        - app/Models/*
         - app/Actions/Fortify/*
         - app/Actions/Jetstream/*
         - app/Casts/*

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Camp;
 
-use App\Models\Christian;
 use App\Http\Controllers\Controller;
+use App\Models\Christian;
 use App\View\Camp\Dashboard\ChristianProps;
 use App\View\Camp\Dashboard\DashboardShowProps;
 use Illuminate\Http\RedirectResponse;
@@ -14,7 +14,7 @@ class DashboardController extends Controller
     public function show(): Response
     {
         return inertia('Camp/Dashboard', [
-            'data' => new DashboardShowProps()
+            'data' => new DashboardShowProps(),
         ]);
     }
 
@@ -27,14 +27,14 @@ class DashboardController extends Controller
     public function all(): Response
     {
         return inertia('Camp/Present', [
-            'data' => new ChristianProps(new Christian(), 'all')
+            'data' => new ChristianProps(new Christian(), 'all'),
         ]);
     }
 
     public function present(): Response
     {
         return inertia('Camp/Present', [
-            'data' => new ChristianProps(Christian::wherePresent(), 'present')
+            'data' => new ChristianProps(Christian::wherePresent(), 'present'),
         ]);
     }
 
@@ -45,7 +45,7 @@ class DashboardController extends Controller
                 Christian::wherePresent()
                     ->whereNull('pastor'),
                 'new'
-            )
+            ),
         ]);
     }
 
@@ -56,7 +56,7 @@ class DashboardController extends Controller
                 Christian::wherePresent()
                     ->whereNotNull('pastor'),
                 'members'
-            )
+            ),
         ]);
     }
 
@@ -67,7 +67,7 @@ class DashboardController extends Controller
                 Christian::wherePresent()
                     ->sundaySchool(),
                 'sundaySchool'
-            )
+            ),
         ]);
     }
 
@@ -78,50 +78,50 @@ class DashboardController extends Controller
                 Christian::wherePresent()
                     ->youth(),
                 'youth'
-            )
+            ),
         ]);
     }
 
-    public function overComers() :Response
+    public function overComers(): Response
     {
         return inertia('Camp/Present', [
             'data' => new ChristianProps(
                 Christian::wherePresent()
                     ->overComers(),
                 'overComers'
-            )
+            ),
         ]);
     }
 
-    public function male() :Response
+    public function male(): Response
     {
         return inertia('Camp/Present', [
             'data' => new ChristianProps(
                 Christian::wherePresent()
                     ->male(),
                 'male'
-            )
+            ),
         ]);
     }
 
-    public function female() :Response
+    public function female(): Response
     {
         return inertia('Camp/Present', [
             'data' => new ChristianProps(
                 Christian::wherePresent()
                     ->female(),
                 'female'
-            )
+            ),
         ]);
     }
 
-    public function needAccommodation() :Response
+    public function needAccommodation(): Response
     {
         return inertia('Camp/Present', [
             'data' => new ChristianProps(
                 Christian::needsAccommodation(),
                 'needAccommodation'
-            )
+            ),
         ]);
     }
 }

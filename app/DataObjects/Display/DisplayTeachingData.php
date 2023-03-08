@@ -23,7 +23,6 @@ class DisplayTeachingData
         public readonly  array $prayer_points,
         public readonly  ?string $prayer,
     ) {
-        
     }
 
     public static function from(

@@ -3,8 +3,8 @@
 namespace App\View\Camp\Dashboard;
 
 use App\Models\Christian;
-use App\View\Shared\BaseView;
 use App\ValueObjects\Percentage;
+use App\View\Shared\BaseView;
 
 class DashboardShowProps extends BaseView
 {
@@ -20,10 +20,10 @@ class DashboardShowProps extends BaseView
 
     public function turnup(): string
     {
-        return 
-        Percentage::calculate(
-            $this->attendedChristians(), 
-            $this->allChristians());
+        return Percentage::calculate(
+            $this->attendedChristians(),
+            $this->allChristians()
+        );
     }
 
     public function newBelievers(): int
@@ -73,6 +73,6 @@ class DashboardShowProps extends BaseView
 
     private function attendedChristians(): int
     {
-        return Christian::wherePresent()->count();;
+        return Christian::wherePresent()->count();
     }
 }

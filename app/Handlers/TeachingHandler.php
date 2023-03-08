@@ -30,7 +30,7 @@ class TeachingHandler
         string $uuid,
         object $request
     ): void {
-        $teaching = Teaching::where('uuid',$uuid)->first();
+        $teaching = Teaching::where('uuid', $uuid)->first();
         $validated_request = UpdateTeachingData::from($request);
         event(new UpdatingTeaching($teaching, $validated_request));
     }

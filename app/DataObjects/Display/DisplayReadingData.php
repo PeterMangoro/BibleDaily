@@ -17,7 +17,6 @@ class DisplayReadingData
         public readonly  array $notes,
         public readonly  array $prayer_points,
     ) {
-      
     }
 
     public static function from(?Reading $reading): DisplayReadingData

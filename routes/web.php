@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\ReadingController;
 use App\Http\Controllers\TeachingController;
 use App\Http\Controllers\WelcomeTeachingController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', [WelcomeTeachingController::class, 'index'])->name('welcome');
 // Route::get('/', [WelcomeTeachingController::class, 'index'])->name('welcome');
@@ -30,12 +29,11 @@ Route::middleware([
 });
 
 // //this one didn't work
-// Route::get('/symlink/a', function () {    
+// Route::get('/symlink/a', function () {
 //     Artisan::call('storage:link');
 // });
 
-
-// Route::get('/symlink/a', function () {    
+// Route::get('/symlink/a', function () {
 //     $target = '/home3/cvzxnudf/public_html/storage/app/public';
 //     $shortcut = '/home3/cvzxnudf/public_html/public/storage';
 //     symlink($target, $shortcut);

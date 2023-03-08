@@ -6,10 +6,6 @@ use App\Models\Christian;
 
 class DisplayChristianData
 {
-    /**
-     * @param array<string> $notes
-     * @param array<string> $prayer_points
-     */
     public function __construct(
         public readonly  string $name,
         public readonly  ?string $contact,
@@ -18,7 +14,6 @@ class DisplayChristianData
         public readonly  ?string $pastor,
         public readonly  ?string $assembly,
     ) {
-       
     }
 
     public static function from(?Christian $christian): DisplayChristianData
@@ -30,7 +25,6 @@ class DisplayChristianData
             $christian->province,
             strtolower($christian->pastor),
             strtolower($christian->assembly),
-
         );
     }
 }

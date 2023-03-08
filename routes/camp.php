@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\Camp\ChristianController;
 use App\Http\Controllers\Camp\ConfirmRegistrationController;
-use Inertia\Inertia;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
-use App\Http\Controllers\Camp\ProvinceController;
 use App\Http\Controllers\Camp\DashboardController;
+use App\Http\Controllers\Camp\ProvinceController;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,8 +50,7 @@ Route::get('thank-you', function () {
     return Inertia::render('Camp/Register/Redirect', );
 })->name('campRedirect');
 
-
-Route::post('register/', [ChristianController::class, 'create'])->name('campRegister');
+Route::post('camp/register/', [ChristianController::class, 'create'])->name('campRegister');
 Route::get('confirm-camp-dashboard', [ConfirmRegistrationController::class, 'show'])->name('confirm-campDashboard');
 Route::get('confirm-registered-users', [ConfirmRegistrationController::class, 'all'])->name('confirm-all');
 Route::get('confirm-sunday-school', [ConfirmRegistrationController::class, 'sundaySchool'])->name('confirm-sundaySchool');
@@ -78,7 +77,7 @@ Route::middleware([
     Route::get('male', [DashboardController::class, 'male'])->name('male');
     Route::get('female', [DashboardController::class, 'female'])->name('female');
     Route::get('needing-accommodation', [DashboardController::class, 'needAccommodation'])->name('needAccommodation');
-    
+
     //Provinces
     Route::get('provinces', [ProvinceController::class, 'show'])->name('provinces');
     Route::get('bulawayo', [ProvinceController::class, 'bulawayo'])->name('bulawayo');
@@ -90,11 +89,4 @@ Route::middleware([
     Route::get('masvingo', [ProvinceController::class, 'masvingo'])->name('masvingo');
     Route::get('matebeleland-north', [ProvinceController::class, 'matebelelandNorth'])->name('matebelelandNorth');
     Route::get('matebeleland-south', [ProvinceController::class, 'matebelelandSouth'])->name('matebelelandSouth');
-    
-    
-    
-    
-    
-    
-    
 });

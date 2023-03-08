@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Inertia\Response;
-use App\View\Teaching\TeachingWelcomeShowProps;
 use App\View\Teaching\TeachingWelcomeIndexProps;
+use App\View\Teaching\TeachingWelcomeShowProps;
+use Inertia\Response;
 
 class WelcomeTeachingController extends Controller
 {
@@ -25,8 +25,8 @@ class WelcomeTeachingController extends Controller
 
     public function users(): Response
     {
-        $user = User::with('bibleSessions.reading','bibleSessions.teaching')->get();
-       
+        $user = User::with('bibleSessions.reading', 'bibleSessions.teaching')->get();
+
         return inertia('Welcome/Teaching/Users', [
             'data' => $user,
         ]);
