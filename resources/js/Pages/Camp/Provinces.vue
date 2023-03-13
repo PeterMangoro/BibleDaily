@@ -30,6 +30,30 @@ const props = defineProps({
           />
 
           <dashboard-card
+            title="Chiredzi"
+            :total="data.chiredzi_percentage"
+            :top="data.chiredzi"
+            :bottom = "data.chiredzi_total"
+            more_path="chiredzi"    
+          />
+
+          <dashboard-card
+            title="Chitungwiza"
+            :total="data.chitungwiza_percentage"
+            :top="data.chitungwiza"
+            :bottom = "data.chitungwiza_total"
+            more_path="chitungwiza"    
+          />
+
+          <dashboard-card
+            title="Gweru"
+            :total="data.gweru_percentage"
+            :top="data.gweru"
+            :bottom = "data.gweru_total"
+            more_path="gweru"    
+          />
+
+          <dashboard-card
             title="Harare"
             :total="data.harare_percentage"
             :top="data.harare"

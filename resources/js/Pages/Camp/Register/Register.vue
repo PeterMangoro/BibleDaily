@@ -52,6 +52,15 @@ name:'Mashonaland West'
 name:'Masvingo'
 },
 {
+name:'Gweru'
+},
+{
+name:'Chitungwiza'
+},
+{
+name:'Chiredzi'
+},
+{
 name:'Matebeleland North'
 },
 {

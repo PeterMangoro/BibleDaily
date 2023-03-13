@@ -81,6 +81,9 @@ Route::middleware([
     //Provinces
     Route::get('provinces', [ProvinceController::class, 'show'])->name('provinces');
     Route::get('bulawayo', [ProvinceController::class, 'bulawayo'])->name('bulawayo');
+    Route::get('chiredzi', [ProvinceController::class, 'chiredzi'])->name('chiredzi');    
+    Route::get('chitungwiza', [ProvinceController::class, 'chitungwiza'])->name('chitungwiza');
+    Route::get('gweru', [ProvinceController::class, 'gweru'])->name('gweru');
     Route::get('harare', [ProvinceController::class, 'harare'])->name('harare');
     Route::get('manicaland', [ProvinceController::class, 'show'])->name('manicaland');
     Route::get('mashonaland-central', [ProvinceController::class, 'mashonalandCentral'])->name('mashonalandCentral');

@@ -102,6 +102,27 @@ class ProvinceController extends Controller
         ]);
     }
 
+    public function chiredzi(): Response
+    {
+        return inertia('Camp/Present', [
+            'data' => new ChristianProps(Christian::comingFrom('Chiredzi'), 'chiredzi'),
+        ]);
+    }
+
+    public function chitungwiza(): Response
+    {
+        return inertia('Camp/Present', [
+            'data' => new ChristianProps(Christian::comingFrom('Chitungwiza'), 'chitungwiza'),
+        ]);
+    }
+
+    public function gweru(): Response
+    {
+        return inertia('Camp/Present', [
+            'data' => new ChristianProps(Christian::comingFrom('Gweru'), 'gweru'),
+        ]);
+    }
+
     public function harare(): Response
     {
         return inertia('Camp/Present', [

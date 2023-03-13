@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Camp;
 
-use App\Http\Controllers\Controller;
-use App\Models\Christian;
-use App\View\Camp\Dashboard\ChristianProps;
-use App\View\Camp\Dashboard\DashboardShowProps;
 use Inertia\Response;
+use App\Models\Christian;
+use App\Http\Controllers\Controller;
+use App\View\Camp\Dashboard\ChristianProps;
+use App\View\Camp\Dashboard\ConfirmDashboardShowProps;
 
 class ConfirmRegistrationController extends Controller
 {
     public function show(): Response
     {
         return inertia('Camp/ConfirmDashboard', [
-            'data' => new DashboardShowProps(),
+            'data' => new ConfirmDashboardShowProps(),
         ]);
     }
 
