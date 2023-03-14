@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\Camp\ChristianController;
-use App\Http\Controllers\Camp\ConfirmRegistrationController;
-use App\Http\Controllers\Camp\DashboardController;
-use App\Http\Controllers\Camp\ProvinceController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\Camp\ProvinceController;
+use App\Http\Controllers\Camp\ChristianController;
+use App\Http\Controllers\Camp\DashboardController;
+use App\Http\Controllers\Camp\DepartmentController;
+use App\Http\Controllers\Camp\ConfirmRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,10 @@ Route::get('confirm-over-comers', [ConfirmRegistrationController::class, 'overCo
 Route::get('confirm-male', [ConfirmRegistrationController::class, 'male'])->name('confirm-male');
 Route::get('confirm-female', [ConfirmRegistrationController::class, 'female'])->name('confirm-female');
 Route::get('confirm-needing-accommodation', [ConfirmRegistrationController::class, 'needAccommodation'])->name('confirm-needAccommodation');
+
+
+Route::get('fcc/cleaning-department', [DepartmentController::class, 'cleaning'])->name('cleaning-department');
+
 
 Route::middleware([
     'auth:sanctum',
