@@ -34,8 +34,11 @@
                   <p class="mb-2 text-sm uppercase text-blue-500">
                    Team Leader
                   </p>
+                  <p class="mb-2 text-sm uppercase text-blue-500">
+                  +263 773 903 272
+                  </p>
                   <p class="text-gray-500">
-                    When Your Environment Is Clean You Feel Happy, Motivated And
+                    When Your Environment Is Clean You Are  Safe, Motivated And
                     Healthy.
                   </p>
                 </div>
@@ -110,6 +113,14 @@
           >
             
           </p>
+          <h3 class="mb-4 text-2xl md:text-3xl font-semibold text-coolGray-800">
+            Convection Tips
+          </h3>
+
+          <p class="mb-4 text-base md:text-lg text-coolGray-500">
+            For any queries concerning sanitation and cleaning, please contact any of the team members above.
+          </p>
+
           <h3 class="mb-4 text-2xl md:text-3xl font-semibold text-coolGray-800">
             Hand Washing
           </h3>

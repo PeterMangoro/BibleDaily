@@ -30,13 +30,10 @@ Route::get('camp-registration', function () {
 })->name('registerCamp');
 
 Route::get('fcc-camp-registration', function () {
-    return Inertia::render('Camp/Register/Register', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+    return Inertia::render('Camp/Welcome', [
+        
     ]);
-})->name('registerCamp');
+})->name('camp-welcome');
 
 Route::get('/', function () {
     return Inertia::render('Camp/Register/Register', [
@@ -50,6 +47,9 @@ Route::get('/', function () {
 Route::get('thank-you', function () {
     return Inertia::render('Camp/Register/Redirect', );
 })->name('campRedirect');
+
+
+
 
 Route::post('camp/register/', [ChristianController::class, 'create'])->name('campRegister');
 Route::controller(ConfirmRegistrationController::class)->group(function() {
