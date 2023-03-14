@@ -52,15 +52,18 @@ Route::get('thank-you', function () {
 })->name('campRedirect');
 
 Route::post('camp/register/', [ChristianController::class, 'create'])->name('campRegister');
-Route::get('confirm-camp-dashboard', [ConfirmRegistrationController::class, 'show'])->name('confirm-campDashboard');
-Route::get('confirm-registered-users', [ConfirmRegistrationController::class, 'all'])->name('confirm-all');
-Route::get('confirm-sunday-school', [ConfirmRegistrationController::class, 'sundaySchool'])->name('confirm-sundaySchool');
-Route::get('confirm-youth', [ConfirmRegistrationController::class, 'youth'])->name('confirm-youth');
-Route::get('confirm-over-comers', [ConfirmRegistrationController::class, 'overComers'])->name('confirm-overComers');
-Route::get('confirm-male', [ConfirmRegistrationController::class, 'male'])->name('confirm-male');
-Route::get('confirm-female', [ConfirmRegistrationController::class, 'female'])->name('confirm-female');
-Route::get('confirm-needing-accommodation', [ConfirmRegistrationController::class, 'needAccommodation'])->name('confirm-needAccommodation');
-
+Route::controller(ConfirmRegistrationController::class)->group(function() {
+    Route::get('confirm-camp-dashboard', 'show')->name('confirm-campDashboard');
+    Route::get('confirm-registered-users', 'all')->name('confirm-all');
+    Route::get('confirm-sunday-school', 'sundaySchool')->name('confirm-sundaySchool');
+    Route::get('confirm-youth', 'youth')->name('confirm-youth');
+    Route::get('confirm-over-comers', 'overComers')->name('confirm-overComers');
+    Route::get('confirm-male', 'male')->name('confirm-male');
+    Route::get('confirm-female', 'female')->name('confirm-female');
+    Route::get('confirm-needing-accommodation', 'needAccommodation')->name('confirm-needAccommodation');
+    
+    
+});
 
 Route::get('fcc/cleaning-department', [DepartmentController::class, 'cleaning'])->name('cleaning-department');
 
@@ -70,31 +73,37 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('camp-dashboard', [DashboardController::class, 'show'])->name('campDashboard');
-    Route::post('attend/{user}', [DashboardController::class, 'attend'])->name('attend');
-    Route::get('registered-users', [DashboardController::class, 'all'])->name('all');
-    Route::get('present-users', [DashboardController::class, 'present'])->name('present');
-    Route::get('new-believers', [DashboardController::class, 'new'])->name('new');
-    Route::get('church-members', [DashboardController::class, 'members'])->name('members');
-    Route::get('sunday-school', [DashboardController::class, 'sundaySchool'])->name('sundaySchool');
-    Route::get('youth', [DashboardController::class, 'youth'])->name('youth');
-    Route::get('over-comers', [DashboardController::class, 'overComers'])->name('overComers');
-    Route::get('male', [DashboardController::class, 'male'])->name('male');
-    Route::get('female', [DashboardController::class, 'female'])->name('female');
-    Route::get('needing-accommodation', [DashboardController::class, 'needAccommodation'])->name('needAccommodation');
+
+    Route::controller(DashboardController::class)->group( function(){
+        Route::get('camp-dashboard', 'show')->name('campDashboard');
+        Route::post('attend/{user}',  'attend')->name('attend');
+        Route::get('registered-users',  'all')->name('all');
+        Route::get('present-users',  'present')->name('present');
+        Route::get('new-believers',  'new')->name('new');
+        Route::get('church-members',  'members')->name('members');
+        Route::get('sunday-school',  'sundaySchool')->name('sundaySchool');
+        Route::get('youth',  'youth')->name('youth');
+        Route::get('over-comers',  'overComers')->name('overComers');
+        Route::get('male',  'male')->name('male');
+        Route::get('female',  'female')->name('female');
+        Route::get('needing-accommodation',  'needAccommodation')->name('needAccommodation');
+    });
+    
 
     //Provinces
-    Route::get('provinces', [ProvinceController::class, 'show'])->name('provinces');
-    Route::get('bulawayo', [ProvinceController::class, 'bulawayo'])->name('bulawayo');
-    Route::get('chiredzi', [ProvinceController::class, 'chiredzi'])->name('chiredzi');    
-    Route::get('chitungwiza', [ProvinceController::class, 'chitungwiza'])->name('chitungwiza');
-    Route::get('gweru', [ProvinceController::class, 'gweru'])->name('gweru');
-    Route::get('harare', [ProvinceController::class, 'harare'])->name('harare');
-    Route::get('manicaland', [ProvinceController::class, 'show'])->name('manicaland');
-    Route::get('mashonaland-central', [ProvinceController::class, 'mashonalandCentral'])->name('mashonalandCentral');
-    Route::get('mashonaland-east', [ProvinceController::class, 'mashonalandEast'])->name('mashonalandEast');
-    Route::get('mashonaland-west', [ProvinceController::class, 'mashonalandWest'])->name('mashonalandWest');
-    Route::get('masvingo', [ProvinceController::class, 'masvingo'])->name('masvingo');
-    Route::get('matebeleland-north', [ProvinceController::class, 'matebelelandNorth'])->name('matebelelandNorth');
-    Route::get('matebeleland-south', [ProvinceController::class, 'matebelelandSouth'])->name('matebelelandSouth');
-});
+    Route::controller(ProvinceController::class)->group(function() {
+        Route::get('provinces',  'show')->name('provinces');
+        Route::get('bulawayo',  'bulawayo')->name('bulawayo');
+        Route::get('chiredzi',  'chiredzi')->name('chiredzi');    
+        Route::get('chitungwiza',  'chitungwiza')->name('chitungwiza');
+        Route::get('gweru',  'gweru')->name('gweru');
+        Route::get('harare',  'harare')->name('harare');
+        Route::get('manicaland',  'show')->name('manicaland');
+        Route::get('mashonaland-central',  'mashonalandCentral')->name('mashonalandCentral');
+        Route::get('mashonaland-east',  'mashonalandEast')->name('mashonalandEast');
+        Route::get('mashonaland-west',  'mashonalandWest')->name('mashonalandWest');
+        Route::get('masvingo',  'masvingo')->name('masvingo');
+        Route::get('matebeleland-north',  'matebelelandNorth')->name('matebelelandNorth');
+        Route::get('matebeleland-south',  'matebelelandSouth')->name('matebelelandSouth');    
+    });
+    });
