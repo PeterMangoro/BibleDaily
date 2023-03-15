@@ -45,7 +45,7 @@
                 <div class="w-full md:w-1/3 px-4">
                   <img
                     class="top-0 right-0 lg:mt-8 -mr-8 w-full md:w-64 h-64 clip-path-left object-cover sm:rounded-r-lg rounded-b-lg "
-                    src="/storage/cleaning/1.jpg"
+                    src="/storage/cleaning/2.jpg"
                     alt=""
                   />
                 </div>
@@ -64,6 +64,9 @@
                   <p class="mb-2 text-sm uppercase text-blue-500">
                    Deputy
                   </p>
+                  <p class="mb-2 text-sm uppercase text-blue-500">
+                  +263 773 551 966
+                  </p>
                   <p class="text-gray-500">
                     The Objective Of Cleaning Is Not Just To Clean, But To Feel
                     Happiness Living Within That Environment.
@@ -72,7 +75,7 @@
                 <div class="w-full md:w-1/3 px-4">
                   <img
                     class="top-0 right-0 lg:mt-8 -mr-8 w-full md:w-64 h-64 clip-path-left object-cover sm:rounded-r-lg rounded-b-lg "
-                    src="/storage/cleaning/2.jpg"
+                    src="/storage/cleaning/1.jpeg"
                     alt=""
                   />
                 </div>
@@ -90,6 +93,9 @@
                   </h3>
                   <p class="mb-2 text-sm uppercase text-blue-500">
                     Senior
+                  </p>
+                  <p class="mb-2 text-sm uppercase text-blue-500">
+                  +263 772 657 507
                   </p>
                   <p class="text-gray-500">
                     Clean Your Space, Clear Your Mind.
@@ -121,6 +127,36 @@
             For any queries concerning sanitation and cleaning, please contact any of the team members above.
           </p>
 
+          <h3 class="mb-4 text-2xl md:text-3xl font-semibold text-coolGray-800">
+            Halls &amp; Toilets
+          </h3>
+          <p class="mb-4 text-base md:text-lg text-coolGray-500 text-left">
+            - Toilets will be equipped with sanitary chemicals to ensure a vibrant and clean environment. <br>
+- All toilets will be cleaned to the spot, if found dirty please report immediately to any janitor around or quickly contact anyone from our team.<br>
+- Toilet papers will be found at each entrance, please flash the toilet after use, if flash system is not working kindly use the bucket you will find nearby to flash. We wish to maintain the clean standard.<br>
+- Remember to wash your hands after using the toilet, your health is our main concern.
+          </p>
+
+          <h3 class="mb-4 text-2xl md:text-3xl font-semibold text-coolGray-800">
+            Litter Management
+          </h3>
+<p  class="mb-4 text-base md:text-lg text-coolGray-500 text-left">
+  - We wish to keep our environment clean throughout the conference, and litter (papers and rubbish) are our main enemy.<br>
+- All papers should be thrown in litter bins. <br>
+- Remember to wash your hands after handling litter
+</p>
+
+            <div class=" font-semibold p-4 text-xl">
+Our team at Work
+        </div>
+        </div>
+
+<div class="m-2  ">
+           
+           <gallery  :images="data.images" />
+       </div>
+
+       <div class="md:max-w-3xl mx-auto text-center">
           <h3 class="mb-4 text-2xl md:text-3xl font-semibold text-coolGray-800">
             Hand Washing
           </h3>
@@ -179,6 +215,13 @@
 
 <script setup>
 import CampLayout from "@/Layouts/CampLayout.vue";
+import Gallery from "@/Components/Shared/Gallery/Gallery.vue";
+
+const props = defineProps({
+ 
+ data: Object,
+});
+
 </script>
 
 <style>
