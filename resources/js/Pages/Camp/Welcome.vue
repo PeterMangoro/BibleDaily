@@ -7,13 +7,13 @@
         <div class="flex flex-wrap w-auto gap-3 justify-evenly m-2  ">
           <welcome-card image="/storage/fcc-dash/choir.jpg" heading="Registration"
             detail="Register now..Be part of the movement..Be Us"
-            path="registerForCamp" />
+            path="registerCamp" />
   
-          <welcome-card image="/storage/fcc-dash/crowd.jpg" heading="Youth"
-            detail="Find the best car deals and drive the car of your dreams" path="campRegister" />
+          <welcome-card image="/storage/youth/8.jpg" heading="Youth"
+             path="youth-department" />
 
             <welcome-card image="/storage/fcc-dash/crowd.jpg" heading="Guest Speakers"
-            detail="Find the best car deals and drive the car of your dreams" path="campRegister" />
+             path="campRegister" />
   
             <welcome-card image="/storage/fcc-dash/crowd.jpg" heading="Transport"
             detail="Find the best car deals and drive the car of your dreams" path="campRegister" />
@@ -148,6 +148,25 @@
     {
       id:4,
       path: '/storage/fcc-dash/youth.jpg'
+    }
+   
+    ,
+    {
+      id:4,
+      path: '/storage/worship/12.jpg'
+    }
+   
+    ,
+    {
+      id:4,
+      path: '/storage/youth/2.jpg'
+    }
+   
+    ,
+
+    {
+      id:4,
+      path: '/storage/youth/12.jpg'
     }
    
     ,

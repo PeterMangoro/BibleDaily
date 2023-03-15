@@ -49,14 +49,21 @@ const logout = () => {
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex items-center shrink-0">
-                                <Link :href="route('users.readings.index')">
+                                <Link :href="route('camp-welcome')">
                                     <FccLogo class="h-10 m-auto" />
                                 </Link>
                             </div>
-
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink  :href="route('camp-welcome')" :active="route().current('camp-welcome')">
+                                    Home
+                                </NavLink>
+                            </div>
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink v-if="$page.props.user" :href="route('campDashboard')" :active="route().current('campDashboard')">
+                                    Dashboard
+                                </NavLink>
+                                <NavLink v-else :href="route('confirm-campDashboard')" :active="route().current('confirm-campDashboard')">
                                     Dashboard
                                 </NavLink>
                             </div>
@@ -64,6 +71,19 @@ const logout = () => {
                                 <NavLink :href="route('registerCamp')" :active="route().current('registerCamp')">
                                     Register Someone
                                 </NavLink>
+                            </div>
+
+                            <div class=" space-x-2 p-1 sm:-my-px sm:ml-10 flex ">
+                                <p class="m-auto font-bold text-sm ">
+                                    Masvingo Easter Conference 6-9 April 2023
+                                </p>
+                                <p class="m-auto font-semibold italic">
+                                    <NavLink :href="route('registerCamp')" :active="route().current('registerCamp')" class="text-slate-900">
+                                    Register Today
+                                    </NavLink>
+                                </p>
+                                    
+                                
                             </div>
                             
                         </div>

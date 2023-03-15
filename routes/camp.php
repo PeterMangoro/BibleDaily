@@ -36,7 +36,7 @@ Route::get('fcc-camp-registration', function () {
 })->name('camp-welcome');
 
 Route::get('/', function () {
-    return Inertia::render('Camp/Register/Register', [
+    return Inertia::render('Camp/Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
@@ -65,7 +65,12 @@ Route::controller(ConfirmRegistrationController::class)->group(function() {
     
 });
 
-Route::get('fcc/cleaning-department', [DepartmentController::class, 'cleaning'])->name('cleaning-department');
+Route::controller(DepartmentController::class)->group(function(){
+    Route::get('fcc/cleaning-department', 'cleaning')->name('cleaning-department');
+    Route::get('fcc/youth-department', 'youth')->name('youth-department');
+
+});
+
 
 
 Route::middleware([

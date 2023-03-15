@@ -47,9 +47,17 @@ const logout = () => {
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
-<fcc-logo class="h-10 m-auto" />                            
-
+                            <div class="flex items-center shrink-0">
+                                <Link :href="route('camp-welcome')">
+                                    <FccLogo class="h-10 m-auto" />
+                                </Link>
+                            </div>
                             <!-- Navigation Links -->
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink  :href="route('camp-welcome')" :active="route().current('camp-welcome')">
+                                    Home
+                                </NavLink>
+                            </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink  :href="route('confirm-campDashboard')" :active="route().current('confirm-campDashboard')">
                                     Dashboard

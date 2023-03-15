@@ -11,4 +11,19 @@ class DepartmentController extends Controller
     {
         return inertia('Camp/Departments/Cleaning');
     }
+
+    public function youth()
+    {
+        $images = [];
+
+        for ($i=1; $i < 19; $i++) { 
+            array_push($images,'/storage/youth/'.$i.'.jpg');
+        }
+        return inertia('Camp/Departments/Gallery',[
+           'data'=>[ 
+            'images'=>$images,
+            'heading'=>'Youth'
+            ]
+        ]);
+    }
 }
