@@ -5,7 +5,7 @@
         <landing-page :images="images2" class="pb-3" />
 
         <div class="flex flex-wrap w-auto gap-3 justify-evenly m-2  ">
-          <welcome-card image="/storage/fcc-dash/choir.jpg" heading="Registration"
+          <welcome-card image="/storage/fcc/easter.jpeg" heading="Registration"
             detail="Register now..Be part of the Family.Be Family Covenant Church"
             path="registerCamp" />
   
@@ -15,30 +15,24 @@
             <welcome-card image="/storage/speakers/1.jpg" heading="Guest Speakers"
              path="speakers" />
   
-            <welcome-card image="/storage/fcc-dash/crowd.jpg" heading="Transport"
-            detail="Find the best car deals and drive the car of your dreams" path="camp-welcome" />
+            <welcome-card image="/storage/transport/1.jpg" heading="Transport & Logistics"
+             path="camp-welcome" />
   
   
-          <welcome-card image="/storage/fcc-dash/choir.jpg" heading="Media"
-              detail="Find the place you will call home " path="campRegister" />
+          <welcome-card image="/storage/media/3.jpg" heading="Media"
+               path="camp-welcome" />
   
           <welcome-card image="/storage/fcc-dash/choir.jpg" heading="Praise and Worship"
-            detail="Purchase land for your projects at good strategic locations " path="campRegister" />
+            path="worship" />
   
             <welcome-card image="/storage/fcc-dash/crowd.jpg" heading="Accommodation"
-            detail="Find the best car deals and drive the car of your dreams" path="campRegister" />
+             path="camp-welcome" />
   
 
-            <welcome-card image="/storage/fcc-dash/crowd.jpg" heading="Hygiene & Sanitation"
-            detail="Find the best car deals and drive the car of your dreams" path="cleaning-department" />
+            <welcome-card image="/storage/cleaning/cleaning-set.jpg" heading="Hygiene & Sanitation"
+            path="cleaning-department" />
   
-          
-          <!-- <welcome-card
-            image="    🛣"
-            heading="Travel & Transport"
-            detail="Purchase land for your projects at good strategic locations "
-            path="welcome.transports.index"
-          /> -->
+        
         </div>
       </div>
   

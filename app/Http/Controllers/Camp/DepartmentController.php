@@ -16,7 +16,7 @@ class DepartmentController extends Controller
     {
         $images = [];
 
-        for ($i=1; $i < 19; $i++) { 
+        for ($i=1; $i < 22; $i++) { 
             array_push($images,'/storage/youth/'.$i.'.jpg');
         }
         return inertia('Camp/Departments/Gallery',[
@@ -38,6 +38,21 @@ class DepartmentController extends Controller
            'data'=>[ 
             'images'=>$images,
             'heading'=>'Guest Speakers'
+            ]
+        ]);
+    }
+
+    public function worship()
+    {
+        $images = [];
+
+        for ($i=0; $i < 18; $i++) { 
+            array_push($images,'/storage/worship/'.$i.'.jpg');
+        }
+        return inertia('Camp/Departments/Gallery',[
+           'data'=>[ 
+            'images'=>$images,
+            'heading'=>'Praise and Worship Team'
             ]
         ]);
     }
