@@ -6,17 +6,17 @@
 
         <div class="flex flex-wrap w-auto gap-3 justify-evenly m-2  ">
           <welcome-card image="/storage/fcc-dash/choir.jpg" heading="Registration"
-            detail="Register now..Be part of the movement..Be Us"
+            detail="Register now..Be part of the Family.Be Family Covenant Church"
             path="registerCamp" />
   
           <welcome-card image="/storage/youth/8.jpg" heading="Youth"
              path="youth-department" />
 
-            <welcome-card image="/storage/fcc-dash/crowd.jpg" heading="Guest Speakers"
-             path="campRegister" />
+            <welcome-card image="/storage/speakers/1.jpg" heading="Guest Speakers"
+             path="speakers" />
   
             <welcome-card image="/storage/fcc-dash/crowd.jpg" heading="Transport"
-            detail="Find the best car deals and drive the car of your dreams" path="campRegister" />
+            detail="Find the best car deals and drive the car of your dreams" path="camp-welcome" />
   
   
           <welcome-card image="/storage/fcc-dash/choir.jpg" heading="Media"

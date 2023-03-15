@@ -65,9 +65,10 @@ Route::controller(ConfirmRegistrationController::class)->group(function() {
     
 });
 
-Route::controller(DepartmentController::class)->group(function(){
-    Route::get('fcc/cleaning-department', 'cleaning')->name('cleaning-department');
-    Route::get('fcc/youth-department', 'youth')->name('youth-department');
+Route::controller(DepartmentController::class)->prefix('fcc')->group(function(){
+    Route::get('cleaning-department', 'cleaning')->name('cleaning-department');
+    Route::get('youth-department', 'youth')->name('youth-department');
+    Route::get('speakers', 'speakers')->name('speakers');
 
 });
 

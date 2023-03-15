@@ -26,4 +26,19 @@ class DepartmentController extends Controller
             ]
         ]);
     }
+
+    public function speakers()
+    {
+        $images = [];
+
+        for ($i=1; $i < 9; $i++) { 
+            array_push($images,'/storage/speakers/'.$i.'.jpg');
+        }
+        return inertia('Camp/Departments/Gallery',[
+           'data'=>[ 
+            'images'=>$images,
+            'heading'=>'Guest Speakers'
+            ]
+        ]);
+    }
 }
