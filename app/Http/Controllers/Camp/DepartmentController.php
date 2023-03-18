@@ -29,6 +29,9 @@ class DepartmentController extends Controller
         for ($i=1; $i < 22; $i++) { 
             array_push($images,'/storage/youth/'.$i.'.jpg');
         }
+        for ($i=1; $i < 3; $i++) { 
+            array_push($images,'/storage/youth/'.$i.'.jpeg');
+        }
         return inertia('Camp/Departments/Gallery',[
            'data'=>[ 
             'images'=>$images,
@@ -65,5 +68,12 @@ class DepartmentController extends Controller
             'heading'=>'Praise and Worship Team'
             ]
         ]);
+    }
+
+    public function transport()
+    {
+        
+
+        return inertia('Camp/Departments/Transport');
     }
 }

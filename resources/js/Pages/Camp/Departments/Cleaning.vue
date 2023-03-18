@@ -104,7 +104,7 @@
                 <div class="w-full md:w-1/3 px-4">
                   <img
                     class="top-0 right-0 lg:mt-8 -mr-8 w-full md:w-64 h-64 clip-path-left object-cover  sm:rounded-r-lg rounded-b-lg "
-                    src="/storage/cleaning/3.jpg"
+                    src="/storage/cleaning/2.jpeg"
                     alt=""
                   />
                 </div>

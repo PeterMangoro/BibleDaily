@@ -16,17 +16,17 @@
              path="speakers" />
   
             <welcome-card image="/storage/transport/1.jpg" heading="Transport & Logistics"
-             path="camp-welcome" />
+             path="transport" />
   
   
-          <welcome-card image="/storage/media/3.jpg" heading="Media"
-               path="camp-welcome" />
+          <!-- <welcome-card image="/storage/media/3.jpg" heading="Media"
+               path="camp-welcome" /> -->
   
           <welcome-card image="/storage/fcc-dash/choir.jpg" heading="Praise and Worship"
             path="worship" />
   
-            <welcome-card image="/storage/fcc-dash/crowd.jpg" heading="Accommodation"
-             path="camp-welcome" />
+            <!-- <welcome-card image="/storage/fcc-dash/crowd.jpg" heading="Accommodation"
+             path="camp-welcome" /> -->
   
 
             <welcome-card image="/storage/cleaning/cleaning-set.jpg" heading="Hygiene & Sanitation"

@@ -1,7 +1,7 @@
 <template>
   <Link
     :href="route(path)"
-    class="p-3 transition duration-300 ease-in-out rounded  hover:scale-105 hover:cursor-pointer sm:w-96 bg-slate-50 hover"
+    class="p-3 transition duration-300 ease-in-out rounded  hover:scale-105 hover:cursor-pointer w-96 bg-slate-50 hover"
   >
     <div class="flex gap-8 " >
       
