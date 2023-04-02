@@ -8,11 +8,14 @@
           <welcome-card image="/storage/fcc/easter.jpeg" heading="Registration"
             detail="Register now..Be part of the Family.Be Family Covenant Church"
             path="registerCamp" />
+
+            <welcome-card image="/storage/it/2.jpg" heading="Information & Technology"
+             path="it-department" />
   
           <welcome-card image="/storage/youth/8.jpg" heading="Youth"
              path="youth-department" />
 
-            <welcome-card image="/storage/speakers/1.jpg" heading="Guest Speakers"
+            <welcome-card image="/storage/speakers/1.jpg" heading="Preachers"
              path="speakers" />
   
             <welcome-card image="/storage/transport/1.jpg" heading="Transport & Logistics"

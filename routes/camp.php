@@ -71,6 +71,7 @@ Route::controller(DepartmentController::class)->prefix('fcc')->group(function(){
     Route::get('speakers', 'speakers')->name('speakers');
     Route::get('praise-and-worship', 'worship')->name('worship');
     Route::get('transport-and-logistics', 'transport')->name('transport');
+    Route::get('it-and-registration', 'it')->name('it-department');
 
 });
 

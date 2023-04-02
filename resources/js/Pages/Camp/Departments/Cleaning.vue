@@ -21,9 +21,9 @@
           </h2>
           <!-- <p class="mb-6 text-lg md:text-xl font-medium text-coolGray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
         </div>
-        <div class="flex flex-wrap justify-evenly ">
-          <div class="w-full lg:w-1/2 px-8 ">
-            <div class="relative p-2  bg-white">
+        <div class="flex flex-wrap justify-evenly">
+          <div class="w-full lg:w-1/2 px-8">
+            <div class="relative p-2 bg-white">
               <div class="flex flex-wrap items-center -mx-4">
                 <div class="w-full md:w-2/3 px-4 md:mb-0">
                   <h3
@@ -32,19 +32,19 @@
                     Mrs Mangoro
                   </h3>
                   <p class="mb-2 text-sm uppercase text-blue-500">
-                   Team Leader
+                    Team Leader
                   </p>
                   <p class="mb-2 text-sm uppercase text-blue-500">
-                  +263 773 903 272
+                    +263 773 903 272
                   </p>
                   <p class="text-gray-500">
-                    When Your Environment Is Clean You Are  Safe, Motivated And
+                    When Your Environment Is Clean You Are Safe, Motivated And
                     Healthy.
                   </p>
                 </div>
                 <div class="w-full md:w-1/3 px-4">
                   <img
-                    class="top-0 right-0 lg:mt-8 -mr-8 w-full md:w-64 h-64 clip-path-left object-cover sm:rounded-r-lg rounded-b-lg "
+                    class="top-0 right-0 lg:mt-8 -mr-8 w-full md:w-64 h-64 clip-path-left object-cover sm:rounded-r-lg rounded-b-lg"
                     src="/storage/cleaning/2.jpg"
                     alt=""
                   />
@@ -53,7 +53,7 @@
             </div>
           </div>
           <div class="w-full lg:w-1/2 px-8">
-            <div class="relative p-2  bg-white">
+            <div class="relative p-2 bg-white">
               <div class="flex flex-wrap items-center -mx-4">
                 <div class="w-full md:w-2/3 px-4 mb-8 md:mb-0">
                   <h3
@@ -61,11 +61,9 @@
                   >
                     Mrs Tinago
                   </h3>
+                  <p class="mb-2 text-sm uppercase text-blue-500">Deputy</p>
                   <p class="mb-2 text-sm uppercase text-blue-500">
-                   Deputy
-                  </p>
-                  <p class="mb-2 text-sm uppercase text-blue-500">
-                  +263 773 551 966
+                    +263 773 551 966
                   </p>
                   <p class="text-gray-500">
                     The Objective Of Cleaning Is Not Just To Clean, But To Feel
@@ -74,7 +72,7 @@
                 </div>
                 <div class="w-full md:w-1/3 px-4">
                   <img
-                    class="top-0 right-0 lg:mt-8 -mr-8 w-full md:w-64 h-64 clip-path-left object-cover sm:rounded-r-lg rounded-b-lg "
+                    class="top-0 right-0 lg:mt-8 -mr-8 w-full md:w-64 h-64 clip-path-left object-cover sm:rounded-r-lg rounded-b-lg"
                     src="/storage/cleaning/1.jpeg"
                     alt=""
                   />
@@ -83,7 +81,7 @@
             </div>
           </div>
           <div class="w-full lg:w-1/2 px-8">
-            <div class="relative p-2  bg-white">
+            <div class="relative p-2 bg-white">
               <div class="flex flex-wrap items-center -mx-4">
                 <div class="w-full md:w-2/3 px-4 mb-8 md:mb-0">
                   <h3
@@ -91,11 +89,9 @@
                   >
                     Mrs Marime
                   </h3>
+                  <p class="mb-2 text-sm uppercase text-blue-500">Senior</p>
                   <p class="mb-2 text-sm uppercase text-blue-500">
-                    Senior
-                  </p>
-                  <p class="mb-2 text-sm uppercase text-blue-500">
-                  +263 772 657 507
+                    +263 772 657 507
                   </p>
                   <p class="text-gray-500">
                     Clean Your Space, Clear Your Mind.
@@ -103,7 +99,7 @@
                 </div>
                 <div class="w-full md:w-1/3 px-4">
                   <img
-                    class="top-0 right-0 lg:mt-8 -mr-8 w-full md:w-64 h-64 clip-path-left object-cover  sm:rounded-r-lg rounded-b-lg "
+                    class="top-0 right-0 lg:mt-8 -mr-8 w-full md:w-64 h-64 clip-path-left object-cover sm:rounded-r-lg rounded-b-lg"
                     src="/storage/cleaning/2.jpeg"
                     alt=""
                   />
@@ -112,51 +108,55 @@
             </div>
           </div>
         </div>
-       
+
         <div class="md:max-w-3xl mx-auto text-center">
           <p
             class="mb-8 pb-10 text-lg md:text-xl font-medium text-coolGray-500 border-b border-coolGray-100"
-          >
-            
-          </p>
+          ></p>
           <h3 class="mb-4 text-2xl md:text-3xl font-semibold text-coolGray-800">
             Convection Tips
           </h3>
 
           <p class="mb-4 text-base md:text-lg text-coolGray-500">
-            For any queries concerning sanitation and cleaning, please contact any of the team members above.
+            For any queries concerning sanitation and cleaning, please contact
+            any of the team members above.
           </p>
 
           <h3 class="mb-4 text-2xl md:text-3xl font-semibold text-coolGray-800">
             Halls &amp; Toilets
           </h3>
           <p class="mb-4 text-base md:text-lg text-coolGray-500 text-left">
-            - Toilets will be equipped with sanitary chemicals to ensure a vibrant and clean environment. <br>
-- All toilets will be cleaned to the spot, if found dirty please report immediately to any janitor around or quickly contact anyone from our team.<br>
-- Toilet papers will be found at each entrance, please flash the toilet after use, if flash system is not working kindly use the bucket you will find nearby to flash. We wish to maintain the clean standard.<br>
-- Remember to wash your hands after using the toilet, your health is our main concern.
+            - Toilets will be equipped with sanitary chemicals to ensure a
+            vibrant and clean environment. <br />
+            - All toilets will be cleaned to the spot, if found dirty please
+            report immediately to any janitor around or quickly contact anyone
+            from our team.<br />
+            - Toilet papers will be found at each entrance, please flash the
+            toilet after use, if flash system is not working kindly use the
+            bucket you will find nearby to flash. We wish to maintain the clean
+            standard.<br />
+            - Remember to wash your hands after using the toilet, your health is
+            our main concern.
           </p>
 
           <h3 class="mb-4 text-2xl md:text-3xl font-semibold text-coolGray-800">
             Litter Management
           </h3>
-<p  class="mb-4 text-base md:text-lg text-coolGray-500 text-left">
-  - We wish to keep our environment clean throughout the conference, and litter (papers and rubbish) are our main enemy.<br>
-- All papers should be thrown in litter bins. <br>
-- Remember to wash your hands after handling litter
-</p>
+          <p class="mb-4 text-base md:text-lg text-coolGray-500 text-left">
+            - We wish to keep our environment clean throughout the conference,
+            and litter (papers and rubbish) are our main enemy.<br />
+            - All papers should be thrown in litter bins. <br />
+            - Remember to wash your hands after handling litter
+          </p>
 
-            <div class=" font-semibold p-4 text-xl">
-Our team at Work
+          <div class="font-semibold p-4 text-xl">Our team at Work</div>
         </div>
+
+        <div class="m-2">
+          <gallery :images="data.images" />
         </div>
 
-<div class="m-2  ">
-           
-           <gallery  :images="data.images" />
-       </div>
-
-       <div class="md:max-w-3xl mx-auto text-center">
+        <div class="md:max-w-3xl mx-auto text-center">
           <h3 class="mb-4 text-2xl md:text-3xl font-semibold text-coolGray-800">
             Hand Washing
           </h3>
@@ -167,45 +167,75 @@ Our team at Work
             <p
               class="mb-4 text-xl md:text-2xl leading-tight font-medium text-coolGray-800"
             >
-            Hand washing is one of the best ways to protect yourself and your family from getting sick. Learn when and how you should wash your hands to stay healthy
+              Hand washing is one of the best ways to protect yourself and your
+              family from getting sick. Learn when and how you should wash your
+              hands to stay healthy
             </p>
             <!-- <span class="text-base md:text-lg text-coolGray-400 font-medium"
               >&mdash; John Doe, CEO &amp; Founder</span
             > -->
-          </div>         
-          <div class="mb-4 max-w-max overflow-hidden rounded-md object-cover w-full h-96">
-            <img
-            class="   "
-            src="/storage/cleaning/hand-washing.jpg"
-              alt=""
-            />
+          </div>
+          <div
+            class="mb-4 max-w-max overflow-hidden rounded-md object-cover w-full h-96"
+          >
+            <img class="   " src="/storage/cleaning/hand-washing.jpg" alt="" />
           </div>
           <p class="mb-8 text-base md:text-lg text-coolGray-400 font-medium">
-            <span>Wash your hands every time, before and after eating food, after using the toilet</span>
-           
+            <span
+              >Wash your hands every time, before and after eating food, after
+              using the toilet</span
+            >
           </p>
           <h3 class="mb-4 text-2xl md:text-3xl font-semibold text-coolGray-800">
             How can I avoid getting germs from surfaces and objects?
           </h3>
           <p class="mb-14 text-base md:text-lg text-coolGray-500">
-            To avoid becoming infected by germs from surfaces and objects, it is important to wash your hands often. But you can't wash your hands every time you touch something. So it's also important to regularly clean and disinfect surfaces and objects.
+            To avoid becoming infected by germs from surfaces and objects, it is
+            important to wash your hands often. But you can't wash your hands
+            every time you touch something. So it's also important to regularly
+            clean and disinfect surfaces and objects.
           </p>
           <p class="mb-4 text-base md:text-lg text-coolGray-500">
-            Some people think that disinfecting is same thing as cleaning or sanitizing. But they are actually different
+            Some people think that disinfecting is same thing as cleaning or
+            sanitizing. But they are actually different
           </p>
           <ol
             class="list-decimal list-inside md:px-5 mb-14 text-base md:text-lg text-coolGray-500 text-left"
           >
-            <li class="pb-2"><span class=" underline font-semibold">Cleaning</span> removes dirt, dust, crumbs, and germs from surfaces or objects. When you clean, you will likely use soap (or detergent) and water to physically clean off the surfaces and objects. This may not necessarily kill the germs. But since you removed some of them, there are fewer germs that could spread infection to you.</li>
-            <li class="pb-2"><span class=" underline font-semibold">Disinfecting</span>  uses chemicals (disinfectants) to kill germs on surfaces and objects. Some common disinfectants are bleach and alcohol solutions. You usually need to leave the disinfectant on the surfaces and objects for a certain period of time to kill the germs. Disinfecting does not necessarily clean dirty surfaces or remove germs.</li>
-            <li class="pb-2"><span class=" underline font-semibold">Sanitizing</span>   could be done by either cleaning, disinfecting, or both. Sanitizing means that you are lowering the number of germs to a safe level. What is considered a safe level depends on public health standards or requirements at a workplace, school, etc. For example, there are sanitizing procedures for restaurants and other facilities that prepare food. What you do to sanitize will vary, depending on your needs. You might be mopping a floor using a mop, a chemical, and water. You might use a dishwasher to sanitize the dishes. Or you could be using an antibacterial wipe on a tv remote.</li>
+            <li class="pb-2">
+              <span class="underline font-semibold">Cleaning</span> removes
+              dirt, dust, crumbs, and germs from surfaces or objects. When you
+              clean, you will likely use soap (or detergent) and water to
+              physically clean off the surfaces and objects. This may not
+              necessarily kill the germs. But since you removed some of them,
+              there are fewer germs that could spread infection to you.
+            </li>
+            <li class="pb-2">
+              <span class="underline font-semibold">Disinfecting</span> uses
+              chemicals (disinfectants) to kill germs on surfaces and objects.
+              Some common disinfectants are bleach and alcohol solutions. You
+              usually need to leave the disinfectant on the surfaces and objects
+              for a certain period of time to kill the germs. Disinfecting does
+              not necessarily clean dirty surfaces or remove germs.
+            </li>
+            <li class="pb-2">
+              <span class="underline font-semibold">Sanitizing</span> could be
+              done by either cleaning, disinfecting, or both. Sanitizing means
+              that you are lowering the number of germs to a safe level. What is
+              considered a safe level depends on public health standards or
+              requirements at a workplace, school, etc. For example, there are
+              sanitizing procedures for restaurants and other facilities that
+              prepare food. What you do to sanitize will vary, depending on your
+              needs. You might be mopping a floor using a mop, a chemical, and
+              water. You might use a dishwasher to sanitize the dishes. Or you
+              could be using an antibacterial wipe on a tv remote.
+            </li>
           </ol>
-         
-          <div class="mb-4 max-w-max overflow-hidden rounded-md object-cover h-96 w-full">
-            <img
-            src="/storage/cleaning/cleaning-set-1.jpg"
-              alt=""
-            />
+
+          <div
+            class="mb-4 max-w-max overflow-hidden rounded-md object-cover h-96 w-full"
+          >
+            <img src="/storage/cleaning/cleaning-set-1.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -218,10 +248,8 @@ import CampLayout from "@/Layouts/CampLayout.vue";
 import Gallery from "@/Components/Shared/Gallery/Gallery.vue";
 
 const props = defineProps({
- 
- data: Object,
+  data: Object,
 });
-
 </script>
 
 <style>

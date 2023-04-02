@@ -44,7 +44,7 @@ class DepartmentController extends Controller
     {
         $images = [];
 
-        for ($i=1; $i < 9; $i++) { 
+        for ($i=1; $i < 3; $i++) { 
             array_push($images,'/storage/speakers/'.$i.'.jpg');
         }
         return inertia('Camp/Departments/Gallery',[
@@ -72,8 +72,11 @@ class DepartmentController extends Controller
 
     public function transport()
     {
-        
-
         return inertia('Camp/Departments/Transport');
+    }
+
+    public function it()
+    {
+        return inertia('Camp/Departments/IT');
     }
 }
